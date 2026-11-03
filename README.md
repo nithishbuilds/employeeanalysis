@@ -64,6 +64,15 @@ Usernames are permanent.
 | Rishi | RishiPNY | Rishi@9676 |
 | Monisha | MonishaPNY | Monisha@1110 |
 
+## Daily targets (changed)
+Off shift target is half of the day shift target.
+
+| Department | Day shift | Off shift |
+|---|---|---|
+| Designers | 500 designs and 70 mockups | 250 designs and 35 mockups |
+| Technical (no customer messages) | 90 listings, 10 videos, digital marketing | 45 listings, 5 videos, digital marketing |
+| Technical (customer messages available) | 60 listings, 10 videos, digital marketing | 30 listings, 5 videos, digital marketing |
+
 ## Performance zones
 The same rule applies to daily and monthly zones.
 
