@@ -1,18 +1,26 @@
-# Pentacle Workforce: Vercel version without Firebase
+# Pentacle Workforce
 
-Upload `index.html` to your GitHub repository, replacing the old files, and Vercel redeploys automatically.
-Delete the old `firebase-config.js`, `seed.enc.json` and `firestore.rules` from GitHub. They are not needed any more.
+Website hosted on **Vercel**. All data (employees, logins, reports, expenses) is stored in **Firebase** (project `pentacleworkforce-64c35`).
 
-## Logins (unchanged)
-- Website: pentacledesignteam@gmail.com / Nith@2003
-- Employees: their own username and password (e.g. JemPNY / Jem@3633)
-- Admin button (top right): authorisation code 232324 / 252524 / 262624 shows Dashboard and Team on that device
+## Files
+- `index.html`: the website (already connected to Firebase)
+- `vercel.json`: Vercel settings (always loads the newest version after an update)
+- `firestore.rules`: copy of the Firebase security rules
+
+## Deploy / update
+1. Upload these files to the GitHub repository (Add file > Upload files > Commit changes).
+2. Vercel redeploys automatically.
+
+## One-time Firebase settings
+- Authentication > Users > Add user: pentacleworkforce@gmail.com / Pentacle@#NEWYORK (admin)
+- Firestore > Rules: paste `firestore.rules` and Publish
+- Authentication > Settings > Authorized domains > Add domain, then your Vercel address (e.g. `pentacle-workforce.vercel.app`).
+
+## Sign in
+- **Employee login:** pentacledesignteam@gmail.com / Nith@2003, then each employee signs in with their own username
+- **Admin login:** pentacleworkforce@gmail.com / Pentacle@#NEWYORK: Dashboard, Team, Expenses and every report, with no codes needed
+- Authorisation codes (employee mode): 232324 / 252524 / 262624
 - Forgot password PINs: 282829 / 292928 / 272728
 
-## Important: where data is saved
-There is no online database in this version. Everything (reports, photos, expenses) is saved
-**in the browser of the device it was entered on**.
-- Reports entered on Jem's phone are only on Jem's phone.
-- To see everyone's reports in one Dashboard, use **one shared device** (e.g. the office computer) for all reports.
-- Team page (Admin) > **Download backup** saves all data as a file. **Restore backup** loads it on another device.
-- Clearing the browser's history or site data **erases** the data on that device. Download a backup every week.
+Updating `index.html` never deletes data; the data lives in Firebase.
+
