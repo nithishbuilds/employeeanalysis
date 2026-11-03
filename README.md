@@ -23,4 +23,3 @@ Website hosted on **Vercel**. All data (employees, logins, reports, expenses) is
 - Forgot password PINs: 282829 / 292928 / 272728
 
 Updating `index.html` never deletes data; the data lives in Firebase.
-
