@@ -81,11 +81,11 @@ The same rule applies to daily and monthly zones.
 - **CSV**: spreadsheet file for Excel
 
 **Expenses**
-- **Monthly expense report** (pick a month; image or PDF): totals, a list of expense names with amounts, comparison with last month, ledger heads, week-wise totals, payment modes, materials, the 10 largest payments, and every voucher with a running balance
-- **Daily expense report** (pick a day; image or PDF): running expenses only (machinery, transport, material, utilities and so on), a list of expense names with amounts, comparison with the previous day, ledger heads, payment modes, materials and the vouchers of the day
-  - Salary, wages, salary advances, bonus and incentives are **not** included in the daily report. They appear in the monthly report.
-  - To keep salary out of the daily report automatically, use a ledger head with "Salary" or "Wages" in its name.
-- **Download image / Print (PDF) / Download CSV**: statement for the From and To dates selected
+- **Monthly expenses** (pick a month; image or PDF): totals, a list of expense names with amounts, comparison with last month, ledger heads, week-wise totals, payment modes, materials, the 10 largest payments, and every voucher with a running balance
+- **Daily expenses** (pick a day; image or PDF): running expenses only (machinery, transport, material, utilities and so on), a list of expense names with amounts, comparison with the previous day, ledger heads, payment modes, materials and the vouchers of the day
+  - Salary, wages, salary advances, bonus and incentives are **not** included in daily expenses. They appear in the monthly expenses.
+  - To keep salary out of daily expenses automatically, use a ledger head with "Salary" or "Wages" in its name.
+- **Download image / Download PDF**: statement for the From and To dates selected (expenses download only as image or PDF)
 - **Bill**: printable voucher for a single entry
 - **Invoice numbers**: PNY-001, PNY-002, PNY-003 and so on (automatic)
 
