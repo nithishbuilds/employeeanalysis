@@ -77,6 +77,8 @@ Off shift target is half of the day shift target.
 - Every employee must add evidence before **Submit report** works: images or files, a folder, or one or more work links.
 - Add as many links as needed (up to 50). Several links can be pasted at once.
 - A status line above the Submit button shows "Evidence required" (red) or "Evidence added: files · links" (green).
+- **Submitted files:** everything an employee uploads on the same day (folders and links) is merged into one box for that day, showing the best percentage and the number of submissions.
+- **Delete rule:** an employee can delete a report and its evidence only on the day it was uploaded (Submitted files > Delete removes all of that day's submissions). From the next day it is **locked** and cannot be deleted by the employee. Only the admin login can delete older reports.
 - Admin: Dashboard > choose a team > Daily reports > Attachments. Click any link (or its Open button) to open it directly in a new tab.
 
 ## Performance zones
