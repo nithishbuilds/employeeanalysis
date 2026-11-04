@@ -77,7 +77,7 @@ Off shift target is half of the day shift target.
 - Every employee must add evidence before **Submit report** works: images or files, a folder, or one or more work links.
 - Add as many links as needed (up to 50). Several links can be pasted at once.
 - A status line above the Submit button shows "Evidence required" (red) or "Evidence added: files · links" (green).
-- Admin: Dashboard > choose a team > Daily reports > Attachments. Click any link to open it in a new tab, or press Copy.
+- Admin: Dashboard > choose a team > Daily reports > Attachments. Click any link (or its Open button) to open it directly in a new tab.
 
 ## Performance zones
 The same rule applies to daily and monthly zones.
@@ -90,7 +90,10 @@ The same rule applies to daily and monthly zones.
 
 ## Downloads (admin)
 
-**Dashboard: monthly employee report**
+**Dashboard: daily employee report** (uses the Date box)
+- **Daily report (image)** / **PDF**: every employee for that day with task, work done/target, achievement and zone ("Red · No report" if nothing was submitted on a working day)
+
+**Dashboard: monthly employee report** (pick any month in the Month box)
 - **Download report (image)**: PNG with the company logo, summary boxes, a monthly zone table for every employee and all daily reports
 - **PDF**: the same report on A4 pages, ready to print
 - **CSV**: spreadsheet file for Excel
