@@ -73,6 +73,12 @@ Off shift target is half of the day shift target.
 | Technical (no customer messages) | 90 listings, 10 videos, digital marketing | 45 listings, 5 videos, digital marketing |
 | Technical (customer messages available) | 60 listings, 10 videos, digital marketing | 30 listings, 5 videos, digital marketing |
 
+## Evidence (required for every report)
+- Every employee must add evidence before **Submit report** works: images or files, a folder, or one or more work links.
+- Add as many links as needed (up to 50). Several links can be pasted at once.
+- A status line above the Submit button shows "Evidence required" (red) or "Evidence added: files · links" (green).
+- Admin: Dashboard > choose a team > Daily reports > Attachments. Click any link to open it in a new tab, or press Copy.
+
 ## Performance zones
 The same rule applies to daily and monthly zones.
 
