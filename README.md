@@ -64,6 +64,11 @@ Usernames are permanent.
 | Rishi | RishiPNY | Rishi@9676 |
 | Monisha | MonishaPNY | Monisha@1110 |
 
+## Employee photos
+Profile photos are built into `index.html` and replace the initials on the name selection screen, the employee's profile, the Dashboard and the Team page.
+- Added: **Jem** (Designers), **Charu** (Technical), **Vihas** (DTF)
+- Other employees show their initials until a photo is added. To add more, send the photo with the employee's name and upload the new `index.html`.
+
 ## Daily targets (changed)
 Off shift target is half of the day shift target.
 
