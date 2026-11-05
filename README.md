@@ -40,6 +40,8 @@ The sign-in screen has two options. Each one accepts only its own account; any o
 **Admin login**
 - Email: pentacleworkforce@gmail.com / Password: Pentacle@#NEWYORK
 - Sees **Dashboard, Team, Expenses** and every employee report, with no codes needed.
+- In **Submit report**, the admin opens any employee directly, with no employee username or password.
+- The admin stays signed in on that device after reloading, until **Sign out**.
 
 **Codes (employee mode)**
 - Authorisation codes: 232324 / 252524 / 262624
