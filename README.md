@@ -86,6 +86,12 @@ Off shift target is half of the day shift target.
 - **Delete rule:** an employee can delete a report and its evidence only on the day it was uploaded (Submitted files > Delete removes all of that day's submissions). From the next day it is **locked** and cannot be deleted by the employee. Only the admin login can delete older reports.
 - Admin: Dashboard > choose a team > Daily reports > Attachments. Click any link (or its Open button) to open it directly in a new tab.
 
+## Missing-report alert (admin Dashboard, every day after 6:30 PM)
+- From 6:30 PM, the admin Dashboard shows a red box listing every employee who has not submitted a report today, grouped by designation, with their photos.
+- The **Dashboard** tab shows a red number badge with how many reports are missing, and a pop-up message appears once when the alert starts.
+- The page checks every minute, so the alert appears at 6:30 PM even if the Dashboard is already open. It disappears as each employee submits.
+- Pick a past date to see who missed that day. Sundays are skipped. Only the admin login sees this alert.
+
 ## Performance zones
 The same rule applies to daily and monthly zones.
 
