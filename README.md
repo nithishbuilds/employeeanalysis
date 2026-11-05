@@ -30,7 +30,7 @@ All employees, logins, reports and expenses are stored in Firebase. Updating `in
 - Firestore > Rules: paste `firestore.rules` and **Publish**
 
 ## Sign in
-The sign-in screen has two options. Each one accepts only its own account.
+The sign-in screen has two options. Each one accepts only its own account; any other email or password shows "Invalid email or password".
 
 **Employee login**
 - Email: pentacledesignteam@gmail.com / Password: Nith@2003
@@ -100,6 +100,16 @@ The same rule applies to daily and monthly zones.
 | Green | 86–100% of target |
 | Yellow | 21–85% of target |
 | Red | 20% or below, or no report on a working day (Sundays excluded) |
+
+## Dashboard percentages
+- **Team circle** (Designers, Technical and so on): average of **all** employees in that team for the selected day. An employee without a report counts as 0%; if an employee submitted more than once, the best report counts. Example: 1 of 3 designers at 100% shows 33%.
+- **Average achievement (all employees)**: the same rule across every employee. Example: 1 of 13 employees at 100% shows 8%.
+- The circle shows "–" until at least one person in the team has reported that day.
+- The tick on a team circle appears only when every employee in the team has met their target.
+
+## Sign-in screen
+- Shows only the logo, the Employee login / Admin login buttons, the email and password fields and the Sign in button.
+- A wrong email, a wrong password, or using the admin account in Employee login (or the employee account in Admin login) all show the same message: "Invalid email or password. Please try again."
 
 ## Downloads (admin)
 
