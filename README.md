@@ -40,7 +40,7 @@ The sign-in screen has two options. Each one accepts only its own account; any o
 **Admin login**
 - Email: pentacleworkforce@gmail.com / Password: Pentacle@#NEWYORK
 - Sees **Dashboard, Team, Expenses** and every employee report, with no codes needed.
-- In **Submit report**, the admin opens any employee directly, with no employee username or password.
+- In **Submit report**, the admin opens any employee directly (no employee username or password) in a **view-only** page: the report form and Submit button are hidden, because only employees submit reports. The admin sees every day of the chosen month with the percentage, zone, tasks (done / target), shift, submission time, notes, folders, images and links. Working days with no report show "No report submitted".
 - The admin stays signed in on that device after reloading, until **Sign out**.
 
 **Codes (employee mode)**
