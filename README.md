@@ -122,7 +122,8 @@ Off shift target is half of the day shift target.
 
 ## Messages (automatic alerts on the admin Dashboard)
 A **Messages** box on the admin Dashboard fills in by itself, with no setup and no email:
-- **Report not submitted:** every day at 6:30 PM (except Sunday), a message lists the employees who did not submit a report. Messages for the last 7 days stay visible.
+- **Shows today only.** Each new day starts empty.
+- **Report not submitted:** at 6:30 PM (except Sunday), a message lists the employees who did not submit a report today.
 - **Workflow box missed:** after 11:30 AM, 3:00 PM and 6:30 PM, a message lists the Technical, Production, DTF and 360 Rotary employees who did not tick that box.
 - Newest messages are at the top. Messages disappear on their own when the employee submits (for a report). Only the admin sees them.
 
