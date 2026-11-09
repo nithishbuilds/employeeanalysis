@@ -121,7 +121,10 @@ Off shift target is half of the day shift target.
   - A tick is saved immediately (it does not wait for Submit). If ticked by mistake (work not finished), the employee can **untick** it while that box is still open; once the time passes, the box is locked and cannot be changed.
   - **Counts in the zone:** "Workflow updates done / 3" is one of the day's target lines, averaged with the task targets. Example (Technical): listings, videos and digital marketing all complete plus 2/3 workflow = 92% (Green); with 0/3 workflow = 75% (Yellow). If a box is ticked after the report was submitted, the report's percentage updates automatically.
   - Season-time reports show the workflow count but the admin still sets the percentage.
-- Admin sees "Workflow 2/3" (or "Workflow 3/3 ✓") and "Desk video ✓" (with the video) in the team table and in each employee's view-only page.
+- Admin sees "Workflow 2/3" (or "Workflow 3/3 ✓") and "Desk video ✓" in the team table and in each employee's view-only page.
+- **Watching desk videos:** Dashboard > choose the team > the video plays in the employee's row (also in Submit report > team > employee). Each video has a **Download video** link.
+  - New videos are saved as MP4 where the phone supports it, so they play on iPhone, Android and laptops.
+  - If a phone shows "cannot play this video format" (some older videos from Android phones on iPhone), use **Download video** and open the file.
 
 ## Season time
 - A third option next to Day shift / Off shift. There is no task type and no target: the employee writes the work done (required), optional hours, adds evidence, the desk video and the Workflow tick, then submits.
