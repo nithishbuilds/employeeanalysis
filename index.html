@@ -1,6 +1,24 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>html,body{margin:0}</style>
+<link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0f0c0b"><link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Pentacle">
+<style>#pwa-inst{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;align-items:center;gap:10px;padding:10px 12px 10px 14px;background:#f3eee8;color:#111;border-radius:4px;box-shadow:0 10px 30px -8px rgba(0,0,0,.6);font:600 14px Arial,Helvetica,sans-serif;max-width:calc(100vw - 32px)}#pwa-inst button{font:700 13px Arial,Helvetica,sans-serif;border:0;border-radius:3px;padding:8px 12px;cursor:pointer}#pwa-inst .go{background:#0f2a5c;color:#fff}#pwa-inst .x{background:transparent;color:#555;padding:6px 8px}</style>
+<script>
+(function(){
+  if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))window.addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
+  const standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;if(standalone)return;
+  let dismissed=false;try{dismissed=localStorage.getItem("pwaHide")==="1"}catch(_){}
+  function bar(html,onGo){if(dismissed||document.getElementById("pwa-inst"))return;const d=document.createElement("div");d.id="pwa-inst";d.innerHTML=html;document.body.appendChild(d);
+    const g=d.querySelector(".go");if(g)g.onclick=onGo;d.querySelector(".x").onclick=()=>{d.remove();try{localStorage.setItem("pwaHide","1")}catch(_){}}}
+  let deferred=null;
+  window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;
+    bar('<span>Install the Pentacle Workforce app</span><button class="go" type="button">Install</button><button class="x" type="button" aria-label="Close">✕</button>',async()=>{const d=document.getElementById("pwa-inst");if(d)d.remove();deferred.prompt();try{await deferred.userChoice}catch(_){}deferred=null})});
+  window.addEventListener("appinstalled",()=>{const d=document.getElementById("pwa-inst");if(d)d.remove()});
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+  if(ios)window.addEventListener("load",()=>setTimeout(()=>bar('<span>Install the app: tap <b>Share</b> then <b>Add to Home Screen</b></span><button class="x" type="button" aria-label="Close">✕</button>'),2500));
+})();
+</script>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script><script>if(!window.firebase||!firebase.firestore)document.write('<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-app-compat.js"><\/script><script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-auth-compat.js"><\/script><script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-firestore-compat.js"><\/script>')</script>
-<script>window.FIREBASE_CONFIG={"apiKey": "AIzaSyB_2nvsP10ycaPuVMRbmvA0oLemIRr6sLY", "authDomain": "pentacleworkforce-64c35.firebaseapp.com", "projectId": "pentacleworkforce-64c35", "storageBucket": "pentacleworkforce-64c35.firebasestorage.app", "messagingSenderId": "736049549353", "appId": "1:736049549353:web:707ecad931093e01e80c38"};window.__SEED_ENC=[{"who": "company", "iter": 200000, "salt": "kzHXIv7v4V6bGG87bfHZAg==", "iv": "ZzH46TLOd3vc+4E/", "ct": "WMdHXbCgdbwwQ9+KwGRVavpJlf6Ayoout2nEkFaIzbBfipMq2e+a2H/p7y2rTIAeW8ke/zQE/6D0fPg6yRmtFrAf/fhtqi58eDmeIMMHRY2WifUwdXkmPxmwfOB78oUkYzD7uHp0mNtEdtz461z4k/SvTephekWLeOQZdVIw/71Frq3LS4CvtJ6wZgT2CpIlLiOhBu41jURTfcGZUg/thc/0rfJzMxIYfgEeF1fBNGyHpaJ9IVhNAtMj3oFJNm8pyvG3eIfUi96o27XaMZXmN/z4WaEG+8fDHEsvdgbhyQH1EdqUFXhvVgvGohiU+vYcihGvKM7UZsLJZm5onwoCoIFjTIHoZX905oeUP1/0Y+ZpJhPApDgH4yxdPhbCqL2oNOy3J3ExxKq5Pe2w4DoapKg8mYHan/G2uf/+LALwGRR3mM2RyUeS7CjiVgGI5WutuNy3WPXjgWY3wPbhkZt5hDZxOwsn8iehfWBMCqDrm+B2D0l3PBPwdaojoUZtBFozF21OPW151WPFlQo3HMndiOEUYkY5QTuso1b6Q2Hzi1uWcO+/7gL/tJxzPCjnicMh0G0/n+2ekE8rYAPlxSzd6aHhv9COUAsFA9Pam4xSYb4jAaP4J/DZxEMbisvn4dXPVXuVt9zDC6EA54XvAdmPM1wiWOlTUAKG1za9IzTwU5OZfpNqcUMUC9j4uPKGPQ6217GLv9UtWiObJ0eU7cbB/jw+d3yJQkx01flYeTQy7ISSs80iY9vl93lWsWn0WPbRWDZrMWCQW4FnYB9WIbjcGujtgwZx1j0shCBZGRvKWW3AxV2dItl4hOBmCOsNsx4ZznmCewydulVZC1IxV1mzfLpStXfznu4jyi11XVVLLV2N3bUKHOcILWcy+luBJoHbo0V5QvPevbJ2ZbSedOTG/HUOtrbocvzOOCYr/w5H64SF8mFkvue/AEgDRW42ITC8hkU3QR0y0Ga4WBsZgmRhGHhBsOegr5eVQ3L2gaLK9/HoGiSXAttZUL9+kkVNEjcneZEge1EbYuK5LaF1MeXcLT59dsIQ5Fw0VTL1wzWezvat6clOC2G0cuYb1kKA+cT+LO7vQun/6rbMlihj/6LuRvo6OIsEASoo+rpquGUD6RiQJGsXSy5gWyT/if1ipdSKEGV+0KMH7iofTYvb66KhDIFebvjkdnSosYnG/VwRhfvQ1rErCZI5cDxc5VRYMGGB9QoSdcK0qL0qMoGpuYyp9IowZKU+L0TISz9dP/f+tcIzw+5M2VoRefatJnKfNcT33L5LiNEGkKaBuawNcOe4Ugk/FhnzRgVFmbBpfZceZYvUpKNCYFKL0zZAEk6mSZHPfuQZBUpA7zazUqRVf85bmzyZV6/zB0FR9He4METuADhJPB2RghWcHzfQgCJhU2/lWJ+8mz9y4rQx6eN/lunBa8n/QH4YcpQrptPKShYK/vcUpLzfxloqWXwWFB0X6g8Bb9PLFN34egneKFo9Kh46P+mdOCh9zm+98PhLOitdx5j+HjLjT8/Px5g2fwu0Fd33pfTMBfDCwpJ2J7FYgbOc8lk5kdghYXMmrFd9CWkFaIxxEp/3QbkfIu97vKc7uAbZCZ+shGsWtuEacFlMjsMMcS3ifffLH0VKp8aLdVfoeTMkXMiqc6ni3paamF6Dar5HLBIWTopRmNrrGtxBTgfrEM+S/2jwBpRIQvfEnPHJkqQpPhpe1qbqJ0WQSJs/WV+41z4l7lb4kya6S5sFHSK2qOv+AqbOag300l+Qs8Q0+rS0obTSXXNC2ZDkBiO7XOLLoOvTBDjarbEBLA/TBFr88ie5FdnMDnuV7e/+5/90kUck13gC3jJ8GCoPrI4VHmB8I6Uy67Sfwbm+ly9KKLR3nvP2P1UqPclQlC3KaNeOtacBKqBshbxx3vSqVaNmINUY2Mv+HKDkFrWpz9BSmWr/NrWd53tEwX7UJ6yAsS8c0jAWFPXQvnq2dqAK+fOPX++1s/qqv7o8sTMO1UE35P9KdbqFTsRbGhKNeNKdjx6XoyL+63/YcXjMLfH+BlvSH1/ravVedw8JH07c8mgoRHIY3zQ8RwImycc3WUNumVoUfvizaWy0BjCLUn2rgdYXiNoENcAeQZMdcxCRi472LCZzaROVvMGkqbf245mAdfEZkRiq/aStxc26D2CCS6toC6SvuiBOPeo6AE33Vskj+DFHtrpuU4FXb+AKO8wnWjzhGa4+bP7LjUk/54b8oRKFKFfcpwM4w1nAMq2InAKc7DKKRGDiGMizKzWuCSM0jucmSoE8xr0p/QrLHwik+GJ0MVFOve6D8buyp1KUMeRaxS9DXU9jvNcuieY8i2jKUSbA+QAF0pwCpoR1dd0KUlVukFsHi5Y9V4IhqxJLl0oUg4vHcbKgueXAHIpTKEXyAcx/cMPnvXFwZytECK9V5JFX7Sp2xeNatOLYpB7yN1bp1You9gPYnfBDLrJWpXDJfQB3Qrxij0Mr7ivvfoh6wbeabHsEmfIGSy9n9wU3TNbL2Si4R4gYB0vhbly528o2eM3VRO1Xxgc1vDcMKAEKeZEi4ZOomKbXZkZt66H6Qk4Qcpw01EaVR4vDdFsp6wLfjWgljMbBhkMOT4jT9IyHvqlOej0cCzZ3SqTGGVR7mtD23tWhCZtDvX9gQkQI+BE+x1u2r17krq8YweDovQk+tEs6+YI6VG37x7JdDcrhhjDLZI+jG4PSOaBq0fJkvRAwm34N/LBo+9dhUuoVUYpmX60ZrdHXJA/ajeImyWVZC3+jpBqPeYQGKy4NxEGfIExZN4HejtvhCOqURJ0SahRjqKpspOV8Gwv7WdeLlGoev0prnj8M6T1W4uzpqndEQujcUdHNmooDPCoSv9gOLx8d/d0AoOw1Makqiqt0a5pc35WWqOYfeLRAXtBl4I6SUF5ZzClf0UHm6j4M3QGTb/EUbO9zkIS8xwmKSvQCIyC1RVYc4xqKs5zAO85sEESXQeqHqmGhQ7GQsFq3DZ6dazwPVU8vd2wEw7MiXwTJl6HeU+slhgqc0r5N1T+6KHJ4N4hGw4xT1DRF2OAXF5a+YFLtnVM2CEuEcf1khGRiUCt6WIrfi+gX2vOrGN5aQdC2EGGb/RJtinnFrmh5K0E1cjJ7nU2cUF3djaZY3NJ4dSmT5tcqfpLJI7dtdwQLDsmjw8edft3A7tDnKDCSKTReMOkBMn/pSw0MSFxSo8Fdsv8ViYxB4YFcryJVhxTVJx+xunySlGImZuqBJ2IoS0Zrroc80/tE+axkCAZB9FbyjMZGx7GEcr5EHnf3NOhlCP/dPkbiRDm4OZGlHPN1CypOitwEhW/kJNwnCptQgRHTzw1owbmjof7ipjZcj6n757iPVoLd9lk35zbNL7O38/gGhQfp3wrjOfG6nG+fOiT3H8woAdRjfgfq7kpAC90h4Z8kw/gJbLm1/Gvj+3h6E6xRDnk7CqzW7qLnTOVVl2xUm0dxvRedSRRImu8ZymiQUVjcA4mV4KvKFwO3qIGl60hydp0BBYptUCx0jDFYi9RmpHVAN3Isb82G1ymrusHzdqxfJYHjF6DN1ANFDf/3z3pT05nMPO3oUk0msU/k96woTFLuYd/o1Gx0UuG5ujDsZf8gFghWYXL3J6uK8ZK5UmgysVAFocIU7h3YoxCyRIBowumm0SfHN0DXia6KHbcFKw0TVMwCTEWWZy+zj189K1pHcJ5VlIYvoVk0xcUkCKqGscWWk69EV9mBjlrnFebHe6R9Ecqcibefyi+KfjuNQLdaU3Fca54jZse7jVKiwq+yzQEYb5qjQJarU0I+gjbGGVaeNes2UJJZ45wpgCz3COnATdjHXqDp0ThgMNBZFSnPYjR3yfPfzlepfDQBLPc285tKFOenr9nKP6KmLSCWvqBSNGK3/GdBcQ//Tc1rWVn/wY7B3GOEatB0pZFftEy1/wjYbi09rgrxznZNmYISTh0KeFL96Pbc0ArDTm5zUVVTct6t8a7Eqi7hJH/fI0dRCxIOpzWa1wU7Vbf6YkLOe8rqd5CbsCqn7lftG8UyVt9CGPbpBENAvv6Gy2n4ub1UpvTXeMHy4HN+Rb4ZwVg1Fs0mD+SNFJNOi8u3PQuj+nI8/UuRdV2Sas2CKPCPs0ir+PIT8in26N8EIAmMnLEPKEa2APjyuvYJQR+sAOO5OxeMw1rUMkl8cf2lfbuItJ2c4RwhdsTe23ymcSgpcbTKA3VLbCjkKxnEtiGMRVfIp0G0uutAMdfUdmiyH2QzuCyp6WMRSaxhU3c8sBCMEXkoRORYiMINjRnsabBLkHDzQ98JUXWpXhmYXuRpszo+jh/svrHnEkBHvB1uUVxAjoqCT6lPZxffqliOUsDj14w0G5vM3+AXGK4y0Q2TefxiKyH83vlr7FPrThC0RSihoOu4w5OPDeOXNF+UjdNSXW1oSOd/bIiChq+LqCfn9Up1cLEETWt8e65gwEZKoD+Oe05myiPp0OG9L1vg+t9nZW1v3bNbVx/FV5IuB28nqQg8eNnsw8fC/k+NrKzysqwtOTyOwM7uT3W3Yq522/ATKAPt72af+giylZQzVxiY6dZoLtqksukcMdaK+MMmZC5NebpfPzvjvigJaunCKh1E8iKmtHAjBOj0msyS/8nkx4ZPeQEk10vnEF+QTUVypT6dM+ZzpLKLN+W4kAe55J7JjlcfkEuNDaVTucnqY1V3Uq7mK1FS/OYTKIBLKhrZo8Sz/LUXrOcyiGLyYym36Zvl306P4KHdqebMrjFCXdv/cdkBX2DnbWnaAk6TBjdIORvFJE5XdgME6AqHcG3QNpKvMOW1pGv+88dvzDevws8aiqf8yn1RZyCxaw/SZjHSoioRPaUiLMWTlukieTp9Y2IC81B1IL6lmGSPxxAsDmHPI5tw4FBl1MasAKNCa33xDKubP0z9EGCx32shgmRL5vdZvKWYFCJ6uGhutsiK165ZxfWm27F7fzk7uIP93ikfjDqTEPf3jmbIAjo8MIfUw1anqOQIXgeeHPXuLxCJcyPWiGer6WAhO7tTxmmbeHBf+dXxhMPHCdA2nCukTEg/OgzRwtq2jzdTNUUdTHK/4o1XQFpD3JIBRlP/rjsOy4tzetpiFSM4tQ7gL5kH/z+ZLnwbrgsCl9b2aCKKseuX7PUH5YnoyCgDT3Ju9Zi/JXj9SIffWgjitqSgv+wuczHXqjjNMTELovbaDg5DJCw0kn4vJcnIG2gy1uJ3fmcFTC1lJBeP0VGgBpe+s0BOgmjZ2BOSy10/SonkwfIo0Ch/H9R6NJ/fYP53YGr9WC43g0R01MGT6fCPlAtkhgsK93/nCN2QDKYXmUr9plZm/WGc1XVKpXEaMFvylogPl30Tshvx0uNrwmSIBheftXdRrS0NVUX1YASu/XGOt8IyEh5o"}, {"who": "admin", "iter": 200000, "salt": "7hydQenIhYjaK+f299gvtw==", "iv": "aGf+BTcjiC0xN5ST", "ct": "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"}];</script>
+<script>window.FIREBASE_CONFIG={"apiKey": "AIzaSyB_2nvsP10ycaPuVMRbmvA0oLemIRr6sLY", "authDomain": "pentacleworkforce-64c35.firebaseapp.com", "projectId": "pentacleworkforce-64c35", "storageBucket": "pentacleworkforce-64c35.firebasestorage.app", "messagingSenderId": "736049549353", "appId": "1:736049549353:web:707ecad931093e01e80c38"};window.__SEED_ENC=[{"who": "company", "iter": 200000, "salt": "qVSHXS2nvQi1UoQQo6EnoA==", "iv": "spl3Q3masPbjwK80", "ct": "b3UKzfVDwS3Xd11lOx7/0R13JmXfmQldp95YNoGQmKwlaXBrXuF7eitSKrUmXZJ5bukwS0rxFemd6mXecuYqCmsEXKCvMyGjgBemyf4FfEzbVB5M3KUd85La0XOacswvswfx7J4MnApRSP9aZV62XFcVQ6LDZNjyb4lBtQZdHXoPcV/VZKzyexipeAQitR7FclMzukjzg96HID3VvmL8GMjIWiDUgVymel123t/SeeS1IcqXPu+OC/POhwQC65rruwF5mXZvU+WwZIny3xox1jov8PdUM7W+K1gKdwAAl1JiVz5K7SNZrI0X2WPY58vN8zdvkOG55Qg2YfzndcRvclNXOr006WFRERqLkfvLNPLvsUS+eQjvr4+RxgHHD/6hiwvD3PmykfX352AYTxAKRAT3aLekc/4yjRaZg7WDXnDCDYTz6ZhzFtzYX5Fxy3Dreis4rO11Q1nj1/5rw2QulVE//J8UDz0B33kyCMjbN8WNq0nquWSWSTO0bRQHzrYHvJGA8rcaa2D8pJEf3hRAvKR7Uv217/N9jOLo5wQbUMHqz0nxwTm7qjEWJVTQ1kEs8cYWXip74nBmaDgVs3Pg0xiBi0iqJ6nFvvFe0xFt+VHGI+eNVRhnhyx6UxxErmdxy2QQOmpRNZ/PHSzT1E08wm9VuofqL4C+v6WWuu7rsvS1c+hatP2V4eDr/1ptQ0P5OXvYnNy3z1i/V3uxErjCtslJKTm4F2Jj/NP+iLQP+xPpRiTsk5CSnFKiNnte8bam6/lNsXvn0ZbXl/013hqLqGYKQrfI6kQ0u6yj5zyVnXFagPsyyaroTx5X9CauJS+5PTgmVFnMe84FCp4nKgNH+07f2bM5svUoBkwi3qxIWcxqYur/M+yuYOZVU4XrDtBRTPVnUMUyY5Ulm5fjy6xQYURZjRVl9sZ4C1uFIFpNzhq6TvliIoNRR0rxTAcLNLtDl7limr/QDQJvkpbjoVu2w/t/GTYwAVRhwpWOWgOYci++BtTC8jji4uhLnQnFH8TZQAllAkLiFPb8eNowAf9fanMt6hJREhCEL9ZY2NPFiKYnVLJ19Bj5WpyLw3IB4uLbB+nu6WBt7DX9cArfVbqSXzugXfeFC8nFWfgfZByz7XMZ3h1qY1fE6ziA7sxS52JEvztZmQ5JAGRqlkR2wQasfrbMyyE0hgomiCKmiEqqemLKGN0vn5VudGBPF8Cbpf8ymkMHUOgaFdPi50QnvxcytvWXBXLJQ1dR1rSCffsU82DDNnlgf8XvmBgE52IYp5kF1Lzkolthz9bY12/OB+uP6SxdDuhrL6QcB/Rn+rVE16ZuxG77TDAIA8MgIAWIBy/mDVis3nV7IGKOZFTEdM0Qv2bT566A9JV1QIGO32Lce8jEtEAcVrAmwtL1RreuMiVt1g56KTorQJIkak7MHqznF//dQ7piXTytoKD+E4b+AuDb258wjR57rwQEH0uCDZPHFuVnlxM4pNFT+n0cM0IZqY4OseySnjOVEpE0pm7GGf/e8Bbr+6zZbdHqxPXWcpGmd5Rsb3JSVEWk3Hy3DaND0o6n1U+TyYt7vPXCibuetOsDx7ZlVstHGJBsMaUj/1pSDL5elwut9SPgucd8QcVZ533BPgZN9rvCr5kh5DU08obkw8BzC/wvxVanVYg17sMKhpoX0Dt0Y0+CvOK7I0WXidBE1j8MYoJVBuvPRlpLZt1MU6mRnWyb+ZV5wp3wCOn7Wwtdijia38J0FbNXLh7Rr3s5ea/LPripxFyND5mF7MSaa6DIW5XLT9L0Ex4XDp+54DMnEFEG9vSxW4VkX0Wuy3ftCy7pZCbxvIAK+J+w2ZniyRxXKWTtIEMbfQrX3lahNW4/rVd553nwLGBuA6eJeVuQe7hqnO7ZnLGhJ3TDISKC0g+KSF2DeYuwUpXYlQa0Zu7CqY+7ijGL1W0R53ixIUYYTWkLDHif5uu03YI/8GehIRbXxYdOZpBY/EaMJpJZvzMN9Wwjv/pCTfpYHLAgWpVYgs0d09f9vXtVF+mWajT7eOXy5TuBnjpVKTIclfdKIK6JAl06vC8hAbpXljnu/gxHyidX060SsMIzZDnuc3nondiz6aZdDf70GRULlV0S7DBPAALLT+5bIMhGADYEm8YVUPb2hZ9RqTw8sIqRk9Nf1zd54iiBrc0jLjh5eh6bfAOGhBYn/kxTEojNtAbU0kJ0BUgB4qPyEaY3LMm1OzM6Jhkh8OOdrnIdSl4nI3AYn5gaQm1RjiHIi7pSjlmpXawq+reP0FyyPoPTZ+NOoEfqccAZySTbnAbsjWscJrpbYHmZ7aeCEHUS/ckCjyvf/NUyf+vIHiK+l8HL1jijvOKa065XrxN7Qb0MD7vUVZE74ZxnHZ4hO8tS8+L+3nVQiIzrenvduY9+Mcx0zPLeffX9jkDL6Qcqy/jiejIFXeBKc+jib2KuOO8zAqih/TYuZGsoeBqDIKT0kD6/hmc+mLaoDIGk+gKTI883/vRxo5oazEBZix5PHwYVZU5D+cg32b5Xnq2dpTJVelfCN7s0TwGhdm5OjcW8Rd0R78vDHKGr5qzBc9GXj9wrYRXANwZ88pbq0kPdbG4YZdN8kSU783jv/J/RdsC6QGAdguqmNVWVytdFIB5OFSYYYAKfy8ckp7bF+J93fr00Fpmx1aWi4ZFYqg/vQFuPYwU2O/GxuAXhVVDfO3Ie0EUpArxP+G9UeomglnQuRIb2lHsAt++GgSom8y9bok03X8sdQ5vrz0gAZ8JGfX3yfPy2kScnZp0hrCUbj2/1SPAGMlLa2Db0i/0NQVE21u2AVrBzVzrlgqszgP4laqmWmQXd8r0XIJLl+oISfmn/QV91X2cTT3XwMFK8KnGJOvobgE4C2NegrHyblAiCXbxljyUKxTj2Fnkqhios7yZaON9aI4PqClvNy9fGCnt/rzLwMAkDio3QUNY1FJ22QejwPFwyyBisl048oB7Yag+kFdBqo0+TcPnnu1u+m9DAxExoPuTDOUri0ECkV6edthNfJkcH8fOYWVI96iQ+fez4ArK14TbZq2GWnO22fboxGphC/LMueyAPl455Vxl/aLpkr6a7Ci8bmSO00fScpIb6PlA+XmaW9M1I3VP0CdFDZQPhWm6H/bJzBSbhWTUVBRv19NSCxixxajpZ6EVQpYnVC7ew3fmA6b4vJHpOZ+iF75auiCY6HtoA7yEDkJH4VU1j8kAemGpQgTjPTVIYBVaKxmCqubCGJ/l+leaBadzJcx6Qxenjs3JAnJ7grwlWcIleiQjgwzx/mIIgmVPmgtc8ULm3aomYTS0/ufcCvS9TqusmU7LbL0WIRKjbkEE/EztAMTd5tTZ+0Ie9WVKEmjq71aIEs0ULM3CmMJt1G8xea7OulI9MwbWSseAnRjv8gat2Sn9BhOjq4nZgEJgU5qLiXhgv4LCmgDIepGP4uLnM8FeOCS6mZPBBV2/QfSLeCLQRVCggY3L7ue76MZBY/V2HSUQk1NKGzt1j5vVbEn7nJhxkzZgv81PrJZY04EU++FpH5vIef0MX2lKUUUemEzjnpSVkpqvqSaNnK9AeC2klC3nVoCOiNLkAw+JAUGxS5XNaaLgsmpIiPGwI/D2wxuE5voUtHh1FZpxirofDMuR0yrr1UdlPummob44mUyIkklVg6Unwj0lubabfuIPTPCN+tUpL6tHwIYyo6MI5Sq18noSybFhmqV/kqqDPVSnTfvxmdlAYFMvVubUXv5EGfKrlORmQtV57qzSf5q2rfSpDuuFuyVF7zhjAhjqNO7d/6Iw8nyD/Hxi7azUQgj03xGtHbYzi5b9TOS2Y2La9YCZfPyDzZ2inVc8usQo923yi4Id2XBQ/JFk2RBA+4fxFk7mbmOWxN9EJ1otQzWogt9KFiCOPhUlAW9I6fsGG6m3sEimyPoqndPWr5qMGKr+zg4UXzZcrjZ9ta1h9i1B95aTB0IL5M0fo59SoM8mPNfUTnF2a/IiAnu69FcpGTB6a8GTmP04YJpfLaHczWPioiS+LB/qdHxjYRKlHQdbm6+k8JM4K03+paZyscjNztnt+c0W5ceCbVkFQqJfkgRIjkiu9/yTPrn5ub84oPbt19/hskyv0m/RtiuIQia6+IOtA6t3pt0/Yys+ZC7YkLZGcUSmYjEwYwPvJFND61mh2ZDtskTOPXb8AxtCUczU7ghVgWgTkp5c9JVd+FiYtgKhos9MtwbevF8zTBs26podUeCv3LgQ6k5eE6JYXyjIu5UKCebhEXEVYyf7jzMhygrnRN4MlxwlxkV5Y7+es1SIWG3qcAs4hmA7MQwzO/bTg9ZKyumtVnO9QrfbIy9bTDcLUW4TpzLCbwE6C7WVIt2F7fIjyvlnBOgI3J25d0n2kRd+bWg9gzSTIvnVdQDIgE1fdweU8B245MSnwYdW9WfyHeWcwxYbIQxq4LJKZ/yxi8IdxzHpbiPwd4nhfhdEE1S+GpNpF/Ps98kyrmK6lPpFkzo1KuzYQp60JMc97vKh/5uGc4szYjFlqHYg1Vtk5vPg3y700gzSvRMY4xEOJPtM+jGUGCv9E5LDj6hHMT6sqAGzPkony2+5IWVJz9vgPiI3IIpZZ9T1au4qsRINtSxFY8pHAnElKzsXerl6QGfxiZP5uBrzFhWKdcXtnlv4Bv7Pi7WIG5tknahbqneY8/8XiZENpmgVDYZvqQiGFtLf90DoF1ZktaW56DrbLH+Ajxjrbeo231oAPncp9B7N6N5DL4CW8+S0yhkOi9ftFYPRgWG9J0E6qaC4dX8gWWEYWpxdrqKWbmu5x2m1Gm+2W3EplspOxI7Uu2RPpJIS6LvzMgERowYI03Q8LmbHWa077BICFMoe9+MCSGLDh/CXatjfpdK6lCO1cZsksS8mlRdzyeBaDbGgzucbc09qGHDv+xHMkJmfH6VVenhVElwYoYP7L4jqBHLnhxcUKnzCP5bg0fHeSS0mogEYpVtM9fa76WyvbudV/iaRmLj8Nn4t3GS7SHqfysT9q+I8X5JicCBL3mGNj/O4jqN8CltQT4O5kYzGngLNo7fWqmjjP1WojLdd9RWW0vZZK5MvprPk+vMm80zFCHMluQLW+1pq6gRsQFxRLbFHjBKqkFXwVquPEopscIh9BeAnKlLkWroFXnFEOYMa6a4ArkWuktYe79rB3PvwKE8lWVKBEHr8vjCb9gEwec3Ow6e0J+skuLLIvxqMOrzrtmDKez+NkfbiM1ArWIqT6IPDBUVcj442Mo/PiJcHvs4l6Ejxfp3Kjh8/Xd8dTqCYGhC0g5589nAEn/xTKQnHQAueW/cj4sOScnlymO4n5fMeWoIQs0fah6ZwMyUVm2HX5eTUDmtuSiTwDnNfuPt3Ry3+7eyM+SD1TF8WSQ0JB2ODI0QwwXziz4dOz"}, {"who": "admin", "iter": 200000, "salt": "Y/bTnhIiDv4yUQjoL+5D6w==", "iv": "b/r0a+wo9gBoGe/g", "ct": "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"}];</script>
 <script>/* Pentacle Workforce on Vercel: all data is stored in Google Firebase (Firestore). */
 window.__HOSTED=true;
 (function(){
@@ -785,6 +803,19 @@ html.gated body>*:not(#gate):not(.toast){visibility:hidden}
 .av-lines{display:grid;gap:4px;font-size:14px}.av-lines div{display:flex;justify-content:space-between;gap:10px}.av-lines span{color:var(--muted)}
 .av-notes{font-size:13px;padding:8px 10px;border-left:3px solid var(--brass);background:var(--surface);white-space:pre-wrap}
 .av-miss{color:var(--muted);font-size:14px}
+.season-box{display:grid;gap:12px;margin-top:6px}.sea-set{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}.sea-set .input{max-width:140px}
+.strip i.sp{background:var(--surface2);outline:1px dashed var(--brass)}.season-box textarea{min-height:120px}
+.dchk{display:grid;gap:12px}.dv-card{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:16px;border:1px solid var(--line);background:var(--surface)}
+.dv-card.ok{border-color:rgba(143,209,158,.5)}.dv-acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.dv-btn{cursor:pointer;display:inline-flex;align-items:center}
+.dv-prev{grid-column:1/-1}.dv-prev video{width:100%;max-width:320px;max-height:240px;background:#000;display:block}
+.wf-card{display:grid;gap:12px;padding:16px;border:1px solid var(--line);background:var(--surface)}
+.wf-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}@media(max-width:640px){.wf-slots{grid-template-columns:1fr}}
+.wf-slot{display:grid;gap:6px;padding:12px;border:1px solid var(--line);background:var(--bg);cursor:pointer}.wf-slot b{font-size:15px}.wf-slot .st{font-size:12px;color:var(--muted)}
+.wf-slot input{width:18px;height:18px;accent-color:var(--good)}.wf-slot .row{display:flex;align-items:center;gap:10px}
+.wf-slot.ok{border-color:rgba(143,209,158,.6)}.wf-slot.ok .st{color:var(--good)}.wf-slot.miss{border-color:rgba(255,138,128,.5);opacity:.85;cursor:not-allowed}.wf-slot.miss .st{color:var(--bad)}
+.wf-slot.wait{opacity:.6;cursor:not-allowed}.wf-slot.late .st{color:var(--bad)}
+@media(max-width:640px){.dv-card{grid-template-columns:1fr}}
+.av-dv video{width:100%;max-width:260px;max-height:200px;background:#000;display:block;margin-top:6px}.dv-tag{font-size:12px;font-weight:700}.dv-tag.ok{color:var(--good)}.dv-tag.no{color:var(--bad)}
 .lk-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .lk-list li{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line);background:var(--surface2);border-radius:2px;min-width:0}
 .lk-list a,.lk-chip a{color:var(--brass);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1;font-size:13px}
@@ -1064,11 +1095,16 @@ a.lk-go{color:var(--brass);text-decoration:none;cursor:pointer}a.lk-go:hover{bor
           <div>
             <h2><span class="step">2</span><span id="task-title">Today's work</span></h2>
             <div class="shiftbar"><span class="shift-l">Shift</span><div class="seg shift" id="shift" role="radiogroup" aria-label="Shift">
-              <button type="button" class="opt" data-shift="day" aria-pressed="true">Day shift</button><button type="button" class="opt" data-shift="off" aria-pressed="false">Off shift</button></div>
+              <button type="button" class="opt" data-shift="day" aria-pressed="true">Day shift</button><button type="button" class="opt" data-shift="off" aria-pressed="false">Off shift</button><button type="button" class="opt" data-shift="season" aria-pressed="false">Season time</button></div>
               <span class="shift-n" id="shift-n">Full daily target</span></div>
             <div class="seg" id="opts"></div>
             <p class="hint" id="opt-hint"></p>
             <div class="fields" id="fields"></div>
+            <div class="season-box" id="season-box" hidden>
+              <label class="f">Work done during season time (required)<textarea class="input" id="season-work" maxlength="1500" placeholder="Describe today's work: orders handled, items made or packed, customers served, and so on"></textarea></label>
+              <label class="f" style="max-width:220px">Hours worked (optional)<input class="input" id="season-hours" type="number" min="0" max="24" step="0.5" inputmode="decimal" placeholder="0"></label>
+              <p class="hint" style="margin:0">No task type or target for season time. The admin reviews this report and sets the percentage.</p>
+            </div>
           </div>
           <div>
             <h2><span class="step">3</span>Evidence (required)</h2>
@@ -1097,7 +1133,19 @@ a.lk-go{color:var(--brass);text-decoration:none;cursor:pointer}a.lk-go:hover{bor
             </div>
           </div>
           <div>
-            <h2><span class="step">4</span>Notes</h2>
+            <h2><span class="step">4</span>Daily checks (required)</h2>
+            <div class="dchk">
+              <div class="dv-card" id="dv-card">
+                <div><div class="lbl">Desk-clean video</div><div class="tgt" id="dv-sub">Record or upload a short video of your clean desk (about 8 seconds), once a day.</div></div>
+                <div class="dv-acts"><label class="btn alt dv-btn" for="dv-in">Record / upload video</label><input type="file" id="dv-in" accept="video/*" capture="environment" hidden><button type="button" class="del" id="dv-rm" hidden>Remove</button></div>
+                <div class="dv-prev" id="dv-prev" hidden></div>
+              </div>
+              <div class="wf-card"><div><div class="lbl">Workflow updates (3 times a day)</div><div class="tgt">Update the Workflow website (order IDs and status), then tick the box before its time. Each box closes at its time and cannot be ticked late. Ticks count in today's percentage and zone.</div></div>
+                <div class="wf-slots" id="wf-slots"></div></div>
+            </div>
+          </div>
+          <div>
+            <h2><span class="step">5</span>Notes</h2>
             <label class="f">Remarks, issues or items requiring attention (optional)<textarea class="input" id="notes" maxlength="500"></textarea></label>
           </div>
         </form>
@@ -1300,7 +1348,7 @@ function computeLines(dept,opt,v){
   return {lines:out,pct,met:out.length>0&&out.every(l=>l.target>0&&l.done>=l.target)};
 }
 function optLabel(dept,opt){if(dept==="dtf"&&!opt)return "Heat press";if(typeof opt==="string"&&opt.startsWith("shift-"))return "Heat press · "+(opt==="shift-off"?"Off shift":"Full shift");
-  const LEG={designers:{avail:"Designs available",none:"No designs available"}};if(LEG[dept]&&LEG[dept][opt])return LEG[dept][opt];
+  if(opt==="season")return "Season time";const LEG={designers:{avail:"Designs available",none:"No designs available"}};if(LEG[dept]&&LEG[dept][opt])return LEG[dept][opt];
   const os=DEPTS[dept]?.options;if(!os)return "Daily tasks";
   const ids=Array.isArray(opt)?opt:[opt];return ids.map(id=>os.find(o=>o.id===id)?.label).filter(Boolean).join(" + ")||"Daily tasks"}
 
@@ -1334,7 +1382,8 @@ function renderTask(){setTimeout(()=>{try{evStatus()}catch(_){}},0);
   $("opt-hint").textContent=d.hint(o);
   const v=vals();
   document.querySelectorAll("#shift [data-shift]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.shift===curShift)));
-  $("shift-n").textContent=curShift==="off"?"Off shift: half of the daily target (hourly targets follow the hours entered)":"Day shift: full daily target";
+  $("shift-n").textContent=curShift==="season"?"Season time: describe your work; the admin sets the percentage":curShift==="off"?"Off shift: half of the daily target (hourly targets follow the hours entered)":"Day shift: full daily target";
+  {const sea=curShift==="season";$("season-box").hidden=!sea;$("fields").hidden=sea;$("opt-hint").hidden=sea;if(sea)$("opts").hidden=true}
   $("fields").innerHTML=shiftFields(st.dept,o).map(f=>{
     if(f.type==="checks")return `<div class="fieldcard"><div><div class="lbl">${f.l}</div><div class="tgt">Target: all 3 platforms</div></div><div></div>
       <div class="soc" style="grid-column:1/-1">${f.items.map(([k,l])=>`<div class="soc-row"><label class="chk"><input type="checkbox" id="c-${k}" data-k="${k}" ${v[k]?"checked":""}>${l}</label><input class="input soc-link" data-plk="${k}" type="url" inputmode="url" autocapitalize="none" spellcheck="false" placeholder="${l} post link" value="${esc(plinks()[k]||"")}"${v[k]?"":" disabled"}></div>`).join("")}
@@ -1354,7 +1403,9 @@ function numCard(k,l,t,v,bar){
     ${bar?`<div class="bar" data-bar="${l}"><i></i></div>`:""}</div>`;
 }
 function updateSummary(){
-  const r=computeLines(st.dept,curOpt(),vals());
+  if(curShift==="season"){updateGate();$("g-pct").textContent="—";const arc=$("g-arc");arc.style.strokeDashoffset=314.16;
+    $("sum-lines").innerHTML=`<div><span>Season time</span><span class="mono">Admin sets %</span></div>`;return}
+  const r=withWf(computeLines(st.dept,curOpt(),vals()));
   updateGate();
   $("g-pct").textContent=r.pct+"%";
   const arc=$("g-arc");arc.style.strokeDashoffset=314.16*(1-r.pct/100);arc.style.stroke={green:"var(--good)",yellow:"var(--warn)",red:"var(--bad)"}[dayZone(r.pct)];
@@ -1432,23 +1483,27 @@ function daysOfMonth(mk){const[y,m]=mk.split("-").map(Number),n=new Date(y,m,0).
 let monthData={},monthSubs={};
 function watchMonth(mk){if(!db||monthSubs[mk])return;
   monthSubs[mk]=db.collection("reports").where("date",">=",mk+"-01").where("date","<=",mk+"-31").onSnapshot(s=>{
-    monthData[mk]=s.docs.map(d=>({id:d.id,...d.data()}));refreshAll()},()=>{})}
-function keepMonths(keys){for(const k of Object.keys(monthSubs))if(!keys.includes(k)){monthSubs[k]();delete monthSubs[k];delete monthData[k]}keys.forEach(watchMonth)}
+    const all=s.docs.map(d=>({id:d.id,...d.data()}));monthData[mk]=all.filter(r=>!isSeasonPending(r));seasonPend[mk]=all.filter(isSeasonPending);refreshAll()},()=>{})}
+const seasonPend={};const isSeasonPending=r=>!!r.season&&(r.pct==null||r.pct==="");
+const allOf=mk=>[...(monthData[mk]||[]),...(seasonPend[mk]||[])];
+function deskDoneFor(id,date){return allOf(date.slice(0,7)).some(r=>r.employeeId===id&&r.date===date&&r.deskVideo)}
+function keepMonths(keys){for(const k of Object.keys(monthSubs))if(!keys.includes(k)){monthSubs[k]();delete monthSubs[k];delete monthData[k];delete seasonPend[k]}keys.forEach(watchMonth)}
 function refreshAll(){renderDash();renderEmps(false);renderTeam();try{if(lastProof)renderMyProof(lastProof[0],lastProof[1])}catch(_){}}
 function monthStat(emp,mk){
   const today=todayISO(),joined=String(emp.createdAt||"").slice(0,10);
   const best=new Map();for(const r of monthData[mk]||[])if(r.employeeId===emp.id)best.set(r.date,Math.max(best.get(r.date)??0,Number(r.pct)||0));
-  const days=daysOfMonth(mk).map(ds=>{const off=new Date(ds+"T00:00").getDay()===0,has=best.has(ds),before=joined&&ds<joined;
-    const counted=has||(!off&&!before&&ds<today);
-    return {ds,off,future:ds>today,before,pct:has?best.get(ds):null,z:has?dayZone(best.get(ds)):counted?"red":null,counted}});
+  const pend=new Set((seasonPend[mk]||[]).filter(r=>r.employeeId===emp.id).map(r=>r.date));
+  const days=daysOfMonth(mk).map(ds=>{const off=new Date(ds+"T00:00").getDay()===0,has=best.has(ds),before=joined&&ds<joined,sp=!has&&pend.has(ds);
+    const counted=has||(!off&&!before&&ds<today&&!sp);
+    return {ds,off,future:ds>today,before,season:sp,pct:has?best.get(ds):null,z:has?dayZone(best.get(ds)):counted?"red":null,counted}});
   const c=days.filter(x=>x.counted),avg=c.length?Math.round(c.reduce((a,x)=>a+Math.min(x.pct||0,100),0)/c.length):null;
   return {days,avg,count:c.length,zone:avg===null?null:avg>=MONTH_GREEN?"green":avg>=YELLOW_MIN?"yellow":"red",
     g:c.filter(x=>x.z==="green").length,y:c.filter(x=>x.z==="yellow").length,r:c.filter(x=>x.z==="red").length}}
 function zoneBadge(z,extra){return z?`<span class="zone ${ZONE[z].c}">${ZONE[z].label}${extra?` · ${extra}`:""}</span>`:`<span class="zone n">No record yet</span>`}
 function avZone(z){return z?" z"+ZONE[z].c:""}
 function strip(st,small){return `<div class="strip${small?" sm":""}">${st.days.map(x=>{const d=+x.ds.slice(8);
-  const cls=x.z?ZONE[x.z].c:x.off?"off":x.future?"fu":"";
-  const tip=`${d} ${new Date(x.ds+"T00:00").toLocaleDateString("en-IN",{month:"short",weekday:"short"})}: `+(x.pct!=null?`${x.pct}% · ${ZONE[x.z].label}`:x.z==="red"?"No report · Red zone":x.off?"Sunday":x.future?"Upcoming":x.before?"Before joining":"Today, not submitted yet");
+  const cls=x.z?ZONE[x.z].c:x.season?"sp":x.off?"off":x.future?"fu":"";
+  const tip=`${d} ${new Date(x.ds+"T00:00").toLocaleDateString("en-IN",{month:"short",weekday:"short"})}: `+(x.pct!=null?`${x.pct}% · ${ZONE[x.z].label}`:x.z==="red"?"No report · Red zone":x.season?"Season time · awaiting admin %":x.off?"Sunday":x.future?"Upcoming":x.before?"Before joining":"Today, not submitted yet");
   return `<i class="${cls}" title="${tip}">${d}</i>`}).join("")}</div>`}
 const LEGEND=`<span><i style="background:var(--good)"></i>Green: ${GREEN_MIN}–100%</span><span><i style="background:var(--warn)"></i>Yellow: ${YELLOW_MIN}–${GREEN_MIN-1}%</span><span><i style="background:var(--bad)"></i>Red: ${YELLOW_MIN-1}% or below, or no report</span>`;
 
@@ -1462,7 +1517,7 @@ function updateStage(ms,mk){
     const n={green:ms.g,yellow:ms.y,red:ms.r}[z];if($("zn-"+z).dataset.v!==String(n))countTo("zn-"+z,n)});
   $("stage-sub").textContent=ms.zone?`${monthName(mk)} · ${ms.avg}% average over ${ms.count} working day${ms.count===1?"":"s"}`:`${monthName(mk)} · no record yet. Submit today's report to start.`;
   updateTodayMarker()}
-function updateTodayMarker(){const r=computeLines(st.dept,curOpt(),vals());const z=r.lines.some(l=>l.done>0)?dayZone(r.pct):null;
+function updateTodayMarker(){const r=withWf(computeLines(st.dept,curOpt(),vals()));const z=r.lines.some(l=>l.done>0)?dayZone(r.pct):null;
   ["green","yellow","red"].forEach(k=>{const t=$("zt-"+k),slot=t.querySelector(".zt-slot");t.classList.toggle("today",z===k);
     const want=z===k?`<span class="zt-today">Today · ${r.pct}%</span>`:"";
     if(slot.dataset.h!==want){slot.dataset.h=want;slot.innerHTML=want}})}
@@ -1784,7 +1839,7 @@ async function loadAtt(x){const k=attKey(x);if(x.kind==="asset"||fileCache.has(k
   if(!fileCache.has(k))fileCache.set(k,"");return fileCache.get(k)}
 async function hydrateThumbs(root=document){if(!db)return;for(const img of root.querySelectorAll("img[data-akey]")){const k=img.dataset.akey;img.removeAttribute("data-akey");
   const [id,idx]=k.split("#");try{img.src=await loadAtt(idx!==undefined?{kind:"pack",id,idx:+idx}:{kind:"db",id})}catch(_){}}}
-const findReport=rid=>Object.values(monthData).flat().find(x=>x.id===rid);
+const findReport=rid=>[...Object.values(monthData).flat(),...Object.values(seasonPend).flat()].find(x=>x.id===rid);
 function openLightbox(r,i,fromGallery){const x=r.attachments[i];const fig=$("lb-fig");const src=attSrc(x);
   const cap=`<figcaption>${esc(r.employee)} · ${esc(r.date)} · ${esc(x.name)} ${x.folder?` · ${esc(x.folder)}`:""}${x.kind==="asset"?` · <a href="${src}" target="_blank" rel="noopener">Open in new tab</a>`:""}</figcaption>`;
   const fold=attFolder(x),cnt=galleryItems(r,fold).length;
@@ -1873,16 +1928,17 @@ const canDelToday=r=>(window.__isAdmin&&__isAdmin())||upDay(r)===todayISO();
 const LOCKSVG='<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>';
 function myDelCell(list){list=Array.isArray(list)?list:[list];return list.every(r=>upDay(r)===todayISO())?`<div class="mydel"><button type="button" class="del" data-mydel="${esc(list.map(r=>r.id).join(","))}">Delete</button><span class="sub">Can be deleted only today</span></div>`:`<div class="mydel"><span class="sub">${LOCKSVG} Locked · evidence can't be deleted after the upload day</span></div>`}
 let lastProof=null;
-function renderMyProof(emp,mk){lastProof=[emp,mk];const rs=(monthData[mk]||[]).filter(r=>r.employeeId===emp.id&&((r.attachments||[]).length||(r.links||[]).length)).sort((a,b)=>a.date<b.date?1:-1);
+function renderMyProof(emp,mk){lastProof=[emp,mk];const rs=allOf(mk).filter(r=>r.employeeId===emp.id&&((r.attachments||[]).length||(r.links||[]).length||r.deskVideo)).sort((a,b)=>a.date<b.date?1:-1);
   const nf=rs.reduce((a,r)=>a+(r.attachments||[]).length,0),nl=rs.reduce((a,r)=>a+(r.links||[]).length,0);$("myp-sub").textContent=`${monthName(mk)} · ${nf} file${nf===1?"":"s"}${nl?` · ${nl} link${nl===1?"":"s"}`:""}`;
   const days=new Map();rs.forEach(r=>{if(!days.has(r.date))days.set(r.date,[]);days.get(r.date).push(r)});
-  $("my-proof").innerHTML=rs.length?`<div class="myp">${[...days].map(([d,list])=>{const best=Math.max(...list.map(r=>Number(r.pct)||0));
+  $("my-proof").innerHTML=rs.length?`<div class="myp">${[...days].map(([d,list])=>{const sc=list.filter(r=>!isSeasonPending(r)),best=sc.length?Math.max(...sc.map(r=>Number(r.pct)||0)):null;
+    const dvr=list.find(r=>r.deskVideo&&(r.deskVideo.ids||[]).length);
     const files=list.filter(r=>(r.attachments||[]).length).map(r=>thumbs({...r,links:[]})).join(""),links=[...new Set(list.flatMap(r=>r.links||[]))];
-    return `<div class="myp-row"><div><b>${new Date(d+"T00:00").toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"})}</b><div class="sub">${best}% · ${ZONE[dayZone(best)].label}${list.length>1?` · ${list.length} submissions`:""}</div>${myDelCell(list)}</div><div>${files}${linkChips({links})}</div></div>`}).join("")}</div>`
+    return `<div class="myp-row"><div><b>${new Date(d+"T00:00").toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"})}</b><div class="sub">${best!=null?`${best}% · ${ZONE[dayZone(best)].label}`:"Season time · awaiting admin %"}${list.length>1?` · ${list.length} submissions`:""}</div>${myDelCell(list)}</div><div>${files}${linkChips({links})}${dvr?dvCell(dvr):""}</div></div>`}).join("")}</div>`
     :`<p class="sub" style="margin:0">No files or links submitted yet this month. After you submit a report with photos or links, they appear here.</p>`;
-  hydrateThumbs($("my-proof"))}
+  hydrateThumbs($("my-proof"));hydrateDesk($("my-proof"))}
 $("my-proof").addEventListener("click",async e=>{const b=e.target.closest("[data-mydel]");if(!b||!db)return;
-  const all=Object.values(monthData).flat(),ids=b.dataset.mydel.split(","),list=ids.map(id=>all.find(x=>x.id===id));
+  const all=[...Object.values(monthData).flat(),...Object.values(seasonPend).flat()],ids=b.dataset.mydel.split(","),list=ids.map(id=>all.find(x=>x.id===id));
   if(list.some(r=>!r||upDay(r)!==todayISO())){toast("This evidence is locked. It can only be deleted on the day it was uploaded.");return}
   if(!b.classList.contains("arm")){b.classList.add("arm");b.textContent="Confirm delete";setTimeout(()=>{b.classList.remove("arm");b.textContent="Delete"},3000);return}
   b.disabled=true;try{for(const r of list)await db.collection("reports").doc(r.id).delete();b.closest(".myp-row")?.remove();toast("Today's report and evidence deleted. You can submit it again.")}catch(_){toast("Unable to delete. Please try again.");b.disabled=false}});
@@ -1913,6 +1969,97 @@ $("lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")$("lb-clo
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("lightbox").hidden){e.stopImmediatePropagation();$("lb-close").click()}},true);
 
 
+
+/* ---------- daily desk-clean video (all employees) ---------- */
+const dv={blob:null,url:null,dur:0};const DV_MAX_SEC=10,DV_CHUNK=700000,DV_KEEP_DAYS=60;
+function wfTag(r){const n=r.wf!=null?r.wf:(r.workflowDone?3:null);if(n==null)return "";return `<span class="dv-tag ${n===3?"ok":"no"}">Workflow ${n}/3${n===3?" ✓":""}</span>`}
+function dvClear(){if(dv.url)URL.revokeObjectURL(dv.url);dv.blob=null;dv.url=null;dv.dur=0;dvRender()}
+function dvRender(){const card=$("dv-card");if(!card)return;const emp=st.emp,date=$("date").value||todayISO(),done=emp&&deskDoneFor(emp,date);
+  card.classList.toggle("ok",!!(dv.blob||done));$("dv-rm").hidden=!dv.blob;$("dv-prev").hidden=!dv.blob;
+  $("dv-prev").innerHTML=dv.blob?`<video src="${dv.url}" controls playsinline muted></video>`:"";
+  $("dv-sub").innerHTML=dv.blob?`<span class="dv-tag ok">Video ready · ${dv.dur?dv.dur.toFixed(0)+" s · ":""}${kb(dv.blob.size)}</span>`:done?`<span class="dv-tag ok">Today's desk video is already uploaded.</span> You can add another if needed.`:"Record or upload a short video of your clean desk (about 8 seconds), once a day.";
+  try{evStatus()}catch(_){}}
+async function shrinkVideo(file){const url=URL.createObjectURL(file);
+  try{const v=document.createElement("video");v.muted=true;v.playsInline=true;v.setAttribute("playsinline","");v.preload="auto";v.src=url;
+    await new Promise((ok,no)=>{v.onloadedmetadata=ok;v.onerror=()=>no({code:"decode"});setTimeout(()=>no({code:"decode"}),15000)});
+    const dur=isFinite(v.duration)?v.duration:0;if(dur>30)throw {code:"long",dur};
+    const mt=["video/webm;codecs=vp9","video/webm;codecs=vp8","video/webm","video/mp4"].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported&&MediaRecorder.isTypeSupported(t));
+    const c=document.createElement("canvas");if(!mt||!c.captureStream)throw {code:"unsupported"};
+    const sc=Math.min(1,480/Math.max(v.videoWidth||480,v.videoHeight||480));c.width=Math.max(2,Math.round((v.videoWidth||480)*sc/2)*2);c.height=Math.max(2,Math.round((v.videoHeight||360)*sc/2)*2);
+    const g=c.getContext("2d"),stream=c.captureStream(15),rec=new MediaRecorder(stream,{mimeType:mt,videoBitsPerSecond:280000}),parts=[];
+    rec.ondataavailable=e=>{if(e.data&&e.data.size)parts.push(e.data)};const stopped=new Promise(ok=>rec.onstop=ok);
+    g.drawImage(v,0,0,c.width,c.height);rec.start(400);await v.play();
+    await new Promise(ok=>{const t=setInterval(()=>{g.drawImage(v,0,0,c.width,c.height);if(v.ended||v.currentTime>=DV_MAX_SEC){clearInterval(t);ok()}},66)});
+    v.pause();rec.stop();await stopped;stream.getTracks().forEach(t=>t.stop());
+    const blob=new Blob(parts,{type:mt.split(";")[0]});if(!blob.size)throw {code:"empty"};return {blob,dur:Math.min(dur||DV_MAX_SEC,DV_MAX_SEC)}}
+  finally{URL.revokeObjectURL(url)}}
+$("dv-in").addEventListener("change",async e=>{const f=e.target.files&&e.target.files[0];e.target.value="";if(!f)return;
+  if(!/^video\//.test(f.type)&&!/\.(mp4|mov|webm|m4v|3gp)$/i.test(f.name)){toast("Please choose a video file.");return}
+  const lab=document.querySelector('label[for="dv-in"]'),t=lab.textContent;lab.textContent="Preparing video…";lab.style.pointerEvents="none";
+  try{let out;try{out=await shrinkVideo(f)}catch(er){if(er&&er.code==="long"){toast(`This video is ${Math.round(er.dur)} seconds. Please record a short desk video of about 8 seconds.`);return}
+      if(f.size<=2.5*1048576)out={blob:f,dur:0};else{toast("This phone could not compress the video. Please record a shorter, lower-quality video (under 2.5 MB).");return}}
+    if(out.blob.size>3*1048576){toast("The video is still too large. Please record about 8 seconds only.");return}
+    if(dv.url)URL.revokeObjectURL(dv.url);dv.blob=out.blob;dv.dur=out.dur;dv.url=URL.createObjectURL(out.blob);dvRender();$("err").textContent=""}
+  finally{lab.textContent=t;lab.style.pointerEvents=""}});
+$("dv-rm").addEventListener("click",dvClear);
+$("date").addEventListener("change",()=>dvRender());
+async function uploadDeskVideo(blob){const data=await blobToData(blob),ids=[];
+  for(let i=0;i<data.length;i+=DV_CHUNK){const ref=await db.collection("files").add({vchunk:data.slice(i,i+DV_CHUNK),i:ids.length,createdAt:new Date().toISOString()});ids.push(ref.id)}
+  return {ids,type:blob.type||"video/webm",size:blob.size,dur:dv.dur||null,at:new Date().toISOString()}}
+const dvCache=new Map();
+async function loadDeskVideo(ids){const k=ids.join(",");if(dvCache.has(k))return dvCache.get(k);
+  const parts=await Promise.all(ids.map(id=>db.collection("files").doc(id).get().then(d=>(d.data()||{}).vchunk||"")));const u=parts.join("");dvCache.set(k,u);return u}
+function dvCell(r){const d=r.deskVideo;if(!d)return `<span class="dv-tag no">No desk video</span>`;if(d.expired||!(d.ids||[]).length)return `<span class="dv-tag ok">Desk video ✓</span> <span class="sub">(removed after ${DV_KEEP_DAYS} days)</span>`;
+  return `<div class="av-dv"><span class="dv-tag ok">Desk video ✓</span><div data-dvids="${esc(d.ids.join(","))}"><span class="sub">Loading video…</span></div></div>`}
+function hydrateDesk(root){root&&root.querySelectorAll("[data-dvids]").forEach(async el=>{if(el.dataset.done)return;el.dataset.done="1";
+  try{const u=await loadDeskVideo(el.dataset.dvids.split(","));el.innerHTML=`<video src="${u}" controls playsinline preload="metadata"></video>`}catch(_){el.innerHTML='<span class="sub">Video could not be loaded</span>'}})}
+async function cleanupDeskVideos(){if(!(window.__isAdmin&&__isAdmin())||!db)return;const today=todayISO();try{if(localStorage.getItem("dvClean")===today)return;localStorage.setItem("dvClean",today)}catch(_){}
+  const cut=new Date();cut.setDate(cut.getDate()-DV_KEEP_DAYS);const cs=cut.toLocaleDateString("en-CA");
+  try{const q=await db.collection("reports").where("dv","==",1).get();
+    for(const d of q.docs){const r=d.data();if(!(r.date<cs))continue;for(const id of (r.deskVideo&&r.deskVideo.ids)||[]){try{await db.collection("files").doc(id).delete()}catch(_){}}
+      await db.collection("reports").doc(d.id).update({dv:0,deskVideo:{...(r.deskVideo||{}),ids:[],expired:true}})}}catch(_){}}
+setTimeout(cleanupDeskVideos,20000);
+
+/* ---------- Workflow updates: 11:30 AM, 3:00 PM, 6:30 PM (India time) ---------- */
+const WF_SLOTS=[{k:"s1",t:"11:30",l:"11:30 AM",from:null},{k:"s2",t:"15:00",l:"3:00 PM",from:"11:30"},{k:"s3",t:"18:30",l:"6:30 PM",from:"15:00"}];
+const wfAt=(date,hm)=>Date.parse(`${date}T${hm}:00+05:30`);
+let wfDoc={},wfKey="",wfUnsub=null;
+function wfCount(){return WF_SLOTS.filter(x=>wfDoc[x.k]&&wfDoc[x.k].ok).length}
+function withWf(r){if(!r||curShift==="season")return r;const lines=[...r.lines,{label:"Workflow updates",done:wfCount(),target:3,unit:"updates"}];
+  const ratios=lines.map(l=>l.target>0?Math.min(l.done/l.target,1):0);return {lines,pct:Math.round(ratios.reduce((a,b)=>a+b,0)/lines.length*100),met:lines.every(l=>l.target>0&&l.done>=l.target)}}
+const tsMs=v=>v==null?NaN:typeof v.toMillis==="function"?v.toMillis():typeof v.toDate==="function"?v.toDate().getTime():Date.parse(v);
+function wfWatch(){const emp=st.emp,date=$("date").value||todayISO(),key=emp?emp+"_"+date:"";if(key===wfKey)return wfRender();
+  wfKey=key;wfDoc={};if(wfUnsub){wfUnsub();wfUnsub=null}if(!key||!db)return wfRender();
+  wfUnsub=db.collection("workflow").doc(key).onSnapshot(d=>{wfDoc=(d&&d.exists?d.data():null)||{};wfRender();try{updateSummary()}catch(_){}},()=>{});wfRender()}
+function wfRender(){const box=$("wf-slots");if(!box)return;const date=$("date").value||todayISO(),now=Date.now(),isToday=date===todayISO();
+  box.innerHTML=WF_SLOTS.map((x,i)=>{const t=wfDoc[x.k],end=wfAt(date,x.t),start=x.from?wfAt(date,x.from):-Infinity;let cls="",msg="",dis=true,chk=false;
+    if(t&&t.ok){cls="ok";chk=true;msg=`Ticked at ${new Date(tsMs(t.at)).toLocaleTimeString("en-IN",{hour:"numeric",minute:"2-digit"})} ✓`}
+    else if(t&&t.ok===false){cls="miss";chk=true;msg="Ticked late · not counted"}
+    else if(t){chk=true;msg="Saving…"}
+    else if(!isToday){cls=date<todayISO()?"miss":"wait";msg=date<todayISO()?"Closed · not ticked":"Opens on the day"}
+    else if(now>end){cls="miss";msg=`Closed at ${x.l} · missed`}
+    else if(now<start){cls="wait";msg=`Opens at ${WF_SLOTS[i-1].l}`}
+    else{dis=!st.emp;msg=`Open · tick before ${x.l}`}
+    return `<label class="wf-slot ${cls}"><span class="row"><input type="checkbox" data-wf="${x.k}" ${chk?"checked":""} ${dis?"disabled":""}><b>${x.l}</b></span><span class="st">${msg}</span></label>`}).join("")}
+$("wf-slots").addEventListener("change",async e=>{const cb=e.target.closest("[data-wf]");if(!cb)return;const x=WF_SLOTS.find(s=>s.k===cb.dataset.wf);const emp=st.emp,date=$("date").value||todayISO();
+  if(!emp||!db||date!==todayISO()){cb.checked=false;return}
+  const end=wfAt(date,x.t),start=x.from?wfAt(date,x.from):-Infinity,now=Date.now();
+  if(now>end||now<start){cb.checked=false;wfRender();toast(now>end?`The ${x.l} box is closed.`:`The ${x.l} box opens at ${WF_SLOTS[WF_SLOTS.indexOf(x)-1].l}.`);return}
+  cb.disabled=true;const ref=db.collection("workflow").doc(emp+"_"+date);
+  const sv=window.firebase&&firebase.firestore&&firebase.firestore.FieldValue?firebase.firestore.FieldValue.serverTimestamp():new Date().toISOString();
+  try{await ref.set({employeeId:emp,date,[x.k]:{at:sv,client:new Date().toISOString()}},{merge:true});
+    let d;try{d=await ref.get({source:"server"})}catch(_){d=await ref.get()}const at=tsMs(((d.data()||{})[x.k]||{}).at);const ok=!(at>end)&&!(at<start);
+    await ref.set({[x.k]:{at:((d.data()||{})[x.k]||{}).at||new Date().toISOString(),client:new Date().toISOString(),ok}},{merge:true});
+    wfDoc={...wfDoc,[x.k]:{at:((d.data()||{})[x.k]||{}).at,ok}};wfRender();updateSummary();
+    toast(ok?`${x.l} workflow update recorded ✓`:`Too late: the ${x.l} box had already closed.`);await wfSyncReports(emp,date)}
+  catch(_){cb.checked=false;cb.disabled=false;toast("Unable to save the tick. Please check the internet and try again.")}});
+async function wfSyncReports(emp,date){const n=wfCount();const list=allOf(date.slice(0,7)).filter(r=>r.employeeId===emp&&r.date===date&&!r.season&&Array.isArray(r.lines));
+  for(const r of list){const lines=r.lines.filter(l=>l.label!=="Workflow updates").concat([{label:"Workflow updates",done:n,target:3,unit:"updates"}]);
+    const ratios=lines.map(l=>l.target>0?Math.min(l.done/l.target,1):0),pct=Math.round(ratios.reduce((a,b)=>a+b,0)/lines.length*100),met=lines.every(l=>l.target>0&&l.done>=l.target);
+    try{await db.collection("reports").doc(r.id).update({lines,pct,met,wf:n,workflowDone:n===3})}catch(_){}}
+  for(const r of allOf(date.slice(0,7)).filter(r=>r.employeeId===emp&&r.date===date&&r.season)){try{await db.collection("reports").doc(r.id).update({wf:n,workflowDone:n>0})}catch(_){}}}
+setInterval(()=>{if(!$("scr-form").hidden)wfRender()},30000);
+$("date").addEventListener("change",()=>{wfWatch();try{updateSummary()}catch(_){}});
 /* ---------- admin: read-only view of an employee's submitted reports ---------- */
 let admViewEmp=null;
 function isAdm(){return !!(window.__isAdmin&&__isAdmin())}
@@ -1921,7 +2068,7 @@ function applyAdmView(id){const adm=isAdm();$("form-grid").hidden=adm;$("myp-pan
 async function renderAdmView(){const id=admViewEmp;if(!id)return;const emp=employees.find(x=>x.id===id);if(!emp)return;const mk=$("av-month").value||monthKey(todayISO());
   try{if(!monthData[mk])await ensureMonth(mk)}catch(_){}
   if(admViewEmp!==id)return;
-  const ms=monthStat(emp,mk),rs=(monthData[mk]||[]).filter(r=>r.employeeId===id);
+  const ms=monthStat(emp,mk),rs=allOf(mk).filter(r=>r.employeeId===id);
   $("av-sum").innerHTML=`${esc(emp.name)} · ${monthName(mk)} · ${ms.avg!=null?`Monthly average ${ms.avg}% · `:""}${zoneBadge(ms.zone)} · <span style="color:var(--good)">${ms.g} green</span> / <span style="color:var(--warn)">${ms.y} yellow</span> / <span style="color:var(--bad)">${ms.r} red</span> days · ${rs.length} report${rs.length===1?"":"s"}`;
   const byDay=new Map();rs.forEach(r=>{if(!byDay.has(r.date))byDay.set(r.date,[]);byDay.get(r.date).push(r)});
   const today=todayISO(),joined=String(emp.createdAt||"").slice(0,10);
@@ -1929,17 +2076,27 @@ async function renderAdmView(){const id=admViewEmp;if(!id)return;const emp=emplo
   const fmt=ds=>new Date(ds+"T00:00").toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long"});
   $("av-list").innerHTML=days.length?days.map(ds=>{const list=(byDay.get(ds)||[]).sort((a,b)=>String(a.createdAt).localeCompare(String(b.createdAt)));
     if(!list.length)return `<div class="av-day"><div class="av-dh"><b>${fmt(ds)}</b>${ds===today?'<span class="av-miss">Not submitted yet today</span>':`${zoneBadge("red")}<span class="av-miss">No report submitted</span>`}</div></div>`;
-    const best=Math.max(...list.map(r=>Number(r.pct)||0));
-    return `<div class="av-day"><div class="av-dh"><b>${fmt(ds)}</b><span class="av-pct">${best}%</span>${zoneBadge(dayZone(best))}${list.length>1?`<span class="av-miss">${list.length} submissions · best one counts</span>`:""}</div>
+    const scored=list.filter(r=>!isSeasonPending(r)),best=scored.length?Math.max(...scored.map(r=>Number(r.pct)||0)):null;
+    return `<div class="av-day"><div class="av-dh"><b>${fmt(ds)}</b>${best!=null?`<span class="av-pct">${best}%</span>${zoneBadge(dayZone(best))}`:`<span class="zone n">Season time · set the percentage</span>`}${list.length>1?`<span class="av-miss">${list.length} submissions · best one counts</span>`:""}</div>
       ${list.map(r=>`<div class="av-rep"><div style="display:grid;gap:8px">
-          <div class="sub">${esc(optLabel(r.dept,r.option))}${r.shift==="off"?" · Off shift":r.shift==="day"?" · Day shift":""} · ${Number(r.pct)||0}% · submitted ${r.createdAt?new Date(r.createdAt).toLocaleTimeString("en-IN",{hour:"numeric",minute:"2-digit"}):""}</div>
+          <div class="sub">${esc(optLabel(r.dept,r.option))}${r.shift==="off"?" · Off shift":r.shift==="day"?" · Day shift":""} · ${isSeasonPending(r)?"awaiting %":(Number(r.pct)||0)+"%"} · submitted ${r.createdAt?new Date(r.createdAt).toLocaleTimeString("en-IN",{hour:"numeric",minute:"2-digit"}):""}</div>
           <div class="av-lines">${(r.lines||[]).map(l=>`<div><span>${esc(l.label)}${l.note?` (${esc(l.note)})`:""}</span><b>${l.done} / ${l.target}</b></div>`).join("")}</div>
-          ${r.notes?`<div class="av-notes"><b>Notes:</b> ${esc(r.notes)}</div>`:""}</div>
+          ${r.season?`<div class="av-notes"><b>Season work${r.seasonHours?` (${r.seasonHours} h)`:""}:</b> ${esc(r.seasonWork||"")}</div>
+            <div class="sea-set"><label class="f" style="margin:0">Percentage for this season-time report<input class="input" type="number" min="0" max="100" step="1" data-seapct="${esc(r.id)}" value="${r.pct!=null&&r.pct!==""?Number(r.pct):""}" placeholder="0–100"></label><button type="button" class="btn alt" data-seasave="${esc(r.id)}">${r.pct!=null&&r.pct!==""?"Update %":"Save %"}</button></div>`:""}
+          ${r.notes?`<div class="av-notes"><b>Notes:</b> ${esc(r.notes)}</div>`:""}
+          <div style="display:flex;flex-wrap:wrap;gap:6px 14px">${wfTag(r)}</div>
+          ${dvCell(r)}</div>
         <div>${(r.attachments||[]).length||(r.links||[]).length?thumbs(r):'<span class="sub">No evidence</span>'}</div></div>`).join("")}</div>`}).join("")
     :`<p class="sub" style="margin:0">No working days in this month yet.</p>`;
-  hydrateThumbs($("av-list"))}
+  hydrateThumbs($("av-list"));hydrateDesk($("av-list"))}
 $("av-month").addEventListener("change",renderAdmView);
-{const _oe=openEmployee;openEmployee=function(id){_oe(id);applyAdmView(id)}}
+$("av-list").addEventListener("click",async e=>{const b=e.target.closest("[data-seasave]");if(!b||!db)return;const id=b.dataset.seasave,inp=document.querySelector(`[data-seapct="${CSS.escape(id)}"]`);
+  const v=Math.round(Number(inp&&inp.value));if(!(inp&&inp.value!=="")||!(v>=0&&v<=100)){toast("Enter a percentage from 0 to 100.");inp&&inp.focus();return}
+  b.disabled=true;try{await db.collection("reports").doc(id).update({pct:v,met:v>=100,seasonRatedAt:new Date().toISOString()});
+    Object.values(seasonPend).forEach(l=>{const i=l.findIndex(x=>x.id===id);if(i>=0){const r=l.splice(i,1)[0];r.pct=v;r.met=v>=100;(monthData[r.date.slice(0,7)]||=[]).push(r)}});
+    Object.values(monthData).forEach(l=>{const r=l.find(x=>x.id===id);if(r){r.pct=v;r.met=v>=100}});
+    toast(`Season-time report set to ${v}% · ${ZONE[dayZone(v)].label}`);refreshAll()}catch(_){toast("Unable to save. Please try again.")}finally{b.disabled=false}});
+{const _oe=openEmployee;openEmployee=function(id){_oe(id);applyAdmView(id);try{dvRender();wfKey="";wfWatch();updateSummary()}catch(_){}}}
 {const _ra=refreshAll;refreshAll=function(){_ra();if(admViewEmp&&!$("adm-view").hidden)renderAdmView()}}
 /* ---------- month report download (owner and editors) ---------- */
 let downloads=null;
@@ -1966,7 +2123,7 @@ function monthImageCanvas(mk,day){const W=1600,P=48,F='"Inter Tight",Arial,Helve
   if(day){const dr=reps.filter(r=>r.date===day),today=todayISO(),sun=new Date(day+"T00:00").getDay()===0;let ok=0,sum=0;const dc={green:0,yellow:0,red:0};
     const rows=emps.map(e=>{const mine=dr.filter(r=>r.employeeId===e.x.id).sort((a,b)=>(Number(b.pct)||0)-(Number(a.pct)||0));const r=mine[0];
       if(r){const pc=Number(r.pct)||0,z=dayZone(pc);dc[z]++;ok++;sum+=Math.min(pc,100);
-        return [e.x.name,deptName(e.k),optLabel(r.dept,r.option)+(r.shift==="off"?" · Off shift":r.shift==="day"?" · Day shift":""),(r.lines||[]).map(l=>`${l.label}: ${l.done}/${l.target}`).join("\n")||"–",pc+"%",{z}]}
+        return [e.x.name,deptName(e.k),optLabel(r.dept,r.option)+(r.shift==="off"?" · Off shift":r.shift==="day"?" · Day shift":""),(r.season?"Season time: "+(r.seasonWork||"").slice(0,300):(r.lines||[]).map(l=>`${l.label}: ${l.done}/${l.target}`).join("\n"))||"–",pc+"%",{z}]}
       const joined=String(e.x.createdAt||"").slice(0,10),counts=!sun&&day<=today&&!(joined&&day<joined);if(counts)dc.red++;
       return [e.x.name,deptName(e.k),"—",sun?"Sunday (weekly off)":day>today?"Upcoming day":"No report submitted","–",counts?{z:"red",lbl:"Red · No report"}:"—"]});
     dayBox=[["Employees",String(emps.length),null],["Reported",`${ok}/${emps.length}`,null],["Average achievement",ok?Math.round(sum/ok)+"%":"–",null],["Green zone",String(dc.green),"green"],["Yellow zone",String(dc.yellow),"yellow"],["Red zone",String(dc.red),"red"]];
@@ -1975,7 +2132,7 @@ function monthImageCanvas(mk,day){const W=1600,P=48,F='"Inter Tight",Arial,Helve
       rows:emps.map(e=>[e.x.name,deptName(e.k),e.ms.zone?{z:e.ms.zone}:"No record yet",e.ms.avg!=null?e.ms.avg+"%":"–",String(e.ms.count),String(e.ms.g),String(e.ms.y),String(e.ms.r)])},
     {t:"Daily reports",cols:[["Date",150],["Employee",210],["Designation",200],["Task",250],["Work done / target",380],["Achievement",140,1],["Zone",174,0,1]],
       rows:reps.map(r=>{const pc=Number(r.pct)||0;return [fmtD(r.date),r.employee||"",deptName(r.dept),optLabel(r.dept,r.option)+(r.shift==="off"?" · Off shift":r.shift==="day"?" · Day shift":""),
-        (r.lines||[]).map(l=>`${l.label}: ${l.done}/${l.target}`).join("\n")||"–",pc+"%",{z:dayZone(pc)}]})}];
+        (r.season?"Season time: "+(r.seasonWork||"").slice(0,300):(r.lines||[]).map(l=>`${l.label}: ${l.done}/${l.target}`).join("\n"))||"–",pc+"%",{z:dayZone(pc)}]})}];
   const c=document.createElement("canvas"),g=c.getContext("2d");g.font=`16px ${F}`;
   const wrap=(txt,w)=>{const out=[];String(txt).split("\n").forEach(par=>{let line="";par.split(" ").forEach(wd=>{const t=line?line+" "+wd:wd;if(g.measureText(t).width>w-20&&line){out.push(line);line=wd}else line=t});out.push(line)});return out};
   const cl=(v,w)=>v&&typeof v==="object"?[v.lbl||ZONE[v.z].label]:wrap(v,w);
@@ -2005,7 +2162,7 @@ function monthImageCanvas(mk,day){const W=1600,P=48,F='"Inter Tight",Arial,Helve
   c._breaks.push(y+20);y+=70;g.font=`15px ${F}`;g.fillStyle="#000";["Prepared by","Checked by","Authorised signatory"].forEach((t,i)=>{const w=(W-2*P-80)/3,x=P+i*(w+40);g.fillRect(x,y,w,1.5);const tw=g.measureText(t).width;g.fillText(t,x+(w-tw)/2,y+10)});
   return c}
 const curMk=()=>$("dash-month").value||monthKey($("dash-date").value||todayISO());
-async function ensureMonth(mk){if(monthData[mk])return;const s=await db.collection("reports").where("date",">=",mk+"-01").where("date","<=",mk+"-31").get();monthData[mk]=s.docs.map(d=>({id:d.id,...d.data()}))}
+async function ensureMonth(mk){if(monthData[mk])return;const s=await db.collection("reports").where("date",">=",mk+"-01").where("date","<=",mk+"-31").get();const all=s.docs.map(d=>({id:d.id,...d.data()}));monthData[mk]=all.filter(r=>!isSeasonPending(r));seasonPend[mk]=all.filter(isSeasonPending)}
 $("dash-month").value=monthKey(todayISO());
 $("dash-date").addEventListener("change",()=>{const v=$("dash-date").value;if(v)$("dash-month").value=monthKey(v)});
 const curDay=()=>$("dash-date").value||todayISO();
@@ -2030,13 +2187,14 @@ async function submitReport(){
   const emp=employees.find(x=>x.id===st.emp&&x.dept===baseDept()),date=$("date").value;
   if(!emp){err.textContent="Please select your name before submitting.";return}
   if(!date){err.textContent="Please select the report date.";return}
-  const o=curOpt(),v=vals();
-  if(st.dept==="dtf"&&!o.some(x=>x!=="heat")){err.textContent="Select DTF print or water bottle print along with heat press.";return}
-  if((st.dept==="marketing"||(st.dept==="production"&&o==="packing")||st.dept==="prod_packing")&&!(Number(v.hours)>0)){err.textContent="Please enter the hours worked so the target can be calculated.";return}
-  const r=computeLines(st.dept,o,v);
-  if(r.lines.every(l=>!l.done)){err.textContent="Please enter at least one figure for today.";return}
+  const o=curOpt(),v=vals(),season=curShift==="season";
+  if(season){if($("season-work").value.trim().length<10){err.textContent="Please describe the work done during season time (at least a short sentence).";$("season-work").focus();return}}
+  else if(st.dept==="dtf"&&!o.some(x=>x!=="heat")){err.textContent="Select DTF print or water bottle print along with heat press.";return}
+  if(!season&&(st.dept==="marketing"||(st.dept==="production"&&o==="packing")||st.dept==="prod_packing")&&!(Number(v.hours)>0)){err.textContent="Please enter the hours worked so the target can be calculated.";return}
+  const r=season?{lines:[],pct:null,met:false}:withWf(computeLines(st.dept,o,v));
+  if(!season&&r.lines.every(l=>!l.done)){err.textContent="Please enter at least one figure for today.";return}
   if(!db){err.textContent="Reports can't be saved in this view. Please open the page while signed in to Claude.";return}
-  const socF=DEPTS[st.dept].fields(o).find(f=>f.type==="checks");let socLinks={};
+  const socF=season?null:DEPTS[st.dept].fields(o).find(f=>f.type==="checks");let socLinks={};
   if(socF){const ticked=socF.items.filter(([k])=>v[k]);
     for(const [k,l] of ticked){const raw=(plinks()[k]||"").trim();if(!raw)continue;const u=normLink(raw);if(!u){err.textContent=`The ${l} post link is not a valid web link.`;return}socLinks[k]=u}
     const missing=ticked.filter(([k])=>!socLinks[k]);
@@ -2044,18 +2202,23 @@ async function submitReport(){
   if($("lk-in").value.trim()){addLink();if($("lk-err").textContent){err.textContent="Please correct or remove the link in the Work links box.";return}}
   if(!pending.length&&!pendingLinks.length&&!Object.keys(socLinks).length){err.textContent="Evidence is required. Please upload images, files or a folder, or add at least one work link in Evidence, then submit.";evStatus();
     $("drop")?.scrollIntoView({behavior:"smooth",block:"center"});return}
-  const clean={};for(const[k,x]of Object.entries(v))clean[k]=typeof x==="boolean"?x:(Number(x)||0);
-  const doc={date,employee:emp.name,employeeId:emp.id,dept:st.dept==="dtf_shift"?"dtf":st.dept,option:o??"",shift:curShift,values:clean,lines:r.lines,pct:r.pct,met:r.met,notes:$("notes").value.trim().slice(0,500),links:[...new Set([...Object.values(socLinks),...pendingLinks])],socialLinks:socLinks,createdAt:new Date().toISOString(),by:me||""};
+  const dvNeed=!deskDoneFor(emp.id,date);
+  if(dvNeed&&!dv.blob){err.textContent="Please record or upload today's desk-clean video (about 8 seconds) in Daily checks.";$("dv-card").scrollIntoView({behavior:"smooth",block:"center"});return}
+  const clean={};if(!season)for(const[k,x]of Object.entries(v))clean[k]=typeof x==="boolean"?x:(Number(x)||0);
+  const doc={date,employee:emp.name,employeeId:emp.id,dept:st.dept==="dtf_shift"?"dtf":st.dept,option:season?"season":(o??""),shift:curShift,values:clean,lines:r.lines,pct:r.pct,met:r.met,workflowDone:season?wfCount()>0:wfCount()===3,wf:wfCount(),notes:$("notes").value.trim().slice(0,500),links:[...new Set([...Object.values(socLinks),...pendingLinks])],socialLinks:socLinks,createdAt:new Date().toISOString(),by:me||""};
   const btn=$("submit");btn.disabled=true;btn.textContent="Saving…";
   try{const att=pending.length?await uploadAll(i=>{btn.textContent=`Uploading ${i+1} of ${pending.length}…`}):[];
-    doc.attachments=att;btn.textContent="Saving…";
+    doc.attachments=att;
+    if(season){doc.season=true;doc.seasonWork=$("season-work").value.trim().slice(0,1500);const hh=Number($("season-hours").value);if(hh>0)doc.seasonHours=Math.min(hh,24)}
+    if(dv.blob){btn.textContent="Uploading desk video…";doc.deskVideo=await uploadDeskVideo(dv.blob);doc.dv=1}
+    btn.textContent="Saving…";
     await db.collection("reports").add(JSON.parse(JSON.stringify(doc)));
     pending.forEach(p=>p.url&&URL.revokeObjectURL(p.url));pending=[];renderPending();$("up-note").textContent="Photos are compressed automatically before upload.";
     try{localStorage.setItem("pny-emp",emp.id);localStorage.setItem("pny-dept",doc.dept)}catch(_){}
-    st.vals[st.dept]={};plinkStore[st.dept]={};curShift="day";$("notes").value="";pendingLinks=[];$("lk-in").value="";$("lk-err").textContent="";renderPendingLinks();renderTask();toast(`${emp.name}'s report saved — ${r.pct}% of target`);
+    st.vals[st.dept]={};plinkStore[st.dept]={};curShift="day";$("notes").value="";$("season-work").value="";$("season-hours").value="";dvClear();pendingLinks=[];$("lk-in").value="";$("lk-err").textContent="";renderPendingLinks();renderTask();toast(season?`${emp.name}'s season-time report saved — the admin will set the percentage`:`${emp.name}'s report saved — ${r.pct}% of target`);
     const sm=$("summary").querySelector(".gauge");sm.classList.remove("coin");void sm.offsetWidth;sm.classList.add("coin");window.__bgSpin&&window.__bgSpin(2);
-    const z=dayZone(r.pct);$("done-who").textContent=`${emp.name} · ${DEPTS[st.dept].name} · ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}`;
-    $("done-zone").innerHTML=`<span class="zone ${ZONE[z].c}">${r.pct}% · ${ZONE[z].label}</span>`+(doc.attachments.length?`<p style="margin-top:8px">${doc.attachments.length} proof file${doc.attachments.length===1?"":"s"} uploaded</p>`:"")+(doc.links.length?`<p style="margin-top:4px">${doc.links.length} link${doc.links.length===1?"":"s"} saved</p>`:"");
+    const z=season?null:dayZone(r.pct);$("done-who").textContent=`${emp.name} · ${DEPTS[st.dept].name} · ${new Date(date+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}`;
+    $("done-zone").innerHTML=(season?`<span class="zone n">Season time · awaiting admin percentage</span>`:`<span class="zone ${ZONE[z].c}">${r.pct}% · ${ZONE[z].label}</span>`)+(doc.attachments.length?`<p style="margin-top:8px">${doc.attachments.length} proof file${doc.attachments.length===1?"":"s"} uploaded</p>`:"")+(doc.links.length?`<p style="margin-top:4px">${doc.links.length} link${doc.links.length===1?"":"s"} saved</p>`:"");
     $("done-card").hidden=false;
     setTimeout(()=>{$("done-card").hidden=true;if(curScreen==="form"){st.emp=null;go("depts")}},2200);
   }catch(e){if(e&&e.upload){err.textContent=e.code==="too_large"?`${e.name} is too large to upload. Try a smaller photo.`:e.code==="unsupported_type"?`${e.name} isn't a supported file type.`:e.code==="quota_exceeded"||e.code==="quota_or_state"?"Photo storage is full. Ask your manager to download and clear old months.":`Unable to upload ${e.name}. Please check your connection and try again. Your report was not saved yet.`;return}
@@ -2080,7 +2243,7 @@ function subscribe(){const cur=monthKey(todayISO()),dm=monthKey($("dash-date").v
   keepMonths([...new Set([cur,dm])]);refreshAll()}
 function ring(p,met){const c=2*Math.PI*22;return `<div class="ring"><svg viewBox="0 0 54 54"><circle cx="27" cy="27" r="22" fill="none" stroke="var(--bg2)" stroke-width="6"/>
   <circle cx="27" cy="27" r="22" fill="none" stroke="${met?"var(--good)":p>=75?"var(--navy2)":"var(--brass)"}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-p/100)}"/></svg><em>${p===null?"–":p+"%"}</em></div>`}
-function status(r){if(r.missing)return r.date<todayISO()?["short","Red zone · no report"]:["none","Not submitted yet"];
+function status(r){if(isSeasonPending(r))return ["none","Season time · awaiting %"];if(r.missing)return r.date<todayISO()?["short","Red zone · no report"]:["none","Not submitted yet"];
   const z=dayZone(Number(r.pct)||0);return [{green:"met",yellow:"near",red:"short"}[z],ZONE[z].label]}
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 let lastReported=null,missToastDay="";
@@ -2110,7 +2273,7 @@ function renderDash(){
   const activeOn=list=>list.filter(x=>!(String(x.createdAt||"").slice(0,10)>dSel));
   const teamPct=list=>{const a=activeOn(list);if(!a.length||!a.some(x=>bestOf.has(x.id)))return null;return Math.round(a.reduce((t,x)=>t+(bestOf.get(x.id)||0),0)/a.length)};
   {const tp=teamPct(employees);tp==null?($("k-avg").textContent="–"):countTo("k-avg",tp,"%")}
-  const reportedIds=new Set(all.map(r=>r.employeeId).filter(Boolean));
+  const reportedIds=new Set([...all,...(seasonPend[monthKey($("dash-date").value||todayISO())]||[]).filter(r=>r.date===($("dash-date").value||todayISO()))].map(r=>r.employeeId).filter(Boolean));
   countTo("k-teams",employees.filter(x=>reportedIds.has(x.id)).length,"/"+employees.length);
   lastReported=reportedIds;updateMiss();
   $("deptgrid").innerHTML=ORDER.map(k=>{const rs=all.filter(r=>r.dept===k);
@@ -2119,7 +2282,8 @@ function renderDash(){
       <div><b>${esc(deptName(k))}</b><span>${done}/${team.length} reported today</span>
         <div class="zdots" title="Monthly zones"><span class="g">${mstats.filter(o=>o.emp.dept===k&&o.ms.zone==="green").length}</span><span class="y">${mstats.filter(o=>o.emp.dept===k&&o.ms.zone==="yellow").length}</span><span class="r">${mstats.filter(o=>o.emp.dept===k&&o.ms.zone==="red").length}</span></div></div>${ring(p,activeOn(team).length>0&&activeOn(team).every(x=>all.some(r=>r.employeeId===x.id&&r.met)))}</button>`}).join("");
   const missing=d&&d<=todayISO()?employees.filter(x=>!reportedIds.has(x.id)&&!(String(x.createdAt||"").slice(0,10)>d)).map(x=>({missing:true,date:d,employee:x.name,dept:x.dept,id:"m-"+x.id})):[];
-  const list=all.filter(r=>!filter||r.dept===filter).sort((a,b)=>(a.createdAt<b.createdAt?1:-1))
+  const spd=d?(seasonPend[monthKey(d)]||[]).filter(r=>r.date===d):[];
+  const list=all.concat(spd).filter(r=>!filter||r.dept===filter).sort((a,b)=>(a.createdAt<b.createdAt?1:-1))
     .concat(missing.filter(r=>!filter||r.dept===filter).sort((a,b)=>ORDER.indexOf(a.dept)-ORDER.indexOf(b.dept)));
   $("empty").hidden=list.length>0;
   if(!db&&!list.length)$("empty").innerHTML="<b>Reports can't load in this view</b>Open the page while signed in to Claude to see the team's reports.";
@@ -2139,8 +2303,9 @@ function renderDash(){
       <td class="sub">—</td><td class="sub">Target: ${DEPTS[r.dept]?.blurb??""}</td><td><span class="mono sub">0%</span></td><td><span class="pill none">${t}</span></td><td></td><td></td><td></td></tr>`;const tm=r.createdAt?new Date(r.createdAt).toLocaleTimeString("en-IN",{hour:"numeric",minute:"2-digit"}):"";
     return `<tr><td><div class="who">${esc(r.employee)}</div><div class="sub">${esc(deptName(r.dept))} · ${tm}</div></td>
       <td>${esc(optLabel(r.dept,r.option))}${r.shift==="off"?'<div class="sub">Off shift</div>':r.shift==="day"?'<div class="sub">Day shift</div>':""}</td>
-      <td><div class="lines">${(r.lines||[]).map(l=>`<div>${esc(l.label)}: <span class="mono">${fmt(+l.done||0)} / ${fmt(+l.target||0)}</span>${l.note?`<div class="sub">${esc(l.note)}</div>`:""}</div>`).join("")}</div></td>
-      <td><div style="display:flex;gap:10px;align-items:center"><div class="bar ${(r.met||(+r.pct||0)>=100)?"met":""}" style="flex:1"><i style="width:${Math.min(r.pct||0,100)}%"></i></div><span class="mono">${r.pct||0}%</span></div></td>
+      <td><div class="lines">${r.season?`<div style="max-width:320px;white-space:pre-wrap">${esc(r.seasonWork||"")}${r.seasonHours?`<div class="sub">${r.seasonHours} hours</div>`:""}</div>`:""}${(r.lines||[]).map(l=>`<div>${esc(l.label)}: <span class="mono">${fmt(+l.done||0)} / ${fmt(+l.target||0)}</span>${l.note?`<div class="sub">${esc(l.note)}</div>`:""}</div>`).join("")}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:6px">${wfTag(r)}${r.deskVideo?'<span class="dv-tag ok">Desk video ✓</span>':""}</div></td>
+      <td><div style="display:flex;gap:10px;align-items:center"><div class="bar ${(r.met||(+r.pct||0)>=100)?"met":""}" style="flex:1"><i style="width:${Math.min(r.pct||0,100)}%"></i></div><span class="mono">${isSeasonPending(r)?"–":(r.pct||0)+"%"}</span></div></td>
       <td><span class="pill ${c}">${t}</span></td>
       <td style="min-width:190px">${thumbs(r)}</td>
       <td style="max-width:220px"><span class="sub" style="color:var(--ink)">${esc(r.notes)||'<span class="sub">—</span>'}</span></td>
