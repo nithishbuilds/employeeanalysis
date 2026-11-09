@@ -138,6 +138,15 @@ A **Messages** box on the admin Dashboard fills in by itself, with no setup and 
 - **Workflow box missed:** after 11:30 AM, 3:00 PM and 6:30 PM, a message lists the Technical, Production, DTF and 360 Rotary employees who did not tick that box.
 - Newest messages are at the top. Messages disappear on their own when the employee submits (for a report). Only the admin sees them.
 
+## CHAT (team group chat)
+- A **Chat** tab (top menu on laptop, bottom bar on phone) opens **CHAT**, one group for all employees and the admin, like a WhatsApp group.
+- **Employees:** open Submit report, choose your name and sign in once; after that you can chat from that phone. Your name, team and photo show on your messages. **Sign out** on your page stops chatting from that phone.
+- **Admin:** the admin login can read and reply straight away; admin messages show as "Admin".
+- Messages appear instantly on every phone and laptop. Links in messages can be tapped. Shift+Enter makes a new line on a laptop; Enter sends.
+- A red number on the Chat tab shows new messages since you last opened Chat.
+- Delete: anyone can delete their own message; the admin can delete any message (tap Delete twice).
+- The last 200 messages are shown.
+
 ## Performance zones
 The same rule applies to daily and monthly zones.
 
