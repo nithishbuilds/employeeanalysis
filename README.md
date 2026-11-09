@@ -15,11 +15,20 @@ All employees, logins, reports and expenses are stored in Firebase. Updating `in
 - `vercel.json`: Vercel settings (always loads the newest version after an update)
 - `firestore.rules`: copy of the Firebase security rules
 - `README.md`: this guide
+- `manifest.webmanifest`, `sw.js`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`: make the website installable as a phone/computer app
 
 ## Deploy / update
 1. Open the GitHub repository > **Add file > Upload files**, choose the new `index.html`, then **Commit changes**.
 2. Vercel redeploys automatically in about a minute.
 3. Open the site and press **Ctrl + Shift + R** (on a phone, close the tab and open the site again).
+
+## Install as an app (free)
+The website works as an app with the Pentacle logo icon, full screen and no browser bar. All files above must be uploaded to GitHub.
+- **Android (Chrome):** open https://pentacleworkforce.vercel.app, tap **Install** on the bar at the bottom (or Chrome menu ⋮ > **Install app** / **Add to Home screen**).
+- **iPhone / iPad (Safari):** open the site, tap **Share** > **Add to Home Screen** > Add.
+- **Laptop (Chrome or Edge):** click the install icon at the right end of the address bar, or menu > **Install Pentacle Workforce**.
+- The app always loads the newest version when online; data stays in Firebase. Sign in once inside the app.
+- Google Play Store / Apple App Store listing is not needed. (Play Store needs a one-time USD 25 developer fee; App Store needs USD 99 per year.)
 
 ## One-time Firebase settings (already done)
 - Authentication > Sign-in method: **Email/Password** enabled
@@ -93,6 +102,23 @@ Off shift target is half of the day shift target.
 - The **Dashboard** tab shows a red number badge with how many reports are missing, and a pop-up message appears once when the alert starts.
 - The page checks every minute, so the alert appears at 6:30 PM even if the Dashboard is already open. It disappears as each employee submits.
 - Pick a past date to see who missed that day. Sundays are skipped. Only the admin login sees this alert.
+
+## Daily checks (required for every employee)
+- **Desk-clean video:** once a day, each employee records or uploads a short video of their clean desk (about 8 seconds) under **Daily checks**. On a phone, the button opens the camera. Videos longer than 30 seconds are refused; only the first 10 seconds are kept. The video is compressed automatically to a small size (about 100–300 KB).
+  - The report cannot be submitted without it. A second report on the same day does not need another video.
+  - To save free Firebase space, desk videos older than 60 days are removed automatically when the admin signs in. The report keeps "Desk video ✓".
+- **Workflow updates (3 times a day):** under Daily checks there are three boxes: **11:30 AM**, **3:00 PM** and **6:30 PM** (India time). After updating the Workflow website, the employee signs in and ticks the box.
+  - 11:30 AM box: open until 11:30 AM. 3:00 PM box: opens 11:30 AM, closes 3:00 PM. 6:30 PM box: opens 3:00 PM, closes 6:30 PM.
+  - Each box **closes** at its time (11:31 is refused). The time is checked with Firebase's clock, so changing the phone's clock does not help.
+  - A tick is saved immediately (it does not wait for Submit). Ticks cannot be removed.
+  - **Counts in the zone:** "Workflow updates done / 3" is one of the day's target lines, averaged with the task targets. Example (Designers): 500/500 designs, 70/70 mockups, 2/3 workflow = 89% (Green); 1/3 workflow = 78% (Yellow). If a box is ticked after the report was submitted, the report's percentage updates automatically.
+  - Season-time reports show the workflow count but the admin still sets the percentage.
+- Admin sees "Workflow 2/3" (or "Workflow 3/3 ✓") and "Desk video ✓" (with the video) in the team table and in each employee's view-only page.
+
+## Season time
+- A third option next to Day shift / Off shift. There is no task type and no target: the employee writes the work done (required), optional hours, adds evidence, the desk video and the Workflow tick, then submits.
+- Until the admin sets a percentage, the day shows "Season time · awaiting %" and is **not** counted as red or in any average.
+- **Admin sets the percentage:** Submit report > choose the team > click the employee > on that day enter 0–100 > **Save %**. The day then gets its zone (Green 86–100, Yellow 21–85, Red 20 or below) and counts in all averages and downloads.
 
 ## Performance zones
 The same rule applies to daily and monthly zones.
