@@ -30,6 +30,14 @@ The website works as an app with the Pentacle logo icon, full screen and no brow
 - The app always loads the newest version when online; data stays in Firebase. Sign in once inside the app.
 - Google Play Store / Apple App Store listing is not needed. (Play Store needs a one-time USD 25 developer fee; App Store needs USD 99 per year.)
 
+## Look and layout
+- **Theme:** deep teal and mint, with a moving 3D teal silk banner on the home page. Fonts: Bricolage Grotesque (headings, names, big numbers) and Instrument Sans (text, menus, forms). Zone colours stay green, yellow and red.
+- **One link, two layouts.** The site switches automatically by screen size:
+  - **Laptop / desktop:** menu at the top, full tables and side-by-side panels.
+  - **Phone:** slim header with the logo, a **menu bar at the bottom** (Submit report, Expenses, Dashboard, Team, with the red message count on Dashboard), and tables shown as **cards** with labelled lines (team daily reports, monthly records, Expenses tables).
+  - Tablets show the laptop view when wide and the phone view when narrow.
+- The same logins and data work on both. A report submitted on a phone appears on the laptop at once.
+
 ## One-time Firebase settings (already done)
 - Authentication > Sign-in method: **Email/Password** enabled
 - Authentication > Users: both accounts added
