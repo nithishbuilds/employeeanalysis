@@ -107,11 +107,11 @@ Off shift target is half of the day shift target.
 - **Desk-clean video:** once a day, each employee records or uploads a short video of their clean desk (about 8 seconds) under **Daily checks**. On a phone, the button opens the camera. Videos longer than 30 seconds are refused; only the first 10 seconds are kept. The video is compressed automatically to a small size (about 100–300 KB).
   - The report cannot be submitted without it. A second report on the same day does not need another video.
   - To save free Firebase space, desk videos older than 60 days are removed automatically when the admin signs in. The report keeps "Desk video ✓".
-- **Workflow updates (3 times a day):** under Daily checks there are three boxes: **11:30 AM**, **3:00 PM** and **6:30 PM** (India time). After updating the Workflow website, the employee signs in and ticks the box.
+- **Workflow updates (3 times a day) — only for Technical, Production (all sections), DTF and 360 Rotary.** Designers, Stitching and Marketing do not see these boxes, and their percentage does not include workflow. Under Daily checks there are three boxes: **11:30 AM**, **3:00 PM** and **6:30 PM** (India time). After updating the Workflow website, the employee signs in and ticks the box.
   - 11:30 AM box: open until 11:30 AM. 3:00 PM box: opens 11:30 AM, closes 3:00 PM. 6:30 PM box: opens 3:00 PM, closes 6:30 PM.
   - Each box **closes** at its time (11:31 is refused). The time is checked with Firebase's clock, so changing the phone's clock does not help.
-  - A tick is saved immediately (it does not wait for Submit). Ticks cannot be removed.
-  - **Counts in the zone:** "Workflow updates done / 3" is one of the day's target lines, averaged with the task targets. Example (Designers): 500/500 designs, 70/70 mockups, 2/3 workflow = 89% (Green); 1/3 workflow = 78% (Yellow). If a box is ticked after the report was submitted, the report's percentage updates automatically.
+  - A tick is saved immediately (it does not wait for Submit). If ticked by mistake (work not finished), the employee can **untick** it while that box is still open; once the time passes, the box is locked and cannot be changed.
+  - **Counts in the zone:** "Workflow updates done / 3" is one of the day's target lines, averaged with the task targets. Example (Technical): listings, videos and digital marketing all complete plus 2/3 workflow = 92% (Green); with 0/3 workflow = 75% (Yellow). If a box is ticked after the report was submitted, the report's percentage updates automatically.
   - Season-time reports show the workflow count but the admin still sets the percentage.
 - Admin sees "Workflow 2/3" (or "Workflow 3/3 ✓") and "Desk video ✓" (with the video) in the team table and in each employee's view-only page.
 
@@ -119,6 +119,12 @@ Off shift target is half of the day shift target.
 - A third option next to Day shift / Off shift. There is no task type and no target: the employee writes the work done (required), optional hours, adds evidence, the desk video and the Workflow tick, then submits.
 - Until the admin sets a percentage, the day shows "Season time · awaiting %" and is **not** counted as red or in any average.
 - **Admin sets the percentage:** Submit report > choose the team > click the employee > on that day enter 0–100 > **Save %**. The day then gets its zone (Green 86–100, Yellow 21–85, Red 20 or below) and counts in all averages and downloads.
+
+## Messages (automatic alerts on the admin Dashboard)
+A **Messages** box on the admin Dashboard fills in by itself, with no setup and no email:
+- **Report not submitted:** every day at 6:30 PM (except Sunday), a message lists the employees who did not submit a report. Messages for the last 7 days stay visible.
+- **Workflow box missed:** after 11:30 AM, 3:00 PM and 6:30 PM, a message lists the Technical, Production, DTF and 360 Rotary employees who did not tick that box.
+- Newest messages are at the top. Messages disappear on their own when the employee submits (for a report). Only the admin sees them.
 
 ## Performance zones
 The same rule applies to daily and monthly zones.
