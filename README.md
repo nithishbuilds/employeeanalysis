@@ -144,7 +144,13 @@ A **Messages** box on the admin Dashboard fills in by itself, with no setup and 
 - **Admin:** the admin login can read and reply straight away; admin messages show as "Admin".
 - Messages appear instantly on every phone and laptop. Links in messages can be tapped. Shift+Enter makes a new line on a laptop; Enter sends.
 - A red number on the Chat tab shows new messages since you last opened Chat.
-- Delete: anyone can delete their own message; the admin can delete any message (tap Delete twice).
+- **Delete:** each person can delete **only their own** messages (tap Delete twice). Nobody else, including the admin, can delete someone else's message.
+- **Notifications:**
+  - While the website or app is open on any page, a new message shows a pop-up at the top with the sender's name and the message; tap it to open CHAT. The Chat tab also shows a red count.
+  - Tap **Turn on notifications** in CHAT (once per device) to also get a phone/computer notification when the site is open in the background. Tapping it opens CHAT.
+  - Free limitation: when the website/app is fully closed, no notification can be sent (that needs a paid Firebase plan). On iPhone, notifications work only in the installed app (Add to Home Screen), iOS 16.4 or newer.
+- **Voice messages:** when the message box is empty, the round button is a **microphone**. Tap it, allow the microphone the first time, speak, then tap **send** (or the bin icon to cancel). Up to 2 minutes per voice message. Others tap the play button to listen; a Download link appears if a phone cannot play a recording.
+- Deleting a voice message also removes its recording.
 - The last 200 messages are shown.
 
 ## Performance zones
