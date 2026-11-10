@@ -84,6 +84,8 @@ Usernames are permanent.
 | Rishi | RishiPNY | Rishi@9676 |
 | Monisha | MonishaPNY | Monisha@1110 |
 | Namrutha | NamruthaPNY | Namrutha@2021 |
+| Harish | HarishPNY | Harish@2026 |
+| Mithun | MithunPNY | Mithun@2026 |
 
 ## Employee photos
 Profile photos are built into `index.html` and replace the initials on the name selection screen, the employee's profile, the Dashboard and the Team page.
@@ -95,9 +97,14 @@ Off shift target is half of the day shift target.
 
 | Department | Day shift | Off shift |
 |---|---|---|
-| Designers | 500 designs and 70 mockups | 250 designs and 35 mockups |
+| Designers · Designs and mockups | 500 designs and 70 mockups | 250 designs and 35 mockups |
+| Designers · Manual design (when manual design is available) | 35 manual designs | 18 manual designs |
+| Designers · Manual mockup (no design work, manual mockups available) | 30 manual mockups | 15 manual mockups |
 | Technical (no customer messages) | 90 listings, 10 videos, digital marketing | 45 listings, 5 videos, digital marketing |
 | Technical (customer messages available) | 60 listings, 10 videos, digital marketing | 30 listings, 5 videos, digital marketing |
+
+## Production is one team
+Production no longer shows separate Metal Cutting / Powder Coating / UV Print / Packing cards. Clicking **Production** (in Submit report) opens one list of all production employees, and the Dashboard shows one **Production** team card with all of them, because the same people do all these works. Each person's report still uses their own task list.
 
 ## Personal daily task lists
 Some employees have their own task checklist under **My daily tasks** in the report form. Each task has a tick box and a **Count** box (how many done, e.g. 25 listings, 12 CSV updates). Typing a count ticks the task automatically. They tick each task when it is done; the ticked count is a target line ("Daily tasks 5 / 8") in the percentage and zone. The admin sees ✓ done (with the count, e.g. "✓ Listing — 25") and ✗ not done for every report.
@@ -113,6 +120,20 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - **Saravanan:** UV printing; Metal packing; Machine problem solving (when needed, not counted if not needed); Shipment number update; Metal file checking; New products; Local orders; UK, US and Canada number update; Box and order photos.
 - **Rishi:** 360 rotary water bottle printing; Listing; All production work.
 - **Monisha:** Shop CSV updated, CSV sent, tracking ID; Shop listing and follow-ups; Franchise contacts, link sharing, details and follow-ups; Stitching department QC and counting; New local orders taken from calls; Bags packing. Plus a "Messages sent (customers and franchise)" number box (recorded, not counted in the percentage).
+- **Harish and Mithun (flexible work):** they do different work on different days, so they first **tick the works they did today**, then enter how many they completed for each. Each work's full-day target is **shared** between the works ticked and then **halved** to make it achievable (off shift: half again).
+
+  | Work | Full-day target |
+  |---|---|
+  | Metal cutting | 80 pieces |
+  | Powder coating | 170 pieces |
+  | UV printing | 150 pieces |
+  | Packing | 240 small-piece units (1 big piece = 2 small; enter small and big separately) |
+  | Listing (technical) | 90 listings |
+  | Listing split to the technical team (Mithun) | 90 listings split |
+
+  Example: powder coating + UV printing in one day → targets 43 (170 ÷ 2 ÷ 2) and 38 (150 ÷ 2 ÷ 2). One work only, e.g. Listing → target 45 (90 ÷ 2). The day's percentage is the average of the works ticked plus the Workflow boxes.
+  - Harish's choices: Metal cutting, Powder coating, UV printing, Packing, Listing (technical).
+  - Mithun's choices: **Listing done by me** (listings he makes himself), **Listing split to the technical team** (listings he gives out to the technical team), Metal cutting, Powder coating, UV printing, Packing. He ticks one or both listing parts and enters a separate count for each.
 - Rishi's move to Technical happens automatically the first time the admin signs in with the new version.
 - The task list is matched by the employee's first name, so keep these names as they are in Team.
 
