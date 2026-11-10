@@ -89,7 +89,7 @@ Usernames are permanent.
 
 ## Employee photos
 Profile photos are built into `index.html` and replace the initials on the name selection screen, the employee's profile, the Dashboard and the Team page.
-- Added: **Jem** (Designers), **Charu** (Technical), **Vihas** (Production)
+- Added: **Abinisha** (Designers), **Jem** (Designers), **Charu** (Technical), **Vihas** (Production)
 - Other employees show their initials until a photo is added. To add more, send the photo with the employee's name and upload the new `index.html`.
 
 ## Daily targets (changed)
@@ -130,7 +130,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 | Employee | Team | Report shows |
 |---|---|---|
 | Namrutha (NamruthaPNY) | Technical | Only her task list, **hour-based** (no listing/video targets) + Workflow boxes |
-| Saravanan | Production · Metal cutting | Only his task list (with **Cutting file** time) + Workflow boxes |
+| Saravanan | Production · Metal cutting | His works, hour-based (tick type) + Workflow boxes |
 | Vihas | **Moved to Production** (no listing) | His works, hour-based + Workflow boxes |
 | Santhiya | DTF | Her works (DTF print, listing, billing, packing) + Workflow boxes |
 | Rishi | **Moved to Technical** | His works, hour-based (tick type) + Workflow boxes |
@@ -138,7 +138,12 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 | Monisha | Marketing | Calls (with From – To time) and digital marketing + her task list + a "Messages sent" box + Workflow boxes |
 
 - **Namrutha (hour-based):** every task has a Working time box (From – To) and a Count box. Entering a time ticks the task. Her percentage = hours logged on tasks ÷ 8 hours (off shift: ÷ 4). Example: 6 hours logged → 75% for the tasks line (then averaged with the Workflow boxes). Tasks: CSV forward and CSV update in Excel; Metal file; Source create; Shop dummy, USPS, direct and UK tracking ID update; Listing; Product research; Bag file check; Shop handling.
-- **Saravanan:** **Cutting file** (enter the time worked From – To, and the count); UV printing; Metal packing; Machine problem solving (when needed, not counted if not needed); Shipment number update; Metal file checking; New products; Local orders; UK, US and Canada number update; Box and order photos.
+- **Saravanan (tick type, like Mithun):** he ticks the works he did today and enters the From – To time for each.
+  - **UV printing** and **Packing** — same as Mithun: small and big pieces, per-hour targets (UV 30 small or 6 big; packing 40 small or 30 big).
+  - **Cutting file**, **Metal file checking**, **Local orders** — time plus count (for example "Local orders — 6 orders · 2:00 – 3:00 PM"). Together they form one line, "Other works", which is complete when the time is entered.
+  - **Machine problem solving (when needed)** — time plus a required **note** describing the problem and how it was solved; the admin sees the note in the report. Not counted in the percentage.
+  - Removed (now done in the office Workflow website, covered by his 11:30 AM, 3:00 PM and 6:30 PM Workflow boxes): Shipment number update; UK, US and Canada number update; New products; Box and order photos.
+  - **His percentage** = average of UV printing, Packing, Other works and Workflow updates (done / 3) — only the works he ticked are included. Example: UV 60/60, packing 40/40, other works 1/1, workflow 3/3 = 100%; with workflow 0/3 = 75%.
 - **Rishi:** 360 rotary water bottle printing; Listing; All production work.
 - **Monisha:** every task has a Working time box (From – To) and a Count box: Shop CSV updated, CSV sent, tracking ID; Shop listing and follow-ups; Franchise contacts, link sharing, details and follow-ups; Stitching department QC and counting; New local orders taken from calls; Bags packing. Her calls also use From – To time (30 calls per hour).
   - **Messages sent (customers and franchise) — when needed:** tick the box, enter the time and how many messages were sent. Target **100 messages per hour**; when ticked it is a target line in her percentage (example: 2:00–3:00 PM, 80 sent = 80 / 100). When not ticked it is not counted.
