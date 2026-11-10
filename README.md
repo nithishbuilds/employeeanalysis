@@ -89,7 +89,7 @@ Usernames are permanent.
 
 ## Employee photos
 Profile photos are built into `index.html` and replace the initials on the name selection screen, the employee's profile, the Dashboard and the Team page.
-- Added: **Jem** (Designers), **Charu** (Technical), **Vihas** (DTF)
+- Added: **Jem** (Designers), **Charu** (Technical), **Vihas** (Production)
 - Other employees show their initials until a photo is added. To add more, send the photo with the employee's name and upload the new `index.html`.
 
 ## Daily targets (changed)
@@ -100,8 +100,25 @@ Off shift target is half of the day shift target.
 | Designers · Designs and mockups | 500 designs and 70 mockups | 250 designs and 35 mockups |
 | Designers · Manual design (when manual design is available) | 35 manual designs | 18 manual designs |
 | Designers · Manual mockup (no design work, manual mockups available) | 30 manual mockups | 15 manual mockups |
-| Technical (no customer messages) | 90 listings, 10 videos, digital marketing | 45 listings, 5 videos, digital marketing |
-| Technical (customer messages available) | 60 listings, 10 videos, digital marketing | 30 listings, 5 videos, digital marketing |
+| Technical | **30 listings per hour** of listing time, 10 videos, digital marketing | 30 listings per hour, 5 videos, digital marketing |
+
+## Hour-based work (From – To time)
+Hour-based work has a **Working time** box: the employee enters **From** and **To** (for example 10:00 AM to 1:00 PM). **+ Add another time** adds a second session (for example after lunch); **×** removes one. The total hours are shown, and the target is calculated from those hours, so it is the same on day and off shift.
+
+| Work | Per hour |
+|---|---|
+| Metal cutting | 25 small **or** 4 big pieces |
+| Powder coating | 25 small **or** 4 big pieces |
+| UV printing | 30 small **or** 6 big pieces |
+| Packing | 40 small **or** 30 big pieces |
+| Listing (Technical team, Harish, Mithun) | 30 listings |
+| Calls (Marketing) | 30 calls |
+| DTF heat press (Vihas) | 50 per 8-hour day (about 6 per hour) |
+
+- **Small and big pieces:** the employee enters small and big separately. Big pieces are converted to small at the rate of that work (cutting/powder coating: 1 big = 6.25 small; UV: 1 big = 5 small; packing: 1 big = 1.3 small). Example: powder coating 9:00 AM – 5:00 PM (8 h) → target 200; 150 small + 8 big = 200 → 100%.
+- **Rules checked before submitting:** both From and To must be filled, To must be later than From, and **times may not overlap** (the same hour cannot be entered twice, even across different works).
+- The admin sees the times in every report, for example "Product listings 90 / 90 · 10:00 AM – 1:00 PM · 3 h".
+- Reports submitted before this update keep the percentage they had.
 
 ## Production is one team
 Production no longer shows separate Metal Cutting / Powder Coating / UV Print / Packing cards. Clicking **Production** (in Submit report) opens one list of all production employees, and the Dashboard shows one **Production** team card with all of them, because the same people do all these works. Each person's report still uses their own task list.
@@ -111,30 +128,24 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 
 | Employee | Team | Report shows |
 |---|---|---|
-| Namrutha (NamruthaPNY) | Technical | Only her task list (no listing/video targets) + Workflow boxes |
-| Saravanan | Production · Metal cutting | Only his task list + Workflow boxes |
+| Namrutha (NamruthaPNY) | Technical | Only her task list, **hour-based** (no listing/video targets) + Workflow boxes |
+| Saravanan | Production · Metal cutting | Only his task list (with **Cutting file** time) + Workflow boxes |
+| Vihas | **Moved to Production** (no listing) | His works, hour-based + Workflow boxes |
+| Santhiya | DTF | Her works (DTF print, listing, billing, packing) + Workflow boxes |
 | Rishi | **Moved to Technical** | Only his task list + Workflow boxes |
-| Monisha | Marketing | Calls and digital marketing as before + her task list + a "Messages sent" box + Workflow boxes |
+| Monisha | Marketing | Calls (with From – To time) and digital marketing + her task list + a "Messages sent" box + Workflow boxes |
 
-- **Namrutha:** CSV forward and CSV update in Excel; Metal file; Source create; Shop dummy, USPS, direct and UK tracking ID update; Listing; Product research; Bag file check; Shop handling.
-- **Saravanan:** UV printing; Metal packing; Machine problem solving (when needed, not counted if not needed); Shipment number update; Metal file checking; New products; Local orders; UK, US and Canada number update; Box and order photos.
+- **Namrutha (hour-based):** every task has a Working time box (From – To) and a Count box. Entering a time ticks the task. Her percentage = hours logged on tasks ÷ 8 hours (off shift: ÷ 4). Example: 6 hours logged → 75% for the tasks line (then averaged with the Workflow boxes). Tasks: CSV forward and CSV update in Excel; Metal file; Source create; Shop dummy, USPS, direct and UK tracking ID update; Listing; Product research; Bag file check; Shop handling.
+- **Saravanan:** **Cutting file** (enter the time worked From – To, and the count); UV printing; Metal packing; Machine problem solving (when needed, not counted if not needed); Shipment number update; Metal file checking; New products; Local orders; UK, US and Canada number update; Box and order photos.
 - **Rishi:** 360 rotary water bottle printing; Listing; All production work.
 - **Monisha:** Shop CSV updated, CSV sent, tracking ID; Shop listing and follow-ups; Franchise contacts, link sharing, details and follow-ups; Stitching department QC and counting; New local orders taken from calls; Bags packing. Plus a "Messages sent (customers and franchise)" number box (recorded, not counted in the percentage).
-- **Harish and Mithun (flexible work):** they do different work on different days, so they first **tick the works they did today**, then enter how many they completed for each. Each work's full-day target is **shared** between the works ticked and then **halved** to make it achievable (off shift: half again).
-
-  | Work | Full-day target |
-  |---|---|
-  | Metal cutting | 80 pieces |
-  | Powder coating | 170 pieces |
-  | UV printing | 150 pieces |
-  | Packing | 240 small-piece units (1 big piece = 2 small; enter small and big separately) |
-  | Listing (technical) | 90 listings |
-  | Listing split to the technical team (Mithun) | 90 listings split |
-
-  Example: powder coating + UV printing in one day → targets 43 (170 ÷ 2 ÷ 2) and 38 (150 ÷ 2 ÷ 2). One work only, e.g. Listing → target 45 (90 ÷ 2). The day's percentage is the average of the works ticked plus the Workflow boxes.
-  - Harish's choices: Metal cutting, Powder coating, UV printing, Packing, Listing (technical).
-  - Mithun's choices: **Listing done by me** (listings he makes himself), **Listing split to the technical team** (listings he gives out to the technical team), Metal cutting, Powder coating, UV printing, Packing. He ticks one or both listing parts and enters a separate count for each.
-- Rishi's move to Technical happens automatically the first time the admin signs in with the new version.
+- **Flexible workers — Harish, Mithun, Vihas and Santhiya:** they do different works on different days. They **tick the works they did today**; each ticked work opens a **Working time** box (From – To) and the count boxes. The target follows the hours entered (rates in *Hour-based work* above). The day's percentage is the average of the works ticked plus the Workflow boxes.
+  - **Harish:** Metal cutting, Powder coating, UV printing, Packing, Listing (30 per hour).
+  - **Mithun:** **Listing done by me** and **Listing split to the technical team** (each 30 per hour, entered separately), Metal cutting, Powder coating, UV printing, Packing.
+  - **Vihas:** DTF heat press, Metal cutting, Powder coating, UV printing, Packing. No listing.
+  - **Santhiya:** **DTF print** — 70 metres per day when it is her only work, **35 metres** when she also does other works (off shift: half); **Listing** — 15 per day; **Billing (when needed)** — time and count are recorded, not counted in the percentage; **Packing** — 40 small or 30 big per hour.
+  - Example (Vihas): heat press 9:00 AM – 1:00 PM (4 h → target 25), 20 done = 80%; packing 2:00 – 4:00 PM (2 h → target 80), 50 small + 20 big = 76.7 = 96%.
+- Rishi's and Vihas's team moves happen automatically the first time the admin signs in with the new version.
 - The task list is matched by the employee's first name, so keep these names as they are in Team.
 
 ## Evidence (required for every report)
@@ -152,9 +163,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - Pick a past date to see who missed that day. Sundays are skipped. Only the admin login sees this alert.
 
 ## Daily checks (required for every employee)
-- **Desk-clean video:** once a day, each employee records or uploads a short video of their clean desk (about 8 seconds) under **Daily checks**. On a phone, the button opens the camera. Videos longer than 30 seconds are refused; only the first 10 seconds are kept. The video is compressed automatically to a small size (about 100–300 KB).
-  - The report cannot be submitted without it. A second report on the same day does not need another video.
-  - To save free Firebase space, desk videos older than 60 days are removed automatically when the admin signs in. The report keeps "Desk video ✓".
+- **Desk-clean video:** the video is uploaded in the office Workflow website, not here. Under **Daily checks** the employee ticks **"Desk-clean video uploaded — I have uploaded today's desk-clean video in the office Workflow website"**. The report cannot be submitted without this tick (once a day; a second report the same day is already ticked). The admin sees "Desk video uploaded in Workflow ✓". Older reports that had a video uploaded here still show it.
 - **Workflow updates (3 times a day) — for Technical, Production (all sections), DTF, 360 Rotary and Marketing.** Designers and Stitching do not see these boxes, and their percentage does not include workflow. Under Daily checks there are three boxes: **11:30 AM**, **3:00 PM** and **6:30 PM** (India time). After updating the Workflow website, the employee signs in and ticks the box.
   - 11:30 AM box: open until 11:30 AM. 3:00 PM box: opens 11:30 AM, closes 3:00 PM. 6:30 PM box: opens 3:00 PM, closes 6:30 PM.
   - Each box **closes** at its time (11:31 is refused). The time is checked with Firebase's clock, so changing the phone's clock does not help.
