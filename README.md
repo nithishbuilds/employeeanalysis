@@ -99,7 +99,7 @@ Off shift target is half of the day shift target.
 | Technical (customer messages available) | 60 listings, 10 videos, digital marketing | 30 listings, 5 videos, digital marketing |
 
 ## Personal daily task lists
-Some employees have their own task checklist under **My daily tasks** in the report form. They tick each task when it is done; the ticked count is a target line ("Daily tasks 5 / 8") in the percentage and zone. The admin sees ✓ done and ✗ not done for every report.
+Some employees have their own task checklist under **My daily tasks** in the report form. Each task has a tick box and a **Count** box (how many done, e.g. 25 listings, 12 CSV updates). Typing a count ticks the task automatically. They tick each task when it is done; the ticked count is a target line ("Daily tasks 5 / 8") in the percentage and zone. The admin sees ✓ done (with the count, e.g. "✓ Listing — 25") and ✗ not done for every report.
 
 | Employee | Team | Report shows |
 |---|---|---|
