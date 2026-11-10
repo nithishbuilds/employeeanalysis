@@ -82,6 +82,7 @@ Usernames are permanent.
 | Saravanan | SaravananPNY | Saravanan@4855 |
 | Rishi | RishiPNY | Rishi@9676 |
 | Monisha | MonishaPNY | Monisha@1110 |
+| Namrutha | NamruthaPNY | Namrutha@2021 |
 
 ## Employee photos
 Profile photos are built into `index.html` and replace the initials on the name selection screen, the employee's profile, the Dashboard and the Team page.
@@ -96,6 +97,23 @@ Off shift target is half of the day shift target.
 | Designers | 500 designs and 70 mockups | 250 designs and 35 mockups |
 | Technical (no customer messages) | 90 listings, 10 videos, digital marketing | 45 listings, 5 videos, digital marketing |
 | Technical (customer messages available) | 60 listings, 10 videos, digital marketing | 30 listings, 5 videos, digital marketing |
+
+## Personal daily task lists
+Some employees have their own task checklist under **My daily tasks** in the report form. They tick each task when it is done; the ticked count is a target line ("Daily tasks 5 / 8") in the percentage and zone. The admin sees ✓ done and ✗ not done for every report.
+
+| Employee | Team | Report shows |
+|---|---|---|
+| Namrutha (NamruthaPNY) | Technical | Only her task list (no listing/video targets) + Workflow boxes |
+| Saravanan | Production · Metal cutting | Only his task list + Workflow boxes |
+| Rishi | **Moved to Technical** | Only his task list + Workflow boxes |
+| Monisha | Marketing | Calls and digital marketing as before + her task list + a "Messages sent" box + Workflow boxes |
+
+- **Namrutha:** CSV forward and CSV update in Excel; Metal file; Source create; Shop dummy, USPS, direct and UK tracking ID update; Listing; Product research; Bag file check; Shop handling.
+- **Saravanan:** UV printing; Metal packing; Machine problem solving (when needed, not counted if not needed); Shipment number update; Metal file checking; New products; Local orders; UK, US and Canada number update; Box and order photos.
+- **Rishi:** 360 rotary water bottle printing; Listing; All production work.
+- **Monisha:** Shop CSV updated, CSV sent, tracking ID; Shop listing and follow-ups; Franchise contacts, link sharing, details and follow-ups; Stitching department QC and counting; New local orders taken from calls; Bags packing. Plus a "Messages sent (customers and franchise)" number box (recorded, not counted in the percentage).
+- Rishi's move to Technical happens automatically the first time the admin signs in with the new version.
+- The task list is matched by the employee's first name, so keep these names as they are in Team.
 
 ## Evidence (required for every report)
 - Every employee must add evidence before **Submit report** works: images or files, a folder, or one or more work links.
@@ -115,7 +133,7 @@ Off shift target is half of the day shift target.
 - **Desk-clean video:** once a day, each employee records or uploads a short video of their clean desk (about 8 seconds) under **Daily checks**. On a phone, the button opens the camera. Videos longer than 30 seconds are refused; only the first 10 seconds are kept. The video is compressed automatically to a small size (about 100–300 KB).
   - The report cannot be submitted without it. A second report on the same day does not need another video.
   - To save free Firebase space, desk videos older than 60 days are removed automatically when the admin signs in. The report keeps "Desk video ✓".
-- **Workflow updates (3 times a day) — only for Technical, Production (all sections), DTF and 360 Rotary.** Designers, Stitching and Marketing do not see these boxes, and their percentage does not include workflow. Under Daily checks there are three boxes: **11:30 AM**, **3:00 PM** and **6:30 PM** (India time). After updating the Workflow website, the employee signs in and ticks the box.
+- **Workflow updates (3 times a day) — for Technical, Production (all sections), DTF, 360 Rotary and Marketing.** Designers and Stitching do not see these boxes, and their percentage does not include workflow. Under Daily checks there are three boxes: **11:30 AM**, **3:00 PM** and **6:30 PM** (India time). After updating the Workflow website, the employee signs in and ticks the box.
   - 11:30 AM box: open until 11:30 AM. 3:00 PM box: opens 11:30 AM, closes 3:00 PM. 6:30 PM box: opens 3:00 PM, closes 6:30 PM.
   - Each box **closes** at its time (11:31 is refused). The time is checked with Firebase's clock, so changing the phone's clock does not help.
   - A tick is saved immediately (it does not wait for Submit). If ticked by mistake (work not finished), the employee can **untick** it while that box is still open; once the time passes, the box is locked and cannot be changed.
