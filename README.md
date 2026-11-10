@@ -211,7 +211,7 @@ The same rule applies to daily and monthly zones.
 - **Invoice numbers**: PNY-001, PNY-002, PNY-003 and so on (automatic)
 
 ## Troubleshooting
-- **Sign-in screen flashing:** fixed. Once a device is signed in, the website and app open straight into Pentacle Workforce without showing the sign-in box. If the Firebase sign-in on a device has ended, the sign-in box appears again so you can sign in.
+- **Sign-in screen flashing / page jumping back to the top after sign-in:** fixed. Signing in no longer reloads the page, so you stay where you are. Once a device is signed in, the website and app open straight into Pentacle Workforce without showing the sign-in box. Signing out reloads once and shows the sign-in box. If the Firebase sign-in on a device has ended, the sign-in box appears again so you can sign in.
 - **"Incorrect email or password"**: check the user exists in Firebase > Authentication > Users with exactly this password.
 - **"Unable to reach Firebase"**: open the Vercel link (not the file on your computer) and press Ctrl + Shift + R.
 - **Admin sees "Loading…" or a red banner**: publish `firestore.rules` again (it must list both emails).
