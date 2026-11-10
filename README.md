@@ -35,6 +35,7 @@ The website works as an app with the Pentacle logo icon, full screen and no brow
 - **One link, two layouts.** The site switches automatically by screen size:
   - **Laptop / desktop:** menu at the top, full tables and side-by-side panels.
   - **Phone:** slim header with the logo, a **menu bar at the bottom** (Submit report, Expenses, Dashboard, Team, with the red message count on Dashboard), and tables shown as **cards** with labelled lines (team daily reports, monthly records, Expenses tables).
+  - On phones the "Pentacle Newyork Company" logo on the home banner is centred and sized to fit the screen; Admin and sign-out sit on the right of the top bar.
   - Tablets show the laptop view when wide and the phone view when narrow.
 - The same logins and data work on both. A report submitted on a phone appears on the laptop at once.
 
@@ -210,6 +211,7 @@ The same rule applies to daily and monthly zones.
 - **Invoice numbers**: PNY-001, PNY-002, PNY-003 and so on (automatic)
 
 ## Troubleshooting
+- **Sign-in screen flashing:** fixed. Once a device is signed in, the website and app open straight into Pentacle Workforce without showing the sign-in box. If the Firebase sign-in on a device has ended, the sign-in box appears again so you can sign in.
 - **"Incorrect email or password"**: check the user exists in Firebase > Authentication > Users with exactly this password.
 - **"Unable to reach Firebase"**: open the Vercel link (not the file on your computer) and press Ctrl + Shift + R.
 - **Admin sees "Loading…" or a red banner**: publish `firestore.rules` again (it must list both emails).
