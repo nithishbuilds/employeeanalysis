@@ -85,7 +85,7 @@ Usernames are permanent.
 | Monisha | MonishaPNY | Monisha@1110 |
 | Namrutha | NamruthaPNY | Namrutha@2021 |
 | Harish | HarishPNY | Harish@2026 |
-| Midhun | MithunPNY | Mithun@2026 |
+| Midhun | MidhunPNY | Midhun@2026 |
 
 ## Employee photos
 Profile photos are built into `index.html` and replace the initials on the name selection screen, the employee's profile, the Dashboard and the Team page.
@@ -105,8 +105,8 @@ Off shift target is half of the day shift target.
 ## Design team: Cutting file (if available)
 Every designer has a **Cutting file** card. On days with cutting files the designer ticks **Cutting file (if available)**, enters the From – To time and how many cutting files were done. Target **15 cutting files per hour**, added as a line to the day's percentage. When not ticked it is not counted. The design and mockup targets stay as they are.
 
-## Name correction: Midhun
-The employee name is corrected from "Mithun" to **Midhun** automatically the first time the admin signs in with this version. His login stays the same (username **MithunPNY**, password unchanged); reports submitted before the change keep the old spelling.
+## Name and login correction: Midhun
+The first time the admin signs in with this version, the employee "Mithun" is renamed to **Midhun** and his login changes to username **MidhunPNY**, password **Midhun@2026** (the old MithunPNY login stops working). The page stores the new password only as a salted hash, never as plain text. Reports submitted before the change keep the old spelling.
 
 ## Hour-based work (From – To time)
 Hour-based work has a **Working time** box. For **From** and **To** the employee chooses the hour, the minutes (5-minute steps) and **AM** (left) or **PM** (right), for example 10 : 00 AM to 1 : 30 PM. AM/PM is filled in automatically (7–11 → AM, 12–6 → PM) and can be changed with one tap. **+ Add another time** adds a second session (for example after lunch); **×** removes one. The total hours are shown, and the target is calculated from those hours, so it is the same on day and off shift.
@@ -122,7 +122,11 @@ Hour-based work has a **Working time** box. For **From** and **To** the employee
 | Calls (Marketing) | 30 calls |
 | DTF heat press (Vihas) | 50 per 8-hour day (about 6 per hour) |
 
-- **Small and big pieces:** the employee enters small and big separately. Big pieces are converted to small at the rate of that work (cutting/powder coating: 1 big = 6.25 small; UV: 1 big = 5 small; packing: 1 big = 1.3 small). Example: powder coating 9:00 AM – 5:00 PM (8 h) → target 200; 150 small + 8 big = 200 → 100%.
+- **Small and Big tick boxes:** every production work (metal cutting, powder coating, UV printing, packing) has one Working time and two tick boxes next to the counts, **Small** and **Big**. The count box opens only when its size is ticked.
+  - Only **Big** ticked: target = hours × big rate. Example: powder coating 10 AM – 12 PM (2 h × 4) = 8 big; 8 done = 100%.
+  - Only **Small** ticked: target = hours × small rate. Example: 9 AM – 12 PM metal cutting (3 h × 25) = 75 small.
+  - **Both** ticked: big pieces are converted to small (metal cutting / powder coating 1 big = 6.3 small, UV 1 big = 5 small, packing 1 big = 1.3 small) and compared with hours × small rate. Example: 3 h metal cutting, 20 small + 10 big = 82.5 / 75 → 100%.
+  - The report cannot be submitted until Small, Big or both is ticked.
 - **Rules checked before submitting:** both From and To must be filled, To must be later than From, and **times may not overlap** (the same hour cannot be entered twice, even across different works).
 - The admin sees the times in every report, for example "Product listings 90 / 90 · 10:00 AM – 1:00 PM · 3 h".
 - Reports submitted before this update keep the percentage they had.
@@ -160,7 +164,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
   - **Midhun:** **Listing done by me** and **Listing split to the technical team** (400 per hour), entered separately, Metal cutting, Powder coating, UV printing, Packing.
   - **Vihas:** DTF heat press, Metal cutting, Powder coating, UV printing, Packing, Stock maintenance. No listing.
   - **Santhiya:** **DTF print** — two boxes to choose from: **Only DTF print today (70 metres)** or **DTF print with other works (35 metres)** (off shift: half); **Listing** — 15 per day; **Billing (when needed)** — time and count are recorded, not counted in the percentage; **Packing** — 40 small or 30 big per hour.
-  - Example (Vihas): heat press 9:00 AM – 1:00 PM (4 h → target 25), 20 done = 80%; packing 2:00 – 4:00 PM (2 h → target 80), 50 small + 20 big = 76.7 = 96%.
+  - Example (Vihas): heat press 9:00 AM – 1:00 PM (4 h → target 25), 20 done = 80%; packing 2:00 – 4:00 PM with only Small ticked (2 h → target 80), 72 done = 90%.
   - **Rishi:** Metal cutting, Powder coating, UV printing, Packing (all production work), **360 rotary water bottle printing when orders are available** (400 per 8-hour day = 50 per hour), Listing (30 per hour), Product research (300 per hour).
   - **Technical team (Ayisha, Charu, Manoj, Praveen):** *Today's works* has three tick boxes — **Listing** (30 per hour, counted), **Product research** (300 per hour, counted) and **Customer messages (when available)** (time and count recorded, not counted in the percentage). Each ticked work has its own From – To time. **Videos made (10)** and **Digital marketing** (Instagram, Facebook, Pinterest) are compulsory every day, so they have no "did you do it" tick; they are always on the form and counted. Namrutha keeps her own hour-based list.
 - **Why the percentage did not go up after ticking Desk-clean video:** the desk-clean tick is a required check (the report cannot be submitted without it) but it is not part of the percentage. The percentage is the average of the work lines plus **Workflow updates (done / 3)**. Example: Listing 30 / 30 (100%) + Workflow 0 / 3 (0%) = 50%; after all 3 workflow boxes it becomes 100%.
