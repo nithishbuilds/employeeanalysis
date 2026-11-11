@@ -85,7 +85,7 @@ Usernames are permanent.
 | Monisha | MonishaPNY | Monisha@1110 |
 | Namrutha | NamruthaPNY | Namrutha@2021 |
 | Harish | HarishPNY | Harish@2026 |
-| Mithun | MithunPNY | Mithun@2026 |
+| Midhun | MithunPNY | Mithun@2026 |
 
 ## Employee photos
 Profile photos are built into `index.html` and replace the initials on the name selection screen, the employee's profile, the Dashboard and the Team page.
@@ -102,6 +102,12 @@ Off shift target is half of the day shift target.
 | Designers · Manual mockup (no design work, manual mockups available) | 30 manual mockups | 15 manual mockups |
 | Technical | 10 videos and digital marketing (compulsory) + ticked works: **Listing 30 per hour** | 5 videos and digital marketing + Listing 30 per hour |
 
+## Design team: Cutting file (if available)
+Every designer has a **Cutting file** card. On days with cutting files the designer ticks **Cutting file (if available)**, enters the From – To time and how many cutting files were done. Target **15 cutting files per hour**, added as a line to the day's percentage. When not ticked it is not counted. The design and mockup targets stay as they are.
+
+## Name correction: Midhun
+The employee name is corrected from "Mithun" to **Midhun** automatically the first time the admin signs in with this version. His login stays the same (username **MithunPNY**, password unchanged); reports submitted before the change keep the old spelling.
+
 ## Hour-based work (From – To time)
 Hour-based work has a **Working time** box. For **From** and **To** the employee chooses the hour, the minutes (5-minute steps) and **AM** (left) or **PM** (right), for example 10 : 00 AM to 1 : 30 PM. AM/PM is filled in automatically (7–11 → AM, 12–6 → PM) and can be changed with one tap. **+ Add another time** adds a second session (for example after lunch); **×** removes one. The total hours are shown, and the target is calculated from those hours, so it is the same on day and off shift.
 
@@ -111,7 +117,7 @@ Hour-based work has a **Working time** box. For **From** and **To** the employee
 | Powder coating | 25 small **or** 4 big pieces |
 | UV printing | 30 small **or** 6 big pieces |
 | Packing | 40 small **or** 30 big pieces |
-| Listing (Technical team, Harish, Mithun, Rishi) | 30 listings |
+| Listing (Technical team, Harish, Midhun, Rishi) | 30 listings |
 | Product research (Technical team, Rishi) | 300 products researched |
 | Calls (Marketing) | 30 calls |
 | DTF heat press (Vihas) | 50 per 8-hour day (about 6 per hour) |
@@ -138,8 +144,8 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 | Monisha | Marketing | Calls (with From – To time) and digital marketing + her task list + a "Messages sent" box + Workflow boxes |
 
 - **Namrutha (hour-based):** every task has a Working time box (From – To) and a Count box. Entering a time ticks the task. Her percentage = hours logged on tasks ÷ 8 hours (off shift: ÷ 4). Example: 6 hours logged → 75% for the tasks line (then averaged with the Workflow boxes). Tasks: CSV forward and CSV update in Excel; Metal file; Source create; Shop dummy, USPS, direct and UK tracking ID update; Listing; Product research; Bag file check; Shop handling.
-- **Saravanan (tick type, like Mithun):** he ticks the works he did today and enters the From – To time for each.
-  - **UV printing** and **Packing** — same as Mithun: small and big pieces, per-hour targets (UV 30 small or 6 big; packing 40 small or 30 big).
+- **Saravanan (tick type, like Midhun):** he ticks the works he did today and enters the From – To time for each.
+  - **UV printing** and **Packing** — same as Midhun: small and big pieces, per-hour targets (UV 30 small or 6 big; packing 40 small or 30 big).
   - **Cutting file**, **Metal file checking**, **Local orders** — time plus count (for example "Local orders — 6 orders · 2:00 – 3:00 PM"). Together they form one line, "Other works", which is complete when the time is entered.
   - **Machine problem solving (when needed)** — time plus a required **note** describing the problem and how it was solved; the admin sees the note in the report. Not counted in the percentage.
   - Removed (now done in the office Workflow website, covered by his 11:30 AM, 3:00 PM and 6:30 PM Workflow boxes): Shipment number update; UK, US and Canada number update; New products; Box and order photos.
@@ -148,10 +154,11 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - **Monisha:** every task has a Working time box (From – To) and a Count box: Shop CSV updated, CSV sent, tracking ID; Shop listing and follow-ups; Franchise contacts, link sharing, details and follow-ups; Stitching department QC and counting; New local orders taken from calls; Bags packing. Her calls also use From – To time (30 calls per hour).
   - **Messages sent (customers and franchise) — when needed:** tick the box, enter the time and how many messages were sent. Target **100 messages per hour**; when ticked it is a target line in her percentage (example: 2:00–3:00 PM, 80 sent = 80 / 100). When not ticked it is not counted.
   - Her times may not overlap (for example, calls 10–11 AM and CSV 11 AM–12 PM is fine; calls 10–11 and CSV 10:30–12 is not).
-- **Flexible workers — Harish, Mithun, Vihas and Santhiya:** they do different works on different days. They **tick the works they did today**; each ticked work opens a **Working time** box (From – To) and the count boxes. The target follows the hours entered (rates in *Hour-based work* above). The day's percentage is the average of the works ticked plus the Workflow boxes.
-  - **Harish:** Metal cutting, Powder coating, UV printing, Packing, Listing (30 per hour).
-  - **Mithun:** **Listing done by me** and **Listing split to the technical team** (each 30 per hour, entered separately), Metal cutting, Powder coating, UV printing, Packing.
-  - **Vihas:** DTF heat press, Metal cutting, Powder coating, UV printing, Packing. No listing.
+- **Flexible workers — Harish, Midhun, Vihas and Santhiya:** they do different works on different days. They **tick the works they did today**; each ticked work opens a **Working time** box (From – To) and the count boxes. The target follows the hours entered (rates in *Hour-based work* above). The day's percentage is the average of the works ticked plus the Workflow boxes.
+  - **Harish:** Metal cutting, Powder coating, UV printing, Packing, Listing (30 per hour), Stock maintenance.
+  - **Stock maintenance (Workflow) — Harish and Vihas:** a tick box with From – To time and an **Upload stock photo** button. A photo is required when ticked (it is saved in Evidence in a "Stock maintenance" folder). Not counted in the percentage.
+  - **Midhun:** **Listing done by me** and **Listing split to the technical team** (400 per hour), entered separately, Metal cutting, Powder coating, UV printing, Packing.
+  - **Vihas:** DTF heat press, Metal cutting, Powder coating, UV printing, Packing, Stock maintenance. No listing.
   - **Santhiya:** **DTF print** — two boxes to choose from: **Only DTF print today (70 metres)** or **DTF print with other works (35 metres)** (off shift: half); **Listing** — 15 per day; **Billing (when needed)** — time and count are recorded, not counted in the percentage; **Packing** — 40 small or 30 big per hour.
   - Example (Vihas): heat press 9:00 AM – 1:00 PM (4 h → target 25), 20 done = 80%; packing 2:00 – 4:00 PM (2 h → target 80), 50 small + 20 big = 76.7 = 96%.
   - **Rishi:** Metal cutting, Powder coating, UV printing, Packing (all production work), **360 rotary water bottle printing when orders are available** (400 per 8-hour day = 50 per hour), Listing (30 per hour), Product research (300 per hour).
