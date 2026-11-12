@@ -210,6 +210,24 @@ A **Messages** box on the admin Dashboard fills in by itself, with no setup and 
 - **Workflow box missed:** after 11:30 AM, 3:00 PM and 6:30 PM, a message lists the Technical, Production, DTF and 360 Rotary employees who did not tick that box.
 - Newest messages are at the top. Messages disappear on their own when the employee submits (for a report). Only the admin sees them.
 
+## Pages and the Back button
+Every screen now has its own page address, so the browser **Back** and **Forward** buttons (and the Android back button) move between screens inside the website instead of leaving it. Reloading the page stays on the same screen.
+
+| Page | Address (after pentacleworkforce.vercel.app/) |
+|---|---|
+| Submit report — team tiles | `#/report` |
+| A team's employee list (e.g. Designers, Production) | `#/report/designers`, `#/report/production` |
+| An employee's report form | `#/report/designers/<employee>` |
+| Expenses | `#/expenses` |
+| Dashboard (admin) | `#/dashboard` |
+| A team's room in the Dashboard | `#/dashboard/technical` |
+| Team (admin) | `#/team` |
+| CHAT group list | `#/chat` |
+| A CHAT group | `#/chat/business`, `#/chat/design` … |
+
+- **Employee sign-in is kept while moving between pages:** Back, Forward and reload no longer sign the employee out of their report. It lasts until **Sign out** is tapped or the browser tab is closed. If someone opens an employee's form page without being signed in, the sign-in box opens first.
+- Pop-ups (sign-in box, photo viewer, group editor) close with Back.
+
 ## CHAT (team group chat)
 - A **Chat** tab (top menu on laptop, bottom bar on phone) opens **CHAT** full screen, WhatsApp style.
 - **Groups (8):** Pentacle Team (all earlier messages are here), Business Planning Group, Preview Group, Design Group, Heat Press Group, Cutting File Group, Domestic Group, Local Order Group. All employees and the admin can read and send in every group.
