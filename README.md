@@ -103,7 +103,11 @@ Off shift target is half of the day shift target.
 | Technical | 10 videos and digital marketing (compulsory) + ticked works: **Listing 30 per hour** | 5 videos and digital marketing + Listing 30 per hour |
 
 ## Design team: Cutting file (if available)
-Every designer has a **Cutting file** card. On days with cutting files the designer ticks **Cutting file (if available)**, enters the From – To time and how many cutting files were done. Target **15 cutting files per hour**, added as a line to the day's percentage. When not ticked it is not counted. The design and mockup targets stay as they are.
+Every designer (including Nandhini and Karthika) has **Cutting file (if available)**. On days with cutting files the designer ticks it and enters the From – To time, **How many came today** and **How many completed**; percentage = completed ÷ came (10 of 10 = 100%), added as a line to the day's percentage. When not ticked it is not counted. The design and mockup targets stay as they are.
+
+**Local orders (if available) — all designers except Nandhini and Karthika:** tick it on days with local orders, enter the working time, **How many came today** and **How many completed**; percentage = completed ÷ came (3 of 4 = 75%), added as a line to the day. Not ticked = not counted.
+
+**Nandhini and Karthika:** no Local orders box and **no Desk-clean video tick** (the Daily checks box is hidden for them and not required to submit). They keep the Cutting file option.
 
 ## Name and login correction: Midhun
 The first time the admin signs in with this version, the employee "Mithun" is renamed to **Midhun** and his login changes to username **MidhunPNY**, password **Midhun@2026** (the old MithunPNY login stops working). The page stores the new password only as a salted hash, never as plain text. Reports submitted before the change keep the old spelling.
