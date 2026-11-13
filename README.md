@@ -238,7 +238,7 @@ Every screen now has its own page address, so the browser **Back** and **Forward
 | CHAT group list | `#/chat` |
 | A CHAT group | `#/chat/business`, `#/chat/design` … |
 
-- **Employee sign-in is kept while moving between pages:** Back, Forward and reload no longer sign the employee out of their report. It lasts until **Sign out** is tapped or the browser tab is closed. If someone opens an employee's form page without being signed in, the sign-in box opens first.
+- **Website sign-in stays, employee report sign-in does not:** Back, Forward and reload keep the website (company account) signed in. An employee's report form always asks for that employee's **username and password** every time it is opened — after Back, Forward, reload or choosing the name again — so nobody can open another employee's report without their password.
 - Pop-ups (sign-in box, photo viewer, group editor) close with Back.
 
 ## CHAT (team group chat)
