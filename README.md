@@ -124,6 +124,15 @@ An employee may submit more than once a day (for example 12:12 PM and 3:42 PM). 
 - Employees who also have daily-count tasks (videos, designs, orders came/completed) are measured on their targets as usual (no 8-hour rule).
 - The Dashboard row shows "12:12 pm + 3:42 pm · 2 reports merged · 2 h of 8 h entered" and a **Delete** button for each report. After the second submission the employee sees "Today's total (2 reports merged): …%".
 
+## Today's total stays until midnight
+After submitting, when the employee opens their report form again the same day, the circle shows **today's total** (label "today") instead of 0%, with the note "Today so far · 1 report submitted". The lines show the day's figures so far (for example Designs 300/500); new figures typed are added to today's total. At midnight (12:00 AM) the new day starts at 0%.
+
+## Add evidence only (forgot a link, file or image)
+If a report was already submitted today, the form shows **Add evidence only to today's report** under Submit. The employee adds the missing link, file, image or folder in Evidence and taps that button — it is added to today's latest report; the figures stay as submitted. (Evidence can be added on the same day.)
+
+## Designers: manual design and manual mockup
+Designs (500) and mockups (70) are always on the form. In the works card, two tick boxes: **Manual design (if available)** — 35 per day — and **Manual mockup (if available)** — 30 per day (off shift half). They can be ticked together with designs/mockups, cutting file and local orders. On a manual-only day, designs/mockups left at 0 are not counted, so 0/500 does not pull the day down. Nandhini and Karthika have them too.
+
 ## Report downloads: daily, weekly, monthly
 Dashboard → export row: **Daily** (image / PDF) for the chosen date, **Weekly** (image / PDF) for Monday–Sunday of the week of the chosen date, **Monthly** (image / PDF / CSV) for the chosen month. Weekly and monthly reports show each employee's zone, average %, days counted, green/yellow/red days and **stars**, followed by every daily report in that period.
 
