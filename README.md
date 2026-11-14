@@ -130,8 +130,12 @@ After submitting, when the employee opens their report form again the same day, 
 ## Add evidence only (forgot a link, file or image)
 If a report was already submitted today, the form shows **Add evidence only to today's report** under Submit. The employee adds the missing link, file, image or folder in Evidence and taps that button — it is added to today's latest report; the figures stay as submitted. (Evidence can be added on the same day.)
 
-## Designers: manual design and manual mockup
-Designs (500) and mockups (70) are always on the form. In the works card, two tick boxes: **Manual design (if available)** — 35 per day — and **Manual mockup (if available)** — 30 per day (off shift half). They can be ticked together with designs/mockups, cutting file and local orders. On a manual-only day, designs/mockups left at 0 are not counted, so 0/500 does not pull the day down. Nandhini and Karthika have them too.
+## Designers: manual design and manual mockup (extra tasks)
+Designs (500) and mockups (70) are the **daily task**. **Manual design (if available)** — 35 per day — and **Manual mockup (if available)** — 30 per day (off shift half) — are **extra tasks**: they never lower the percentage, they add to it.
+- Each extra task adds its share of a full day: 15 of 35 manual designs = +43%, 20 of 30 manual mockups = +67%. The day is capped at 100%.
+- Daily task complete + any extra work done → **100% + 1 star**. Ticking an extra task and leaving it at 0 changes nothing.
+- Examples: 500/500 + 70/70 = 100% · + manual design 5 = 100% ★ · 450/500 + 20/70 = 59% · + manual design 5 = 74% · + manual design 15 = 100% · manual design only 35/35 = 100%.
+- Nandhini and Karthika have them too.
 
 ## Report downloads: daily, weekly, monthly
 Dashboard → export row: **Daily** (image / PDF) for the chosen date, **Weekly** (image / PDF) for Monday–Sunday of the week of the chosen date, **Monthly** (image / PDF / CSV) for the chosen month. Weekly and monthly reports show each employee's zone, average %, days counted, green/yellow/red days and **stars**, followed by every daily report in that period.
