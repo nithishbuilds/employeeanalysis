@@ -117,6 +117,13 @@ The first time the admin signs in with this version, the employee "Mithun" is re
 - **★ Star:** when **every** target of the day is met **and** at least one task is done beyond its target, the report gets **100% + 1 star**. Example: designs 550/500 + mockups 80/70 = 100% ★. The employee sees "★ 100% + 1 star" on the form and after submitting; the admin sees ★ in the Dashboard tables, in the employee's day list, and in the downloads (Stars column in the weekly/monthly report, ★ next to the achievement, a Star column in the CSV).
 - Reports submitted before this update keep their old percentage.
 
+## Several reports on the same day → merged into one
+An employee may submit more than once a day (for example 12:12 PM and 3:42 PM). The Dashboard, the employee's day list, the monthly/weekly zones and all downloads show **one merged result per employee per day**:
+- **Same task added together:** per-hour work (listing, production, research, calls) and "came / completed" works add both figures (30/30 + 30/30 = **60/60**); a fixed daily target (videos 10, designs 500…) stays the day's target while the done figures add up; Workflow updates take the highest count of the day.
+- **Measured against a full working day (8 hours; off shift 4 hours):** when every task of the day is per-hour work, the hours entered in all reports are added (overlapping times counted once) and hours not entered count as not worked. Example (Midhun): listing 11:00–12:00 and 2:30–3:30 = **2 h of 8 h**, 60/60 listings → listing counts 100% × 2/8 = 25%; with Workflow 2/3 (67%) the day is **46%**, not 83%. A full 8 h of entered work at target = 100%.
+- Employees who also have daily-count tasks (videos, designs, orders came/completed) are measured on their targets as usual (no 8-hour rule).
+- The Dashboard row shows "12:12 pm + 3:42 pm · 2 reports merged · 2 h of 8 h entered" and a **Delete** button for each report. After the second submission the employee sees "Today's total (2 reports merged): …%".
+
 ## Report downloads: daily, weekly, monthly
 Dashboard → export row: **Daily** (image / PDF) for the chosen date, **Weekly** (image / PDF) for Monday–Sunday of the week of the chosen date, **Monthly** (image / PDF / CSV) for the chosen month. Weekly and monthly reports show each employee's zone, average %, days counted, green/yellow/red days and **stars**, followed by every daily report in that period.
 
