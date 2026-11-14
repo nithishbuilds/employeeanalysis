@@ -259,6 +259,7 @@ Every screen now has its own page address, so the browser **Back** and **Forward
 | CHAT group list | `#/chat` |
 | A CHAT group | `#/chat/business`, `#/chat/design` … |
 
+- **Always starts on the team tiles:** opening or reloading the website (and signing in to the company account) always shows the **Submit report** team tiles. It never jumps by itself into Production, Designers, Technical or the last person's report — each employee taps their own team and name.
 - **Website sign-in stays, employee report sign-in does not:** Back, Forward and reload keep the website (company account) signed in. An employee's report form always asks for that employee's **username and password** every time it is opened — after Back, Forward, reload or choosing the name again — so nobody can open another employee's report without their password.
 - Pop-ups (sign-in box, photo viewer, group editor) close with Back.
 
@@ -285,6 +286,14 @@ Every screen now has its own page address, so the browser **Back** and **Forward
   - **Employee:** sees one private chat called **Admin** (with a small lock). Tap it to message the admin privately — text, photos and voice messages. Only that employee and the admin see this chat; other employees never see it.
   - **Admin:** sees one private chat per employee who has written (their photo with a lock, last message, unread count). **+ New private chat** opens the employee list to start a private chat with anyone.
   - Employee messages to the admin are stored in a separate place (`chatpriv`) that only the admin account can read — **publish the new `firestore.rules`** for this protection. The employee sees their own sent private messages on the device they sent them from. The admin's replies are hidden from other employees in the website (all employees share one company sign-in, so they are not locked the same way).
+- **Private chats between employees:** every employee can now message any colleague privately (not only the admin).
+  - Tap **+ New private chat**, type a name in the search box and choose the person — or type the name in **Search chats** at the top of the list; matching people appear under **People**, tap one to start.
+  - The chat shows the colleague's photo with a lock and "Private chat · only you and <name>". Only those two employees see it in the website; other employees do not. The admin's list does not show employee-to-employee chats.
+  - Text, photos (attach or paste) and voice messages all work. Calls stay in the Business group only.
+- **@ Mentions (tag a person):** type **@** in the message box — a list of people appears (Admin and every employee). Keep typing to filter, then tap a name (laptop: arrow keys + Enter or Tab). The message shows **@Name** highlighted.
+  - When it is sent, the tagged person gets an alert even if they are on another chat or page: a pop-up "**Abinisha mentioned you · Design Group**" with an orange @ badge, and a phone/computer notification (if notifications are turned on) that stays until they tap it.
+  - In the chat list, a chat with an unread message that mentions you shows an orange **@** count. Your own name is highlighted in orange inside messages.
+  - Use **@Admin** to tag the admin. Several people can be tagged in one message.
 - Notifications and the pop-up show the group name, for example "Design Group · Jem: 📷 New mockup".
 - **Employees:** open Submit report, choose your name and sign in once; after that you can chat from that phone. Your name, team and photo show on your messages. **Sign out** on your page stops chatting from that phone.
 - **Admin:** the admin login can read and reply straight away; admin messages show as "Admin".
