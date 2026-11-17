@@ -88,8 +88,9 @@ Usernames are permanent.
 | Midhun | MidhunPNY | Midhun@2026 |
 | Iswarya (Technical) | IshwaryaPNY | Ishwarya@2026 |
 | Shobika (Technical) | ShobikaPNY | Shobika@2026 |
+| Padmanaban (Manager · Management) | PadmanabanPNY | Padmanaban@2026 |
 
-Iswarya's and Shobika's logins are set automatically the first time the admin account opens the website after this update (the employee must already be added in the Team tab with the name Iswarya / Ishwarya or Shobika).
+Padmanaban is added to the new **Management** team automatically, and Iswarya's, Shobika's and Padmanaban's logins are set automatically, the first time the admin account opens the website after this update (the employee must already be added in the Team tab with the name Iswarya / Ishwarya or Shobika).
 
 ## Employee photos
 Profile photos are built into `index.html` and replace the initials on the name selection screen, the employee's profile, the Dashboard and the Team page.
@@ -219,6 +220,16 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - **Saravanan:**
   - New work **Mani, UK and US number update**: tick it, then tick **Mani**, **UK** or **US**. The other two hide (untick to choose another). Then enter how many came and how many completed. The report line shows, for example, "UK number update 8/10". For two of them on one day, submit twice — the reports are merged.
   - **No evidence section** for Saravanan: the photo, file, folder and link upload is removed and the report submits without evidence.
+
+## Manager — Padmanaban (Management)
+- A new **Management** team tile (first on the Submit report page) holds the manager **Padmanaban** (username PadmanabanPNY).
+- His works (tick each one he did, then enter the From – To time):
+  - **Listing** — 30 listings per hour (enter the time and how many done).
+  - **Workflow reports checking** — notes box: what he checked and what needs attention.
+  - **Team head reports** — notes box, and a live list of the three team heads (**Lakshmi, Iswarya, Shobika**) with each team's members in green (submitted) or red (not submitted) and a count like 2/3.
+  - **Material order report** — notes box: which materials were ordered or are needed.
+  - Each notes work counts as done (1/1) when its notes are written; the notes appear in his report for the admin.
+- **Daily checks:** the desk-clean video tick and the three **Workflow updates** ticks (11:30 AM, 3:00 PM, 6:30 PM), same as other teams.
 
 ## Team head alerts
 - **Teams** (matched by first name):
