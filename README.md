@@ -226,6 +226,11 @@ Some employees have their own task checklist under **My daily tasks** in the rep
   - **Iswarya** (head): Rishi, Charu, Manoj
   - **Shobika** (head): Monisha, Harish, Ayisha Hussain
 - Each head gets the alert below for her own team members.
+- **My team (on the head's report page):** when a team head signs in to her own report, a **My team** card appears under "Your zone". It shows, for the chosen date (today by default; change the Date to see an earlier day):
+  - how many members submitted, the average percentage, and how many have not submitted;
+  - for each member: photo, name, percentage (green / yellow / red, ★ when earned), submitted time (several reports are merged), **what they did** — each task with done / target, a progress bar, time and notes — and **what they uploaded** — files and folders (tap to open or download) and links;
+  - "Not submitted yet" for members without a report.
+  - It is view only: the head cannot change or delete members' reports.
 - **After 6:30 PM** (Monday–Saturday), if any of the three has not submitted today's report, Lakshmi gets an alert on **her own phone or laptop** — the device where she signs in to her report (or chats). It shows "Team alert · 6:30 PM — Joshitha and Santhiya have not submitted today's report" with their photos.
 - **Message them** opens CHAT: for one person, her private chat with that person; for several, the Pentacle Team group with each of them @tagged and "please submit today's report" ready to send. **OK** closes the alert.
 - The alert appears once a day, and again only if the list of missing people changes. It needs the website or app to be open (any page); with notifications turned on it also shows as a phone/computer notification when the site is in the background.
