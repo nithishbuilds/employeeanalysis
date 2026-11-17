@@ -86,6 +86,10 @@ Usernames are permanent.
 | Namrutha | NamruthaPNY | Namrutha@2021 |
 | Harish | HarishPNY | Harish@2026 |
 | Midhun | MidhunPNY | Midhun@2026 |
+| Iswarya (Technical) | IshwaryaPNY | Ishwarya@2026 |
+| Shobika (Technical) | ShobikaPNY | Shobika@2026 |
+
+Iswarya's and Shobika's logins are set automatically the first time the admin account opens the website after this update (the employee must already be added in the Team tab with the name Iswarya / Ishwarya or Shobika).
 
 ## Employee photos
 Profile photos are built into `index.html` and replace the initials on the name selection screen, the employee's profile, the Dashboard and the Team page.
@@ -127,8 +131,10 @@ An employee may submit more than once a day (for example 12:12 PM and 3:42 PM). 
 ## Today's total stays until midnight
 After submitting, when the employee opens their report form again the same day, the circle shows **today's total** (label "today") instead of 0%, with the note "Today so far · 1 report submitted". The lines show the day's figures so far (for example Designs 300/500); new figures typed are added to today's total. At midnight (12:00 AM) the new day starts at 0%.
 
-## Add evidence only (forgot a link, file or image)
-If a report was already submitted today, the form shows **Add evidence only to today's report** under Submit. The employee adds the missing link, file, image or folder in Evidence and taps that button — it is added to today's latest report; the figures stay as submitted. (Evidence can be added on the same day.)
+## Add evidence only (forgot a link, file or image — today or an earlier day)
+- Forgot to add a link, file or image to a report you already submitted? Open your report, add the link, file or image in **Evidence**, then tap **Add evidence only to …** (or simply **Submit report** without entering any figures).
+- **For an earlier day (for example yesterday):** first choose that day in **Date of work**. The button changes to "Add evidence only to the report of 16 Nov 2026". The evidence is added to that day's report; the figures and percentage stay as submitted.
+- If no report was submitted for the chosen date, a message asks you to choose the date of your submitted report.
 
 ## Designers: manual design and manual mockup (extra tasks)
 Designs (500) and mockups (70) are the **daily task**. **Manual design (if available)** — 35 per day — and **Manual mockup (if available)** — 30 per day (off shift half) — are **extra tasks**: they never lower the percentage, they add to it.
@@ -204,6 +210,26 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - **Why the percentage did not go up after ticking Desk-clean video:** the desk-clean tick is a required check (the report cannot be submitted without it) but it is not part of the percentage. The percentage is the average of the work lines plus **Workflow updates (done / 3)**. Example: Listing 30 / 30 (100%) + Workflow 0 / 3 (0%) = 50%; after all 3 workflow boxes it becomes 100%.
 - Rishi's and Vihas's team moves happen automatically the first time the admin signs in with the new version.
 - The task list is matched by the employee's first name, so keep these names as they are in Team.
+
+## Personal working hours and new works (latest update)
+- **Lakshmi — 9:30 AM to 4:00 PM (6 h 30 min):** her daily targets are set for 6.5 hours instead of 8 (for example 500 designs → 407, 70 mockups → 57; per-hour works follow the hours she enters). The day's hour check uses 6.5 hours as a full day. Times she enters must be within 9:30 AM – 4:00 PM. Her report shows "Your working time: 9:30 AM – 4:00 PM".
+- **Iswarya — 9:30 AM to 5:00 PM (7 h 30 min):** daily targets are set for 7.5 hours instead of 8; per-hour works (listing, research…) follow the hours she enters; times must be within 9:30 AM – 5:00 PM.
+- **Maanasa — night work, any time of the 24 hours:** she can enter any From – To time, including past midnight (for example 10:00 PM – 2:00 AM = 4 hours, shown as "(next day)"). If she opens her report before 6:00 AM, the report date is set to the previous day automatically (she can change it).
+- **Santhiya — new works (each: how many came / how many completed, percentage = completed ÷ came):** US and UK tracking updates · Photoshop file (now separate) · Canva file upload (now separate) · Dummy tracking · Excel updates.
+- **Saravanan:**
+  - New work **Mani, UK and US number update**: tick it, then tick **Mani**, **UK** or **US**. The other two hide (untick to choose another). Then enter how many came and how many completed. The report line shows, for example, "UK number update 8/10". For two of them on one day, submit twice — the reports are merged.
+  - **No evidence section** for Saravanan: the photo, file, folder and link upload is removed and the report submits without evidence.
+
+## Team head alerts
+- **Teams** (matched by first name):
+  - **Lakshmi** (head): Santhiya, Namrutha, Joshitha (Jositha also works)
+  - **Iswarya** (head): Rishi, Charu, Manoj
+  - **Shobika** (head): Monisha, Harish, Ayisha Hussain
+- Each head gets the alert below for her own team members.
+- **After 6:30 PM** (Monday–Saturday), if any of the three has not submitted today's report, Lakshmi gets an alert on **her own phone or laptop** — the device where she signs in to her report (or chats). It shows "Team alert · 6:30 PM — Joshitha and Santhiya have not submitted today's report" with their photos.
+- **Message them** opens CHAT: for one person, her private chat with that person; for several, the Pentacle Team group with each of them @tagged and "please submit today's report" ready to send. **OK** closes the alert.
+- The alert appears once a day, and again only if the list of missing people changes. It needs the website or app to be open (any page); with notifications turned on it also shows as a phone/computer notification when the site is in the background.
+- The admin's own 6:30 PM missing-report alert on the Dashboard is unchanged.
 
 ## Evidence (required for every report)
 - Every employee must add evidence before **Submit report** works: images or files, a folder, or one or more work links.
@@ -290,6 +316,9 @@ Every screen now has its own page address, so the browser **Back** and **Forward
   - Tap **+ New private chat**, type a name in the search box and choose the person — or type the name in **Search chats** at the top of the list; matching people appear under **People**, tap one to start.
   - The chat shows the colleague's photo with a lock and "Private chat · only you and <name>". Only those two employees see it in the website; other employees do not. The admin's list does not show employee-to-employee chats.
   - Text, photos (attach or paste) and voice messages all work. Calls stay in the Business group only.
+- **Reactions (👍😂👆😍😊😁❤️👌🤞🙌💖🤗🫡🤔):** tap the small smiley next to any message, then tap an emoji. Laptop: double-click a message for a quick 👍.
+  - Reactions show under the message with a count; tap or hover to see who reacted. Each person has one reaction per message — tap the same emoji again to remove it, or choose another to change it.
+  - When someone reacts to your message you get a pop-up, for example "😍 reacted to: Submit reports everyone".
 - **@ Mentions (tag a person):** type **@** in the message box — a list of people appears (Admin and every employee). Keep typing to filter, then tap a name (laptop: arrow keys + Enter or Tab). The message shows **@Name** highlighted.
   - When it is sent, the tagged person gets an alert even if they are on another chat or page: a pop-up "**Abinisha mentioned you · Design Group**" with an orange @ badge, and a phone/computer notification (if notifications are turned on) that stays until they tap it.
   - In the chat list, a chat with an unread message that mentions you shows an orange **@** count. Your own name is highlighted in orange inside messages.
