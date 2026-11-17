@@ -229,6 +229,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
   - **Team head reports** — notes box, and a live list of the three team heads (**Lakshmi, Iswarya, Shobika**) with each team's members in green (submitted) or red (not submitted) and a count like 2/3.
   - **Material order report** — notes box: which materials were ordered or are needed.
   - Each notes work counts as done (1/1) when its notes are written; the notes appear in his report for the admin.
+- **Team heads card:** when Padmanaban signs in to his report, a **Team heads** card (same as the team heads' "My team" card) shows Lakshmi's, Iswarya's and Shobika's reports for the chosen date: percentage, what they did, what they uploaded, and under each name how many of her team submitted (for example "team 2/3 submitted (Santhiya, Namrutha, Joshitha)"). After 6:30 PM he also gets the alert if a team head has not submitted.
 - **Daily checks:** the desk-clean video tick and the three **Workflow updates** ticks (11:30 AM, 3:00 PM, 6:30 PM), same as other teams.
 
 ## Team head alerts
@@ -237,6 +238,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
   - **Iswarya** (head): Rishi, Charu, Manoj
   - **Shobika** (head): Monisha, Harish, Ayisha Hussain
 - Each head gets the alert below for her own team members.
+- **Teammate reports (work for Lakshmi, Iswarya and Shobika):** in their own report, a new tick box **Teammate reports** is added to their works. Tick it, enter the From – To time and write notes ("what did your teammates report?"). Under the notes, a live list shows each teammate with Submitted / Not submitted, how many evidence items they uploaded, and their percentage. It counts as done (1/1) when the notes are written, and the notes go into the head's report.
 - **My team (on the head's report page):** when a team head signs in to her own report, a **My team** card appears under "Your zone". It shows, for the chosen date (today by default; change the Date to see an earlier day):
   - how many members submitted, the average percentage, and how many have not submitted;
   - for each member: photo, name, percentage (green / yellow / red, ★ when earned), submitted time (several reports are merged), **what they did** — each task with done / target, a progress bar, time and notes — and **what they uploaded** — files and folders (tap to open or download) and links;
