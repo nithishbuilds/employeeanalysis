@@ -226,7 +226,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - His works (tick each one he did, then enter the From – To time):
   - **Listing** — 30 listings per hour (enter the time and how many done).
   - **Workflow reports checking** — notes box: what he checked and what needs attention.
-  - **Team head reports** — notes box, and a live list of the three team heads (**Lakshmi, Iswarya, Shobika**) with each team's members in green (submitted) or red (not submitted) and a count like 2/3.
+  - **Team head reports** — notes box, and a live list of the three team heads only (**Lakshmi, Iswarya, Shobika** — Padmanaban himself is not listed) with each team's members in green (submitted) or red (not submitted) and a count like 2/3.
   - **Material order report** — notes box: which materials were ordered or are needed.
   - Each notes work counts as done (1/1) when its notes are written; the notes appear in his report for the admin.
 - **Team heads card:** when Padmanaban signs in to his report, a **Team heads** card (same as the team heads' "My team" card) shows Lakshmi's, Iswarya's and Shobika's reports for the chosen date: percentage, what they did, what they uploaded, and under each name how many of her team submitted (for example "team 2/3 submitted (Santhiya, Namrutha, Joshitha)"). After 6:30 PM he also gets the alert if a team head has not submitted.
