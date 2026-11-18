@@ -249,17 +249,6 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - The alert appears once a day, and again only if the list of missing people changes. It needs the website or app to be open (any page); with notifications turned on it also shows as a phone/computer notification when the site is in the background.
 - The admin's own 6:30 PM missing-report alert on the Dashboard is unchanged.
 
-## Daily read limit (free Firebase plan) — how the website saves reads
-- The free plan allows **50,000 reads a day** (resets about 1:30 PM India time). Every time a phone or laptop opened the website it used to read the whole month of reports and the last 600 chat messages, so the limit was crossed by noon.
-- Now:
-  - **Admin account** only: reads the whole month (Dashboard, downloads) and keeps a small summary document **stats/<month>** up to date (one line per employee per day: percentage, ★, outside, desk video).
-  - **All other phones and laptops** read only that one summary document plus **today's** reports. Full reports of an earlier day load only when needed (a team head chooses a date, an employee adds evidence to an earlier report, or opens "My uploads").
-  - **Chat** keeps only the latest 120 messages live; tap **Load earlier messages** at the top of a chat for older ones.
-  - Photos, voice messages and videos are kept on the device after the first view, and the website keeps a saved copy of data on each device, so reopening it reads much less.
-- About 5 times fewer reads per opening. Open the admin account (Dashboard) at least once a day so the summary stays complete; employees' own submissions also update it.
-- **No data is deleted automatically.** Reports, photos, links, chat messages, voice messages and desk-clean videos are all kept (the old automatic removal of desk videos after 60 days is switched off). Only the admin or the sender can delete something by hand.
-- If the limit is still crossed some day, nothing is lost: saving works again after the daily reset. Firebase console → Usage shows the Reads bar.
-
 ## Evidence (required for every report)
 - Every employee must add evidence before **Submit report** works: images or files, a folder, or one or more work links.
 - Add as many links as needed (up to 50). Several links can be pasted at once.
