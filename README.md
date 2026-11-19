@@ -152,6 +152,10 @@ After submitting, when the employee opens their report form again the same day, 
 - The folder-download tool (JSZip) loads only when a folder is downloaded, so the page opens faster.
 - **sw.js (app):** if the network is slow, the saved copy opens at once (after 3.5 s at most) and the newest version is saved in the background for next time. Upload the new **sw.js** too.
 
+## "Your zone" in percentages
+- On an employee's report page, the three zone balls now show **percentages** instead of day counts: the share of this month's working days in Green, Yellow and Red (for example 7 of 16 days = 44%), with "7 of 16 days" under each ball.
+- The highlighted **Your zone** follows the monthly average percentage, shown at the top right: "November 2026 · 90% monthly average · 12 days reported".
+
 ## Live status on the employee tiles
 - Each employee tile (after choosing a team on Submit report) now shows **today's live status** first: "Today 92% · Green zone", "Today · not submitted yet" (grey), "Today · Outside" or "Today · season report sent". It updates by itself as soon as a report is submitted.
 - Under it, the **Monthly average** (the photo ring colour) = the average percentage of the days the employee submitted this month, with the number of days: for example today 60% and yesterday 40% → "Monthly average 50% · 2 days". Days without a report are not counted in this average (the admin's day-by-day view still shows missed days in red).
