@@ -152,13 +152,15 @@ After submitting, when the employee opens their report form again the same day, 
 - The folder-download tool (JSZip) loads only when a folder is downloaded, so the page opens faster.
 - **sw.js (app):** if the network is slow, the saved copy opens at once (after 3.5 s at most) and the newest version is saved in the background for next time. Upload the new **sw.js** too.
 
-## "Your zone"
-- On an employee's report page the three zone balls show the **number of working days** in Green, Yellow and Red this month (same design as before).
-- The highlighted **Your zone** is decided by the employee's **overall percentage** — the average of the days they reported (e.g. 60% today and 40% yesterday = 50%) — shown at the top right: "November 2026 · 90% average over 12 reported days".
+## "Your zone" (monthly only)
+- The zone is calculated **month-wise only** (not today, not weekly): **monthly percentage = the average of every working day of the month so far** (Sundays and days before the employee was added are not counted; today counts once a report is submitted; a working day without a report counts as 0%).
+- Example: 5 working days — 10%, 15%, no report (0%), 44%, 99% → (10 + 15 + 0 + 44 + 99) ÷ 5 = **34% → Yellow zone**.
+- The three balls show how many days were Green, Yellow and Red (example: 1, 1, 3). The zone of the monthly percentage is marked **YOUR ZONE** and shows "Monthly percentage 34%". Top right: "November 2026 · monthly percentage 34% over 5 working days".
+- The employee tiles show the same monthly percentage ("Monthly average 34% · 5 days").
 
 ## Live status on the employee tiles
 - Each employee tile (after choosing a team on Submit report) now shows **today's live status** first: "Today 92% · Green zone", "Today · not submitted yet" (grey), "Today · Outside" or "Today · season report sent". It updates by itself as soon as a report is submitted.
-- Under it, the **Monthly average** (the photo ring colour) = the average percentage of the days the employee submitted this month, with the number of days: for example today 60% and yesterday 40% → "Monthly average 50% · 2 days". Days without a report are not counted in this average (the admin's day-by-day view still shows missed days in red).
+- Under it, the **Monthly average** (the photo ring colour) = the monthly percentage described in "Your zone" below (average of every working day of the month so far; a day without a report counts as 0%).
 - **Always up to date:** other phones and laptops read a small monthly summary (to stay within the free plan). It was refreshed only while the admin had the website open; now, if the summary is missing or older than 2 hours, any device rebuilds it once from the reports, so zones and monthly averages are correct even when the admin is offline.
 
 ## Correct date every day (even if a phone or laptop clock is wrong)
@@ -182,6 +184,7 @@ Designs (500) and mockups (70) are the **daily task**. **Manual design (if avail
 Dashboard → export row: **Daily** (image / PDF) for the chosen date, **Weekly** (image / PDF) for Monday–Sunday of the week of the chosen date, **Monthly** (image / PDF / CSV) for the chosen month. Weekly and monthly reports show each employee's zone, average %, days counted, green/yellow/red days and **stars**, followed by every daily report in that period.
 
 ## Hour-based work (From – To time)
+- **Any time of day or night (all employees):** work can be entered at any time, including work that ends after midnight — for example **9:00 PM – 2:00 AM = 5 hours** (shown as "(next day)"). A To time earlier than the From time is read as the next day. Reports can be submitted at any time. (Lakshmi's and Iswarya's working hours are still used only to set their daily targets, not to block times.)
 Hour-based work has a **Working time** box. For **From** and **To** the employee chooses the hour, the minutes (5-minute steps) and **AM** (left) or **PM** (right), for example 10 : 00 AM to 1 : 30 PM. AM/PM is filled in automatically (7–11 → AM, 12–6 → PM) and can be changed with one tap. **+ Add another time** adds a second session (for example after lunch); **×** removes one. The total hours are shown, and the target is calculated from those hours, so it is the same on day and off shift.
 
 | Work | Per hour |
@@ -247,8 +250,8 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - The task list is matched by the employee's first name, so keep these names as they are in Team.
 
 ## Personal working hours and new works (latest update)
-- **Lakshmi — 9:30 AM to 4:00 PM (6 h 30 min):** her daily targets are set for 6.5 hours instead of 8 (for example 500 designs → 407, 70 mockups → 57; per-hour works follow the hours she enters). The day's hour check uses 6.5 hours as a full day. Times she enters must be within 9:30 AM – 4:00 PM. Her report shows "Your working time: 9:30 AM – 4:00 PM".
-- **Iswarya — 9:30 AM to 5:00 PM (7 h 30 min):** daily targets are set for 7.5 hours instead of 8; per-hour works (listing, research…) follow the hours she enters; times must be within 9:30 AM – 5:00 PM.
+- **Lakshmi — 9:30 AM to 4:00 PM (6 h 30 min):** her daily targets are set for 6.5 hours instead of 8 (for example 500 designs → 407, 70 mockups → 57; per-hour works follow the hours she enters). The day's hour check uses 6.5 hours as a full day. Her report shows "Your working time: 9:30 AM – 4:00 PM".
+- **Iswarya — 9:30 AM to 5:00 PM (7 h 30 min):** daily targets are set for 7.5 hours instead of 8; per-hour works (listing, research…) follow the hours she enters.
 - **Maanasa — night work, any time of the 24 hours:** she can enter any From – To time, including past midnight (for example 10:00 PM – 2:00 AM = 4 hours, shown as "(next day)"). If she opens her report before 6:00 AM, the report date is set to the previous day automatically (she can change it).
 - **Santhiya:** "DTF print" is removed (it was the same as "DTF machine run", which stays).
 - **Santhiya — new works (each: how many came / how many completed, percentage = completed ÷ came):** US and UK tracking updates · Photoshop file (now separate) · Canva file upload (now separate) · Dummy tracking · Excel updates.
