@@ -132,6 +132,11 @@ An employee may submit more than once a day (for example 12:12 PM and 3:42 PM). 
 ## Today's total stays until midnight
 After submitting, when the employee opens their report form again the same day, the circle shows **today's total** (label "today") instead of 0%, with the note "Today so far · 1 report submitted". The lines show the day's figures so far (for example Designs 300/500); new figures typed are added to today's total. At midnight (12:00 AM) the new day starts at 0%.
 
+## Correct date every day (even if a phone or laptop clock is wrong)
+- The website now reads the **correct date and time from the server** and uses it everywhere (report date, day boxes 1–31, Today's total, 6:30 PM alerts, chat times). A laptop or phone with a wrong date (for example showing Tuesday 17 November on Thursday 19 November) no longer changes the report date. When the device clock is wrong, a message says "This device's date or time is wrong. The website now uses the correct date: …" — please also correct the device's date and time in its settings.
+- **Date of work** is always today's date by default and changes to the new date by itself after midnight, even if the website stays open.
+- **Changing the date:** the employee can change **Date of work** in the same box to any date they choose (for example to add or correct a previous day's report). The box looks the same as before; the next day it shows the new current date again by itself.
+
 ## Add evidence only (forgot a link, file or image — today or an earlier day)
 - Forgot to add a link, file or image to a report you already submitted? Open your report, add the link, file or image in **Evidence**, then tap **Add evidence only to …** (or simply **Submit report** without entering any figures).
 - **For an earlier day (for example yesterday):** first choose that day in **Date of work**. The button changes to "Add evidence only to the report of 16 Nov 2026". The evidence is added to that day's report; the figures and percentage stay as submitted.
@@ -249,6 +254,17 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - The alert appears once a day, and again only if the list of missing people changes. It needs the website or app to be open (any page); with notifications turned on it also shows as a phone/computer notification when the site is in the background.
 - The admin's own 6:30 PM missing-report alert on the Dashboard is unchanged.
 
+## Daily read limit (free Firebase plan) — how the website saves reads
+- The free plan allows **50,000 reads a day** (resets about 1:30 PM India time). Every time a phone or laptop opened the website it used to read the whole month of reports and the last 600 chat messages, so the limit was crossed by noon.
+- Now:
+  - **Admin account** only: reads the whole month (Dashboard, downloads) and keeps a small summary document **stats/<month>** up to date (one line per employee per day: percentage, ★, outside, desk video).
+  - **All other phones and laptops** read only that one summary document plus **today's** reports. Full reports of an earlier day load only when needed (a team head chooses a date, an employee adds evidence to an earlier report, or opens "My uploads").
+  - **Chat** keeps only the latest 120 messages live; tap **Load earlier messages** at the top of a chat for older ones.
+  - Photos, voice messages and videos are kept on the device after the first view, and the website keeps a saved copy of data on each device, so reopening it reads much less.
+- About 5 times fewer reads per opening. Open the admin account (Dashboard) at least once a day so the summary stays complete; employees' own submissions also update it.
+- **No data is deleted automatically.** Reports, photos, links, chat messages, voice messages and desk-clean videos are all kept (the old automatic removal of desk videos after 60 days is switched off). Only the admin or the sender can delete something by hand.
+- If the limit is still crossed some day, nothing is lost: saving works again after the daily reset. Firebase console → Usage shows the Reads bar.
+
 ## Evidence (required for every report)
 - Every employee must add evidence before **Submit report** works: images or files, a folder, or one or more work links.
 - Add as many links as needed (up to 50). Several links can be pasted at once.
@@ -334,6 +350,8 @@ Every screen now has its own page address, so the browser **Back** and **Forward
   - Tap **+ New private chat**, type a name in the search box and choose the person — or type the name in **Search chats** at the top of the list; matching people appear under **People**, tap one to start.
   - The chat shows the colleague's photo with a lock and "Private chat · only you and <name>". Only those two employees see it in the website; other employees do not. The admin's list does not show employee-to-employee chats.
   - Text, photos (attach or paste) and voice messages all work. Calls stay in the Business group only.
+- **Reply to a message:** tap the small reply arrow next to any message (phone: you can also swipe the message to the right). The message appears above the typing box with an orange line and an ✕ to cancel. Send your reply — it shows the quoted message on top; tap the quote to jump to the original message (it flashes orange). Works for text, photos and voice messages.
+- **Create a group (admin only):** in CHAT, the admin taps **Create new group** at the top of the chat list, types the name, picks a colour and chooses **Who can see this group**: **Everyone**, or **Selected members** (search names and tick them). Only the selected members (and the admin) see a members-only group and its messages and alerts. Open a group and tap **Edit** to rename it or change its members.
 - **Reactions (👍😂👆😍😊😁❤️👌🤞🙌💖🤗🫡🤔):** tap the small smiley next to any message, then tap an emoji. Laptop: double-click a message for a quick 👍.
   - Reactions show under the message with a count; tap or hover to see who reacted. Each person has one reaction per message — tap the same emoji again to remove it, or choose another to change it.
   - When someone reacts to your message you get a pop-up, for example "😍 reacted to: Submit reports everyone".
