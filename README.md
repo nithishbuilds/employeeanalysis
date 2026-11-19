@@ -132,6 +132,11 @@ An employee may submit more than once a day (for example 12:12 PM and 3:42 PM). 
 ## Today's total stays until midnight
 After submitting, when the employee opens their report form again the same day, the circle shows **today's total** (label "today") instead of 0%, with the note "Today so far · 1 report submitted". The lines show the day's figures so far (for example Designs 300/500); new figures typed are added to today's total. At midnight (12:00 AM) the new day starts at 0%.
 
+## Live status on the employee tiles
+- Each employee tile (after choosing a team on Submit report) now shows **today's live status** first: "Today 92% · Green zone", "Today · not submitted yet" (grey), "Today · Outside" or "Today · season report sent". It updates by itself as soon as a report is submitted.
+- Under it, the **Monthly average** (the photo ring colour) — every working day of the month from the day the employee was added counts, and a missed working day counts as 0%. So early in the month, or after missed days, the monthly average can be red even when today's report is green.
+- **Always up to date:** other phones and laptops read a small monthly summary (to stay within the free plan). It was refreshed only while the admin had the website open; now, if the summary is missing or older than 2 hours, any device rebuilds it once from the reports, so zones and monthly averages are correct even when the admin is offline.
+
 ## Correct date every day (even if a phone or laptop clock is wrong)
 - The website now reads the **correct date and time from the server** and uses it everywhere (report date, day boxes 1–31, Today's total, 6:30 PM alerts, chat times). A laptop or phone with a wrong date (for example showing Tuesday 17 November on Thursday 19 November) no longer changes the report date. When the device clock is wrong, a message says "This device's date or time is wrong. The website now uses the correct date: …" — please also correct the device's date and time in its settings.
 - **Date of work** is always today's date by default and changes to the new date by itself after midnight, even if the website stays open.
