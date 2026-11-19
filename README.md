@@ -135,9 +135,26 @@ After submitting, when the employee opens their report form again the same day, 
 ## One-time Workflow ticks given by the admin
 - **Lakshmi, 19 Nov 2026:** the 11:30 AM and 3:00 PM Workflow update boxes are counted as ticked (shown as "Ticked at 11:29 am" and "Ticked at 2:59 pm", marked as given by the admin). Her report of that day is updated automatically (Workflow updates 2/3 and the matching percentage and zone). This is saved the first time the website opens on any signed-in device after the update. Other days and other employees are not changed; the 6:30 PM box works as usual.
 
+## India time on every device (fix for closed Workflow boxes and wrong report dates)
+- A laptop set to another **time zone** (for example UTC or US time) used to calculate a different day and time: its Workflow update boxes showed as closed, and reports could be saved under the wrong date — even though the same page looked correct on another laptop.
+- Now every date and time in the website is **India time (Asia/Kolkata)** on every phone and laptop: today's date, the Workflow boxes (11:30 AM, 3:00 PM, 6:30 PM), report times, the 6:30 PM alerts, night work and chat times. Together with the server clock check, a wrong clock or a wrong time zone no longer changes anything. (Still, set the laptop's time zone to "(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi" in Windows Settings → Time & language → Date & time.)
+
+## Automatic update (no refresh needed)
+- After you upload a new **index.html** (or sw.js) to GitHub, Vercel publishes it in about a minute. Every open page checks for a new version **once a minute** (a tiny check — nothing is downloaded until there is an update) and also whenever the page or app is opened again.
+- When there is a new version, the page **reloads by itself** and shows "The website was updated to the newest version".
+- It never interrupts work: while an employee is signed in to a report, typing a message, choosing evidence files, recording a voice message or in a call, a small bar says "A new version of the website is ready. It installs by itself when you finish." (with an **Update now** button). The update installs as soon as they finish (for example after signing out of the report).
+- Changing only **README.md** does not change the website, so nothing reloads.
+- One-time: this works after employees have this version once. The first time, they refresh one last time (Ctrl + Shift + R, or close and reopen the app).
+
+## Speed
+- Many updates arriving together are drawn once instead of many times.
+- The moving 3D background now draws about 30 frames a second (15 on slower laptops) instead of 60, at a lighter quality, and pauses while CHAT is open or the tab is hidden. It looks the same.
+- The folder-download tool (JSZip) loads only when a folder is downloaded, so the page opens faster.
+- **sw.js (app):** if the network is slow, the saved copy opens at once (after 3.5 s at most) and the newest version is saved in the background for next time. Upload the new **sw.js** too.
+
 ## Live status on the employee tiles
 - Each employee tile (after choosing a team on Submit report) now shows **today's live status** first: "Today 92% · Green zone", "Today · not submitted yet" (grey), "Today · Outside" or "Today · season report sent". It updates by itself as soon as a report is submitted.
-- Under it, the **Monthly average** (the photo ring colour) — every working day of the month from the day the employee was added counts, and a missed working day counts as 0%. So early in the month, or after missed days, the monthly average can be red even when today's report is green.
+- Under it, the **Monthly average** (the photo ring colour) = the average percentage of the days the employee submitted this month, with the number of days: for example today 60% and yesterday 40% → "Monthly average 50% · 2 days". Days without a report are not counted in this average (the admin's day-by-day view still shows missed days in red).
 - **Always up to date:** other phones and laptops read a small monthly summary (to stay within the free plan). It was refreshed only while the admin had the website open; now, if the summary is missing or older than 2 hours, any device rebuilds it once from the reports, so zones and monthly averages are correct even when the admin is offline.
 
 ## Correct date every day (even if a phone or laptop clock is wrong)
@@ -229,6 +246,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - **Lakshmi — 9:30 AM to 4:00 PM (6 h 30 min):** her daily targets are set for 6.5 hours instead of 8 (for example 500 designs → 407, 70 mockups → 57; per-hour works follow the hours she enters). The day's hour check uses 6.5 hours as a full day. Times she enters must be within 9:30 AM – 4:00 PM. Her report shows "Your working time: 9:30 AM – 4:00 PM".
 - **Iswarya — 9:30 AM to 5:00 PM (7 h 30 min):** daily targets are set for 7.5 hours instead of 8; per-hour works (listing, research…) follow the hours she enters; times must be within 9:30 AM – 5:00 PM.
 - **Maanasa — night work, any time of the 24 hours:** she can enter any From – To time, including past midnight (for example 10:00 PM – 2:00 AM = 4 hours, shown as "(next day)"). If she opens her report before 6:00 AM, the report date is set to the previous day automatically (she can change it).
+- **Santhiya:** "DTF print" is removed (it was the same as "DTF machine run", which stays).
 - **Santhiya — new works (each: how many came / how many completed, percentage = completed ÷ came):** US and UK tracking updates · Photoshop file (now separate) · Canva file upload (now separate) · Dummy tracking · Excel updates.
 - **Saravanan:**
   - New work **Mani, UK and US number update**: tick it, then tick **Mani**, **UK** or **US**. The other two hide (untick to choose another). Then enter how many came and how many completed. The report line shows, for example, "UK number update 8/10". For two of them on one day, submit twice — the reports are merged.
@@ -358,6 +376,8 @@ Every screen now has its own page address, so the browser **Back** and **Forward
   - Tap **+ New private chat**, type a name in the search box and choose the person — or type the name in **Search chats** at the top of the list; matching people appear under **People**, tap one to start.
   - The chat shows the colleague's photo with a lock and "Private chat · only you and <name>". Only those two employees see it in the website; other employees do not. The admin's list does not show employee-to-employee chats.
   - Text, photos (attach or paste) and voice messages all work. Calls stay in the Business group only.
+- **Message ticks (everyone):** your own messages show **✓** (sent), **✓✓ grey** (seen by some) or **✓✓ blue** (seen by everyone in that chat). Tap the ticks to open **Message info**: who has seen it and who has not seen it yet. A message counts as seen when the person opens that chat.
+- **Group photo (admin only):** in Create new group or Edit, tap **Choose photo** (the photo is cropped to a circle); **Remove photo** goes back to the colour and icon. The photo shows in the chat list and the chat header.
 - **Reply to a message:** tap the small reply arrow next to any message (phone: you can also swipe the message to the right). The message appears above the typing box with an orange line and an ✕ to cancel. Send your reply — it shows the quoted message on top; tap the quote to jump to the original message (it flashes orange). Works for text, photos and voice messages.
 - **Create a group (admin only):** in CHAT, the admin taps **Create new group** at the top of the chat list, types the name, picks a colour and chooses **Who can see this group**: **Everyone**, or **Selected members** (search names and tick them). Only the selected members (and the admin) see a members-only group and its messages and alerts. Open a group and tap **Edit** to rename it or change its members.
 - **Reactions (👍😂👆😍😊😁❤️👌🤞🙌💖🤗🫡🤔):** tap the small smiley next to any message, then tap an emoji. Laptop: double-click a message for a quick 👍.
