@@ -338,6 +338,13 @@ Some employees have their own task checklist under **My daily tasks** in the rep
   - New videos are saved as MP4 where the phone supports it, so they play on iPhone, Android and laptops.
   - If a phone shows "cannot play this video format" (some older videos from Android phones on iPhone), use **Download video** and open the file.
 
+## Leave (all employees)
+- On the report form, next to Day shift / Off shift / Season time, there is a **Leave** button.
+- Tap **Leave**, choose **Full day leave** or **Half day leave**, write the **Leave reason** (required) and tap **Submit report**. No tasks, evidence, desk-clean video, Workflow ticks or Notes box — only the leave type and the reason.
+- **The leave day is not counted:** it does not lower the percentage or the zone (daily, weekly or monthly), and it is not a missing report (no 6:30 PM alert, no "Workflow box missed" message for a full day leave).
+- **Half day leave:** submit the leave (with the reason) and, for the half day worked, a normal report with **Off shift** (half target). The two are merged; only the worked half is counted.
+- Everyone sees **Leave** instead of a percentage: the employee tile ("Today · Leave"), the day boxes ("Leave (not counted)"), the team head's and manager's cards (with the reason), the admin Dashboard and the daily / weekly / monthly reports ("Leave · Fever").
+
 ## Season time
 - A third option next to Day shift / Off shift. There is no task type and no target: the employee writes the work done (required), optional hours, adds evidence, the desk video and the Workflow tick, then submits.
 - Until the admin sets a percentage, the day shows "Season time · awaiting %" and is **not** counted as red or in any average.
