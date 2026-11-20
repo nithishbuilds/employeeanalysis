@@ -254,7 +254,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
   - **Harish — Travelling (outside):** tick **Travelling (outside)** and enter the travel time. Travel time is shown as **Outside** and is **not counted** in his percentage. Travel + some work on the same day → his percentage is calculated only from the works he ticked (each work's target follows its own hours), and the report also lists the travel time. **Only travelling all day** → the report shows **Outside** (grey), no percentage, no workflow requirement, and that day is **not counted** in his monthly/weekly average (like a Sunday), so it never makes him red.
   - **Stock maintenance (Workflow) — Harish and Vihas:** a tick box with From – To time and an **Upload stock photo** button. A photo is required when ticked (it is saved in Evidence in a "Stock maintenance" folder). Not counted in the percentage.
   - **Midhun:** **Listing done by me** and **Listing split to the technical team** (400 per hour), entered separately, Metal cutting, Powder coating, UV printing, Packing.
-  - **Vihas:** DTF heat press, Metal cutting, Powder coating, UV printing, Packing, Stock maintenance. No listing.
+  - **Vihas:** DTF heat press, Metal cutting, Powder coating, UV printing, Packing, Stock maintenance, **Canva file upload** and **Photoshop file** (two separate works, only for Vihas: "How many came today" and "How many completed"; percentage = completed ÷ came, with an upload for the files). No listing.
   - **Santhiya:** **DTF print** (two boxes: only DTF print 70 m / with other works 35 m), **DTF machine run** (time + count), **Listing** (30 per hour), and these "came / completed" works — **Heat press**, **File upload**, **Canva and Photoshop file upload**, **Customer messages (if available)**, **US, UK and Canada number update (if available)**, **Billing (when needed)**, **Packing (bag)**: for each she enters the working time, **How many came today** and **How many completed**; percentage = completed ÷ came (all done = 100%, some done = part, none done = 0%). She can enter the **same time for several works** done together (for example 12–2 PM heat press and 12–2 PM file upload).
   - Example (Vihas): heat press 9:00 AM – 1:00 PM (4 h → target 25), 20 done = 80%; packing 2:00 – 4:00 PM with only Small ticked (2 h → target 80), 72 done = 90%.
   - **Rishi:** Metal cutting, Powder coating, UV printing, Packing (all production work), **360 rotary water bottle printing when orders are available** (400 per 8-hour day = 50 per hour), Listing (30 per hour), Product research (300 per hour), Customer messages (came / replied).
@@ -428,6 +428,13 @@ Every screen now has its own page address, so the browser **Back** and **Forward
 - **Voice messages:** when the message box is empty, the round button is a **microphone**. Tap it, allow the microphone the first time, speak, then tap **send** (or the bin icon to cancel). Up to 2 minutes per voice message. Others tap the play button to listen; a Download link appears if a phone cannot play a recording.
 - Deleting a voice message also removes its recording.
 - The last 200 messages are shown.
+
+### Search messages in a chat (everyone)
+- Open any group or private chat and tap the **search (magnifying glass)** button at the top right, next to Edit / Call.
+- Type a word, a name (for example "@Lakshmi") or part of a link. Every match is highlighted in yellow; the current one is orange and the chat scrolls to it.
+- "2 of 4" shows where you are. Use **▲** for an older match and **▼** for a newer one (on a laptop: Enter = older, Shift+Enter = newer).
+- If nothing is found and older messages are not loaded yet, it says "Not found · load earlier" — tap **Load earlier messages** at the top of the chat and the search runs again automatically.
+- Tap **✕** (or press Esc) to close the search. New messages that arrive while searching are included.
 
 ## One date style everywhere: DD-MM-YYYY
 - Every date in the website and in the downloads is shown like the Date of work box: **19-11-2026** (day-month-year, India time) — report lists, Your zone, team cards, chat message info, alerts, and the daily / weekly / monthly reports (for example "Weekly Employee Performance Report · 16-11-2026 – 22-11-2026", "Generated on 20-11-2026, 8:21 am"). Month names such as "November 2026" stay as month labels.
