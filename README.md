@@ -192,7 +192,9 @@ Designs (500) and mockups (70) are the **daily task**. **Manual design (if avail
 - Nandhini and Karthika have them too.
 
 ## Report downloads: daily, weekly, monthly
-Dashboard → export row: **Daily** (image / PDF) for the chosen date, **Weekly** (image / PDF) for Monday–Sunday of the week of the chosen date, **Monthly** (image / PDF / CSV) for the chosen month. Weekly and monthly reports show each employee's zone, average %, days counted, green/yellow/red days and **stars**, followed by every daily report in that period.
+Dashboard → export row: **Daily** (image / PDF) for the chosen date, **Weekly** (image / PDF) for Monday–Sunday of the week of the chosen date, **Monthly** (image / PDF / CSV) for the chosen month.
+- **Weekly report = one A4 page:** the summary boxes (employees, team average, daily reports, green / yellow / red) and the **Weekly zones** table (zone, average %, days counted, green / yellow / red days, stars) with Prepared by / Checked by / Authorised signatory at the bottom. The long daily list is not included. The image is A4 size (portrait) and the PDF is one A4 page.
+- **Monthly report:** the monthly zones table followed by every daily report in that month.
 
 ## Hour-based work (From – To time)
 - **Any time of day or night (all employees):** work can be entered at any time, including work that ends after midnight — for example **9:00 PM – 2:00 AM = 5 hours** (shown as "(next day)"). A To time earlier than the From time is read as the next day. Reports can be submitted at any time. (Lakshmi's and Iswarya's working hours are still used only to set their daily targets, not to block times.)
@@ -252,7 +254,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
   - **Stock maintenance (Workflow) — Harish and Vihas:** a tick box with From – To time and an **Upload stock photo** button. A photo is required when ticked (it is saved in Evidence in a "Stock maintenance" folder). Not counted in the percentage.
   - **Midhun:** **Listing done by me** and **Listing split to the technical team** (400 per hour), entered separately, Metal cutting, Powder coating, UV printing, Packing.
   - **Vihas:** DTF heat press, Metal cutting, Powder coating, UV printing, Packing, Stock maintenance. No listing.
-  - **Santhiya:** **DTF print** (two boxes: only DTF print 70 m / with other works 35 m), **DTF machine run** and **Packing (box)** (time + count, targets to be added later), **Listing** (30 per hour), and these "came / completed" works — **Heat press**, **File upload**, **Canva and Photoshop file upload**, **Customer messages (if available)**, **US, UK and Canada number update (if available)**, **Billing (when needed)**, **Packing (bag)**: for each she enters the working time, **How many came today** and **How many completed**; percentage = completed ÷ came (all done = 100%, some done = part, none done = 0%). She can enter the **same time for several works** done together (for example 12–2 PM heat press and 12–2 PM file upload).
+  - **Santhiya:** **DTF print** (two boxes: only DTF print 70 m / with other works 35 m), **DTF machine run** (time + count), **Listing** (30 per hour), and these "came / completed" works — **Heat press**, **File upload**, **Canva and Photoshop file upload**, **Customer messages (if available)**, **US, UK and Canada number update (if available)**, **Billing (when needed)**, **Packing (bag)**: for each she enters the working time, **How many came today** and **How many completed**; percentage = completed ÷ came (all done = 100%, some done = part, none done = 0%). She can enter the **same time for several works** done together (for example 12–2 PM heat press and 12–2 PM file upload).
   - Example (Vihas): heat press 9:00 AM – 1:00 PM (4 h → target 25), 20 done = 80%; packing 2:00 – 4:00 PM with only Small ticked (2 h → target 80), 72 done = 90%.
   - **Rishi:** Metal cutting, Powder coating, UV printing, Packing (all production work), **360 rotary water bottle printing when orders are available** (400 per 8-hour day = 50 per hour), Listing (30 per hour), Product research (300 per hour), Customer messages (came / replied).
   - **Technical team (Ayisha, Charu, Manoj, Praveen):** *Today's works* has three tick boxes — **Listing** (30 per hour, counted), **Product research** (300 per hour, counted) and **Customer messages (when available)** — working time, **How many messages came today** and **How many you replied**; percentage = replied ÷ came (20 of 25 = 80%). Each ticked work has its own From – To time. **Videos made (10)** and **Digital marketing** (Instagram, Facebook, Pinterest) are compulsory every day, so they have no "did you do it" tick; they are always on the form and counted. Namrutha keeps her own hour-based list.
@@ -264,7 +266,7 @@ Some employees have their own task checklist under **My daily tasks** in the rep
 - **Lakshmi — 9:30 AM to 4:00 PM (6 h 30 min):** her daily targets are set for 6.5 hours instead of 8 (for example 500 designs → 407, 70 mockups → 57; per-hour works follow the hours she enters). The day's hour check uses 6.5 hours as a full day. Her report shows "Your working time: 9:30 AM – 4:00 PM".
 - **Iswarya — 9:30 AM to 5:00 PM (7 h 30 min):** daily targets are set for 7.5 hours instead of 8; per-hour works (listing, research…) follow the hours she enters.
 - **Maanasa — night work, any time of the 24 hours:** she can enter any From – To time, including past midnight (for example 10:00 PM – 2:00 AM = 4 hours, shown as "(next day)"). If she opens her report before 6:00 AM, the report date is set to the previous day automatically (she can change it).
-- **Santhiya:** "DTF print" is removed (it was the same as "DTF machine run", which stays).
+- **Santhiya:** "DTF print" and "Packing (box)" are removed ("DTF machine run" and "Packing (bag)" stay).
 - **Santhiya — new works (each: how many came / how many completed, percentage = completed ÷ came):** US and UK tracking updates · Photoshop file (now separate) · Canva file upload (now separate) · Dummy tracking · Excel updates.
 - **Saravanan:**
   - New work **Mani, UK and US number update**: tick it, then tick **Mani**, **UK** or **US**. The other two hide (untick to choose another). Then enter how many came and how many completed. The report line shows, for example, "UK number update 8/10". For two of them on one day, submit twice — the reports are merged.
@@ -418,6 +420,17 @@ Every screen now has its own page address, so the browser **Back** and **Forward
 - **Voice messages:** when the message box is empty, the round button is a **microphone**. Tap it, allow the microphone the first time, speak, then tap **send** (or the bin icon to cancel). Up to 2 minutes per voice message. Others tap the play button to listen; a Download link appears if a phone cannot play a recording.
 - Deleting a voice message also removes its recording.
 - The last 200 messages are shown.
+
+## One date style everywhere: DD-MM-YYYY
+- Every date in the website and in the downloads is shown like the Date of work box: **19-11-2026** (day-month-year, India time) — report lists, Your zone, team cards, chat message info, alerts, and the daily / weekly / monthly reports (for example "Weekly Employee Performance Report · 16-11-2026 – 22-11-2026", "Generated on 20-11-2026, 8:21 am"). Month names such as "November 2026" stay as month labels.
+
+## How days, percentage and zone are calculated (daily, weekly, monthly)
+- **Working days: Monday to Saturday only.** Sunday is never counted — even if someone submits on a Sunday, it does not change the days, percentage or zone.
+- **Days counted** = working days from the start of the week / month (or the day the employee was added) **up to yesterday**, plus **today once a report is submitted**. Future days are not counted.
+- **Percentage** = average of the counted days; a working day with no report counts as **0%**. Several reports on one day are merged into one day first.
+- **Zone** from that percentage: Green 86–100%, Yellow 21–85%, Red 20% or below.
+- Example (week 16–22 Nov, report made on Friday morning): Mon 15%, Tue no report (0%), Wed 44%, Thu 99% → (15 + 0 + 44 + 99) ÷ 4 = **40% → Yellow**, days counted 4, green 1 · yellow 1 · red 2. Friday and Saturday are added when they are reported (or after the day ends).
+- Travelling all day (Outside) and Season time waiting for the admin's % are not counted.
 
 ## Performance zones
 The same rule applies to daily and monthly zones.
