@@ -129,6 +129,11 @@ An employee may submit more than once a day (for example 12:12 PM and 3:42 PM). 
 - Employees who also have daily-count tasks (videos, designs, orders came/completed) are measured on their targets as usual (no 8-hour rule).
 - The Dashboard row shows "12:12 pm + 3:42 pm · 2 reports merged · 2 h of 8 h entered" and a **Delete** button for each report. After the second submission the employee sees "Today's total (2 reports merged): …%".
 
+## Choosing an earlier date shows that day's report
+- When an employee changes **Date of work** to an earlier day (for example yesterday), the form shows that day's submitted report: the circle shows that day's percentage (label "19 Nov 2026"), the lines show that day's figures (for example Designs 400 / 500), and the note says "19 Nov 2026 (submitted) · 1 report submitted".
+- Above the Evidence upload box, **Already submitted for 19 Nov 2026** lists that day's files, folders and links with its percentage and zone. New evidence can be added to that day with **Add evidence only to the report of 19 Nov 2026**.
+- Choosing today's date again shows today's total as before.
+
 ## Today's total stays until midnight
 After submitting, when the employee opens their report form again the same day, the circle shows **today's total** (label "today") instead of 0%, with the note "Today so far · 1 report submitted". The lines show the day's figures so far (for example Designs 300/500); new figures typed are added to today's total. At midnight (12:00 AM) the new day starts at 0%.
 
