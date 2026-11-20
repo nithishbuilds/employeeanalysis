@@ -429,6 +429,12 @@ Every screen now has its own page address, so the browser **Back** and **Forward
 - Deleting a voice message also removes its recording.
 - The last 200 messages are shown.
 
+### Copy and paste a message (everyone)
+- Every text message (and every photo caption) has a **Copy** button next to the time, beside Edit / Delete.
+- Tap **Copy** — it changes to "Copied ✓" and the whole message (links and text, line breaks included) is copied.
+- Paste it anywhere: in the message box (Ctrl+V on a laptop, press and hold → Paste on a phone), WhatsApp, Google Sheets, a browser address bar, etc.
+- Voice messages have no Copy button (there is no text to copy).
+
 ### Search messages in a chat (everyone)
 - Open any group or private chat and tap the **search (magnifying glass)** button at the top right, next to Edit / Call.
 - Type a word, a name (for example "@Lakshmi") or part of a link. Every match is highlighted in yellow; the current one is orange and the chat scrolls to it.
