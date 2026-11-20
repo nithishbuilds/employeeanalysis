@@ -429,8 +429,8 @@ Every screen now has its own page address, so the browser **Back** and **Forward
 - Deleting a voice message also removes its recording.
 - The last 200 messages are shown.
 
-### Etsy shops chat (Technical team, Santhiya, Midhun, Harish and the admin)
-- In Chat, below **Groups**, there is an **Etsy shops** row ("57 shops"). It is shown **only** to the Technical team (Ayisha Hussain, Charu, Manoj, Praveen, Rishi, Iswarya and anyone else in Technical), **Santhiya**, **Midhun**, **Harish** and the admin. Other employees do not see it, and they cannot see shop messages.
+### Etsy shops chat (Technical team, Designers, Santhiya, Midhun, Harish and the admin)
+- In Chat, below **Groups**, there is an **Etsy shops** row ("57 shops"). It is shown **only** to the Technical team (Ayisha Hussain, Charu, Manoj, Praveen, Rishi, Iswarya and anyone else in Technical), the **Designers** team (Abinisha, Jem, Nithish V and anyone else in Designers), **Santhiya**, **Midhun**, **Harish** and the admin. Other employees do not see it, and they cannot see shop messages.
 - Tap **Etsy shops → Show** to see every shop name. Tap any shop to open that shop's own chat and send messages, photos, voice messages, links, @mentions and replies, like any group.
 - Typing a shop name in **Search chats** shows that shop straight away.
 - Unread shop messages show as a number on the Etsy shops row and on the shop itself.
