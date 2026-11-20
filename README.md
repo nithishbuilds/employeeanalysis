@@ -107,6 +107,12 @@ Off shift target is half of the day shift target.
 | Designers · Manual mockup (no design work, manual mockups available) | 30 manual mockups | 15 manual mockups |
 | Technical | 10 videos and digital marketing (compulsory) + ticked works: **Listing 30 per hour** | 5 videos and digital marketing + Listing 30 per hour |
 
+## Designers: Mockup created (if available)
+- New tick box for every designer (including Nandhini and Karthika): **Mockup created (if available)** — target **500 per day** (off shift 250), with working time and a Done box.
+- **Not ticked:** Designs created (500) and Mockups completed (70) are both compulsory, as before. Example: designs 200, mockups 0 → 20%.
+- **Ticked:** do **any one** of Mockup created, Designs created or Mockups completed — the ones left at 0 are not counted. Examples: Mockup created 500/500 only → 100%; designs 200/500 only → 40%; designs 200/500 + Mockup created 500/500 → 70%.
+- Manual design and manual mockup stay extra tasks.
+
 ## Design team: Cutting file (if available)
 Every designer (including Nandhini and Karthika) has **Cutting file (if available)**. On days with cutting files the designer ticks it and enters the From – To time, **How many came today** and **How many completed**; percentage = completed ÷ came (10 of 10 = 100%), added as a line to the day's percentage. When not ticked it is not counted. The design and mockup targets stay as they are.
 
