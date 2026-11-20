@@ -138,6 +138,7 @@ An employee may submit more than once a day (for example 12:12 PM and 3:42 PM). 
 ## Choosing an earlier date shows that day's report
 - When an employee changes **Date of work** to an earlier day (for example yesterday), the form shows that day's submitted report: the circle shows that day's percentage (label "19 Nov 2026"), the lines show that day's figures (for example Designs 400 / 500), and the note says "19 Nov 2026 (submitted) · 1 report submitted".
 - Above the Evidence upload box, **Already submitted for 19 Nov 2026** lists that day's files, folders and links with its percentage and zone. New evidence can be added to that day with **Add evidence only to the report of 19 Nov 2026**.
+- Until new figures are typed, the circle and the lines show **exactly** the submitted result of that day (the same percentage as the "Already submitted" box, e.g. 100% · Green). The box also lists what was done (each task done / target), the files and the links.
 - Choosing today's date again shows today's total as before.
 
 ## Today's total stays until midnight
