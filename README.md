@@ -439,6 +439,12 @@ Every screen now has its own page address, so the browser **Back** and **Forward
 - Shops: Artasttraa, Artestillo, AuraCreativeCrafts, Bettercarryco, BlueBellCreationIN (Shop 2), BlueBellsGiftz (Shop 1), BluePeakCreations, Cherishcraftmakers, Craftberrystudioin, CraftiqueStudioIn, CraftNestStudio, CustomCollectivesIn, CustomCrushCo, Dreamcraftedstorein, EverAfterCraftWorks, Everafterdecors, ForgedForeverMetal, GamansaBestFinds, GraceGroveCreationIN, Handmadehugsin, HarryCollection, HarryFavor, HarshaGiftCreations, Littleluxegiftsin, LuffyGiftStore, LumoraDesignStoreIN, MadeForMomentsIn, MaryGiftCreations, MeadowArtFlixx, MiruCraftsandGifts, P3creativestudio, Precisioncraftworkin, PRVGiftCreations, SignatureCraftsIN, SMGClickCharm, Smgsignaturegifts, SMGSleekSelect, TheArtGrAnD, SsCreativeStore, TheArtisanBloom, TheMarkerlane, VelvetFavorStore, VMGiftFoundryCo, Classybycrissy, Craftoracreationsco, Creativemetalmakers, CustomStorebyTaylor, Decorativemetalsigns, Deerametalartworks, Dreamygiftsandco, EverydaySignandco, PentacleSuperFinds, ShineoverCreations, SignmakerstoreIn, Skylinecreativemetal, Themetalfoundryco, Urbangiftmakers.
 - To add or remove a shop later, edit the `ETSY_SHOPS` list in index.html (search for "ETSY_SHOPS").
 
+### @all — mention everyone at once
+- In any chat, type **@** — the first choice in the list is **all** ("Everyone in this chat · N people"). Choose it (or type **@all**) and send.
+- Everyone who can see that chat gets the **"mentioned you"** pop-up and notification, and the orange **@** badge in their chat list — no need to type each name.
+- In a group with selected members, a shop chat or a private chat, @all reaches only the people of that chat.
+- @all is highlighted in orange in the message.
+
 ### Copy and paste a message (everyone)
 - Every text message (and every photo caption) has a **Copy** button next to the time, beside Edit / Delete.
 - Tap **Copy** — it changes to "Copied ✓" and the whole message (links and text, line breaks included) is copied.
